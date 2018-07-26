@@ -1,0 +1,115 @@
+@font-face {
+    font-family: OM;
+    src: url(../fonts/tpo.otf);
+}
+@media (max-width: 1030px){
+	.bg-menu{top: 507px !important;}
+	.logoP{margin: 50px 20px !important;}
+	.info li{padding-bottom: 35px !Important;}
+	.menu li{margin-left: 63px !important;}
+	.menu li a { font-size: 19px !Important; }
+	
+}
+@media (max-width: 780px){
+	.bg-menu{top: 365px  !important;}
+	.logoP{margin: 22px 15px !important;}
+	.info li{padding-bottom: 35px !Important; margin-left: 40px !important;}
+	.menu li{margin-left: 63px !important;}
+	.menu li a { font-size: 15px !Important; }
+	
+}
+@media (max-width: 675px){
+	.bg-menu{top: 313px  !important;}
+	.logoP{margin: 22px 15px !important;}
+	.info li{padding-bottom: 35px !Important; margin-left: 40px !important;}
+	.menu li{    margin-left: 52px !important;}
+	.menu li a { font-size: 15px !Important; }
+	
+}
+@media (max-width: 650px){
+	.bg-menu{top: 299px    !important;}
+	.logoP{margin: 22px 15px !important;}
+	.info li{padding-bottom: 35px !Important; margin-left: 40px !important; width: 85% !Important;}
+	.menu li{    margin-left: 52px !important;}
+	.menu li a { font-size: 15px !Important; }
+	.main-label{margin-top:30px !Important;}
+	.bottom-label{margin-top:30px !Important;}
+	
+}
+
+@media (max-width: 500px){
+	
+	.header-nav{ display:block !Important;}
+	#header .header-btn-collapse-nav {margin: 34px 23px 8px 18px;}
+	.nav {margin-top: 29px;}
+	.main-label{margin-top:60px !Important;}
+	.bottom-label{margin-top:60px !Important;}
+	.logoP img{width:65% !Important;}
+	.bg-menu{display:none !Important;}
+	.menu{display:none !important;}
+
+	.rox {margin-top: 54px !important; margin-bottom: 47px !Important;}
+	.list_tagihan {margin-top: 17px !Important;}
+	.i_info{    margin-left: 46px  !Important;}
+	.i_info li img{
+		width:72px !Important;
+	}
+	.content_info {
+		padding: 13px !Important;
+	}
+	
+}
+
+@media (max-width: 450px){
+	.main-label{display:none !Important;}
+	.bottom-label{display:none !Important;}
+	.logoP img{width:55% !Important;}
+	.bg-menu{display:none !Important;}
+	.menu{display:none !important;}
+
+	.rox {margin-top: 54px !important; margin-bottom: 47px !Important;}
+	.list_tagihan {margin-top: 17px !Important;}
+	.i_info{    margin-left: 19px !Important;}
+	.i_info li img{
+		width:72px !Important;
+	}
+	.content_info {
+		padding: 13px !Important;
+	}
+	
+}
+@media (max-width: 375px){
+	.main-label{display:none !Important;}
+	.bottom-label{display:none !Important;}
+	.logoP img{width:55% !Important;}
+	.bg-menu{display:none !Important;}
+	.menu{display:none !important;}
+
+	.rox {margin-top: 54px !important; margin-bottom: 47px !Important;}
+	.list_tagihan {margin-top: 17px !Important;}
+	.i_info{    margin-left: -15px !Important;}
+	.i_info li img{
+		width:72px !Important;
+	}
+	.content_info {
+		padding: 13px !Important;
+	}
+}
+
+@media (max-width: 320px){
+	.rox {margin-top: 54px !important; margin-bottom: 47px !Important;}
+	.logoP img{width:55% !Important;}
+	.list_tagihan {margin-top: 17px !Important;}
+	.i_info{    margin-left: 0 !Important;}
+	.i_info li {
+    
+    margin-left: 18px !important;
+	}
+	.info li {
+		margin-left: 29px !Important;
+		 width: 243px !Important;
+	}
+	
+   
+}
+ 
