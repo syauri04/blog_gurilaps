@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `dc_appearance`
 --
 
+USE bloggurilaps;
+
 CREATE TABLE `dc_appearance` (
   `id` int(100) NOT NULL,
   `name` varchar(250) NOT NULL,
