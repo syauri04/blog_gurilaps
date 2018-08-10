@@ -14,6 +14,9 @@
 
 <link href="<?php echo base_url() ?>assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="<?php echo base_url() ?>assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url() ?>assets/plugins/bootstrap-timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url() ?>assets/plugins/bootstrap-timepicker/libbootstrap-datepicker.css" rel="stylesheet" type="text/css"/>
+
 <link href="<?php echo base_url() ?>assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
 <!-- END PLUGIN CSS -->
 <!-- BEGIN CORE CSS FRAMEWORK -->
@@ -205,6 +208,9 @@
 <!-- END PAGE LEVEL PLUGINS -->
 <script src="<?php echo base_url() ?>assets/js/datatables.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="<?php echo base_url() ?>assets/plugins/bootstrap-timepicker/jquery.timepicker.js" type="text/javascript"></script>
+<script src="<?php echo base_url() ?>assets/plugins/bootstrap-timepicker/lib/bootstrap-datepicker.js" type="text/javascript"></script>
+
 <!-- BEGIN CORE TEMPLATE JS -->
 
 

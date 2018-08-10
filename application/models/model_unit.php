@@ -21,6 +21,5 @@ class Model_unit extends CI_Model {
         $data=$this->db->get();
         return $data;
 	}
-	
 
 }
