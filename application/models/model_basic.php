@@ -28,6 +28,4 @@ class Model_basic extends CI_Model {
                 return $data->result();
 	}
 
-        
-
 }
