@@ -145,11 +145,26 @@ class feature extends DC_controller {
 	}
 
 
-	function video($id=1){
+	function video(){
 		$this->check_access();
 		$data = $this->controller_attr;
 		$data['function']='video';
-        $data['data'] = select_where($this->tbl_video, 'id', $id)->row();
+		$data['list']=select_all($this->tbl_video);
+		$data['page'] = $this->load->view('feature/list_video',$data,true);
+		$this->load->view('layout_backend',$data);
+	}
+
+
+	function video_form($id=null){
+		$this->check_access();
+		$data = $this->controller_attr;
+		$data['function']='video';
+		if ($id) {
+            $data['data'] = select_where($this->tbl_video, 'id', $id)->row();
+        }
+        else{
+            $data['data'] = null;
+        }
 		$data['page'] = $this->load->view('feature/video_form',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
@@ -176,6 +191,42 @@ class feature extends DC_controller {
 		}
 		redirect($data['controller']."/".$data['function']);
 	}
+
+	function video_add(){
+		$data = $this->controller_attr;
+		$data['function']='video';
+		$table_field = $this->db->list_fields($this->tbl_video);
+		$insert = array();
+        foreach ($table_field as $field) {
+            $insert[$field] = $this->input->post($field);
+        }
+        $insert['date_created']= date("Y-m-d H:i:s");
+        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $query=insert_all($this->tbl_video,$insert);
+		if($query){
+			$this->session->set_flashdata('notif','success');
+			$this->session->set_flashdata('msg','Your data have been added');
+		}else{
+			$this->session->set_flashdata('notif','error');
+			$this->session->set_flashdata('msg','Your data not added');
+		}
+		redirect($data['controller']."/".$data['function']);
+	}
+
+	function video_delete($id){
+		$data = $this->controller_attr;
+		$function='video';
+		$query=delete($this->tbl_video,'id',$id);
+		if($query){
+			$this->session->set_flashdata('notif','success');
+			$this->session->set_flashdata('msg','Your data have been deleted');
+		}else{
+			$this->session->set_flashdata('notif','error');
+			$this->session->set_flashdata('msg','Your data not deleted');
+		}
+	}
+
+
 
 	function kategori(){ 
 		$this->check_access();
