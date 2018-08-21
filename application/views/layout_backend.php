@@ -27,13 +27,28 @@
 <link href="<?php echo base_url() ?>assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css"/>
 <!-- END CORE CSS FRAMEWORK -->
 
+
+<!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script><script type="text/javascript" src="code.jquery.com/jquery-migrate-1.1.0.js"></script> -->
 <!-- BEGIN CSS TEMPLATE -->
 <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url() ?>assets/css/responsive.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url() ?>assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
+<!-- <script src="<?php echo base_url() ?>assets/plugins/jquery-1.9.1.min.js" type="text/javascript"></script> -->
 <script src="<?php echo base_url() ?>assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 <!-- END CSS TEMPLATE -->
+
+
+<!-- CSS JS UPLOAD -->
+<!-- blueimp Gallery styles -->
+<link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/jquery-upload/css/jquery.fileupload.css">
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/jquery-upload/css/jquery.fileupload-ui.css">
+<!-- CSS adjustments for browsers with JavaScript disabled -->
+<noscript><link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/jquery-upload/css/jquery.fileupload-noscript.css"></noscript>
+<noscript><link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/jquery-upload/css/jquery.fileupload-ui-noscript.css"></noscript>
+
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -207,9 +222,46 @@
 <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables-responsive/js/lodash.min.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <script src="<?php echo base_url() ?>assets/js/datatables.js" type="text/javascript"></script>
+<!-- <script src="https://cdn.datatables.net/1.9.4/js/jquery.dataTables.js" type="text/javascript"></script> -->
 <script src="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>assets/plugins/bootstrap-timepicker/jquery.timepicker.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>assets/plugins/bootstrap-timepicker/lib/bootstrap-datepicker.js" type="text/javascript"></script>
+
+
+<!-- JS MULTIPLE ULPOAD -->
+
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/vendor/jquery.ui.widget.js"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<!-- blueimp Gallery script -->
+<script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/js/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/js/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/js/jquery.fileupload-image.js"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/js/jquery.fileupload-audio.js"></script>
+<!-- The File Upload video preview plugin -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/js/jquery.fileupload-video.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/js/jquery.fileupload-validate.js"></script>
+<!-- The File Upload user interface plugin -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/js/jquery.fileupload-ui.js"></script>
+<!-- The main application script -->
+<script src="<?php echo base_url() ?>assets/plugins/jquery-upload/js/main.js"></script>
+
 
 <!-- BEGIN CORE TEMPLATE JS -->
 
@@ -220,5 +272,35 @@
 <script src="<?php echo base_url() ?>assets/js/demo.js" type="text/javascript"></script>
 <!-- END CORE TEMPLATE JS -->
 <!-- END JAVASCRIPTS -->
+
+<!-- ONCANGE WILAYAH -->
+<script type="text/javascript">
+  function comboCPC(id,target,url) {
+      c = $(id);
+      <?php //echo "asas ". site_url('"+url+"');?>
+        urlCountry = "<?php echo site_url('"+url+"');?>";
+        console.log(urlCountry);
+            var id = c.val();
+            $.ajax({
+              type: "POST",
+              url: urlCountry+"/"+id,
+        dataType:"json",
+              success: function(json){
+                $(target).find('option').remove();
+                console.log(json);
+                 $.each(json.rows, function(i, value) {
+                  if (url =='ajax/getProvince') {
+                      $(target).append($('<option>').text(value.province_title).attr('value', value.province_id));
+                  } else if (url == 'ajax/getCity') {
+                      $(target).append($('<option>').text(value.fcityname).attr('value', value.fcityid));
+                  } else if (url == 'ajax/getDepartement'){
+                      $(target).append($('<option>').text(value.departement_title).attr('value', value.departement_id));
+                  }
+            });
+              }
+            }); 
+    }
+</script>
+<!-- END ONCANGE WILAYAH -->
 </body>
 </html>

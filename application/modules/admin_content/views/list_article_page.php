@@ -21,8 +21,8 @@
                   <tr>
                   <th>No</th>
                     <th>Title</th>
-                    <th>Propinsi</th>
-                    <th>Kabupaten</th>
+                    <th>Category</th>
+                    
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -35,8 +35,8 @@
                   <tr >
                     <td><?php echo $no ?></td>
                     <td><?php echo $data->title ?></td>
-                    <td></td>
-                    <td></td>                    
+                    <td><?php echo get_title($data->category, $this->tbl_category) ?></td>
+                                       
                     <td>
                     <a href="<?php echo base_url()."".$controller."/".$function."_form/"."".$data->id; ?>" ><button   data-toggle="tooltip" data-original-title="Edit" class="btn btn-warning btn-xs btn-mini tip" type="button"><i class="fa fa-pencil"></i></button></a> 
                     <button id="del<?php echo $data->id ?>"  data-toggle="tooltip" data-original-title="Delete" onclick="pasdel_id('<?php echo $data->id ?>')" class="delete btn btn-danger btn-xs btn-mini tip" type="button"><i class="fa fa-times"></i></button> </td>

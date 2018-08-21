@@ -41,6 +41,9 @@ class DC_Controller extends CI_Controller {
         $this->tbl_districts= $this->tbl_prefix .'districts';
         $this->tbl_villages= $this->tbl_prefix .'villages';
 
+        $this->tbl_content= $this->tbl_prefix .'content';
+        $this->tbl_picture= $this->tbl_prefix .'picture';
+
         $this->tbl_category= $this->tbl_prefix .'category';
         $this->tbl_category_cerlang= $this->tbl_prefix .'category_cerlang';
 
