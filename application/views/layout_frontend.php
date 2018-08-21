@@ -13,7 +13,7 @@
         <meta name="description" content="PDAM">
         <meta name="author" content="SIP">
 
-        <meta property="og:title" content="pdam, sukabumi" />
+        <meta property="og:title" content="blog, gurilaps" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" />
         <meta property="og:url" content="<?php echo base_url() ?>" />

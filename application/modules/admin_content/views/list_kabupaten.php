@@ -9,8 +9,11 @@
         <div class="span12">
           <div class="grid simple ">
             <div class="grid-title">
-              <h4><span class="semi-bold">List <?php echo $method ?></span></h4>
+              <h4><span class="semi-bold">List <?php echo $method ?>&nbsp;<?php echo $propinsi->fprovincename ?></span></h4> 
+          <!-- <h4><span class="semi-bold">List <?php echo $method ?></span></h4> -->
               <input type="hidden" name="base_url" value="<?php echo base_url() ?>" id="base_url">
+              <input type="hidden" name="fprovinceid" value="<?php if(isset($data)){ echo $data->fprovinceid; } ?>">
+              <input type="hidden" name="fcountrycode" value="<?php if(isset($data)){ echo $data->fcountrycode; } ?>">
               <input type="hidden" name="controller" id="controller" value="<?php echo $controller ?>">
               <input type="hidden" name="method" value="<?php echo $function ?>" id="method">
               <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" class="reload"></a> </div>
@@ -20,7 +23,7 @@
                 <thead>
                   <tr>
                   <th>No</th>
-                    <th>Title</th>
+                    <th>Kabupaten / Kota</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -32,10 +35,10 @@
                 ?>
                   <tr >
                     <td><?php echo $no ?></td>
-                    <td><?php echo $data->title ?></td>
+                    <td><?php echo $data->fcityname ?></td>
                     <td>
-                    <a href="<?php echo base_url()."".$controller."/".$function."_form/"."".$data->id; ?>" ><button   data-toggle="tooltip" data-original-title="Edit" class="btn btn-warning btn-xs btn-mini tip" type="button"><i class="fa fa-pencil"></i></button></a> 
-                    <button id="del<?php echo $data->id ?>"  data-toggle="tooltip" data-original-title="Delete" onclick="pasdel_id('<?php echo $data->id ?>')" class="delete btn btn-danger btn-xs btn-mini tip" type="button"><i class="fa fa-times"></i></button> </td>
+                    <a href="<?php echo base_url()."".$controller."/".$function."_form/"."".$data->fcountrycode."/".$data->fprovinceid."/".$data->fcityid; ?>" ><button  data-toggle="tooltip" data-original-title="Edit" class="btn btn-warning btn-xs btn-mini tip" type="button"><i class="fa fa-pencil"></i></button></a> 
+                    <button id="del<?php echo $data->fcityid ?>"  data-toggle="tooltip" data-original-title="Delete" onclick="pasdel_id('<?php echo $data->fcityid ?>')" class="delete btn btn-danger btn-xs btn-mini tip" type="button"><i class="fa fa-times"></i></button> </td>
                   </tr>
                   <?php } ?>
                 </tbody>

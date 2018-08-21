@@ -18,6 +18,14 @@ if( ! function_exists('dbClean')){
 	
 }
 
+function get_title($id,$table){
+		$CI =& get_instance();
+   		$CI->load->database(); 
+		$query=$CI->db->query("select * from ".$table." where id='".$id."'")->row();
+		$name=$query->title;
+		return $name;
+	}
+
 function get_client_ip_server() {
         $ipaddress = '';
         if (isset($_SERVER['HTTP_CLIENT_IP']))
@@ -108,6 +116,30 @@ function get_client_ip_server() {
 		$data = $ci->db->get();
 		return $data;
 	}
+
+	function select_multiwhere($table,$column,$where,$column2,$where2){
+		$ci=& get_instance();
+		$ci->load->database('default',TRUE);
+		$ci->db->select('*');
+		$ci->db->from($table);
+		$ci->db->where($column,$where);
+		$ci->db->where($column2,$where2);
+		$data = $ci->db->get();
+		return $data;
+	}
+
+	function select_threewhere($table,$column,$where,$column2,$where2, $column3, $where3){
+		$ci=& get_instance();
+		$ci->load->database('default',TRUE);
+		$ci->db->select('*');
+		$ci->db->from($table);
+		$ci->db->where($column,$where);
+		$ci->db->where($column2,$where2);
+		$ci->db->where($column3,$where3);
+		$data = $ci->db->get();
+		return $data;
+	}
+
 	function select_where_order($table,$column,$where,$order_by,$order_type){
 		$ci=& get_instance();
 		$ci->load->database('default',TRUE);
