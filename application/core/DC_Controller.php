@@ -37,13 +37,14 @@ class DC_Controller extends CI_Controller {
         $this->tbl_video= $this->tbl_prefix .'video'; 
         $this->tbl_gallery= $this->tbl_prefix .'gallery';
 
-        $this->tbl_provinces= $this->tbl_prefix .'province';
+        $this->tbl_provinces= $this->tbl_prefix .'provinces';
         $this->tbl_regencies= $this->tbl_prefix .'regencies';
 
         $this->tbl_content= $this->tbl_prefix .'content';
         $this->tbl_picture= $this->tbl_prefix .'picture';
 
         $this->tbl_category= $this->tbl_prefix .'category';
+        $this->tbl_category_cerlang= $this->tbl_prefix .'category_cerlang';
         $this->tbl_taxonomy= $this->tbl_prefix .'taxonomy';
         $this->tbl_category_cerlang= $this->tbl_prefix .'category_cerlang';
 

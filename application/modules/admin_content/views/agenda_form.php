@@ -205,9 +205,9 @@
 
               <div class="form-group">
                  <label class="form-label">Lokasi Acara</label> 
-                 <input type="text" id="long-lat" name="lat" value="">
+                <!--  <input type="text" id="long-lat" name="lat" value="">
                  <input type="text" id="latclicked" name="lat" value="">
-                 <input type="text" id="longclicked" name="long" value="">
+                 <input type="text" id="longclicked" name="long" value=""> -->
               <!--     <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
                   <div id="map"></div>
                   <div id="infowindow-content">

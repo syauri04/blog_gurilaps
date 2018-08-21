@@ -333,7 +333,16 @@
                               <textarea id="summernote3" required name="content_3" placeholder="Enter text ..." class="form-control" rows="10"><?php if(isset($data)){ echo $data->content_3; } ?></textarea>
                             </div>
                           </div>
-
+                          <div class="form-group">
+                            <label class="form-label">Status</label>
+                            <div class="controls">
+                              <select class="form-control" name="status">
+                                <option value="0">Draft</option>
+                                <option value="1">Publish</option>
+                               
+                              </select>
+                            </div>
+                          </div>
                           <div class="form-group">
                               <div class="controls">
                                   <button type="submit" class="btn btn-primary">Submit</button>

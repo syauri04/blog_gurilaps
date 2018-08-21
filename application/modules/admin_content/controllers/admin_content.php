@@ -21,7 +21,7 @@ class admin_content extends DC_controller {
 	function index(){
 		redirect('admin_content/article_page');
 	}
-<<<<<<< HEAD
+
 
 	function SetPictures() {  
     	$images = array();
@@ -277,8 +277,7 @@ class admin_content extends DC_controller {
 			$this->session->set_flashdata('msg','Your data not deleted');
 		}
 	}
-=======
->>>>>>> master
+
 
 	function province(){
 		$this->check_access();
@@ -487,11 +486,12 @@ class admin_content extends DC_controller {
 		redirect($data['controller']."/".$data['function']);
 	}
 
-<<<<<<< HEAD
-	function pelanggan_delete($id){
+
+	function kabupaten_delete($id){
 		$data = $this->controller_attr;
-		$function='pelanggan';
-		$query=delete($this->tbl_pelanggan,'id',$id);
+		$function='kabupaten';
+		$query=delete($this->tbl_regencies,'id',$id);
+
 		if($query){
 			$this->session->set_flashdata('notif','success');
 			$this->session->set_flashdata('msg','Your data have been deleted');
@@ -501,7 +501,7 @@ class admin_content extends DC_controller {
 		}
 	}
 
-	//=====
+	
 
 	function banner(){
 		$this->check_access();
@@ -895,12 +895,6 @@ class admin_content extends DC_controller {
 		$data = $this->controller_attr;
 		$function='event';
 		$query=delete($this->tbl_content,'id',$id);
-=======
-	function kabupaten_delete($id){
-		$data = $this->controller_attr;
-		$function='kabupaten';
-		$query=delete($this->tbl_regencies,'id',$id);
->>>>>>> master
 		if($query){
 			$this->session->set_flashdata('notif','success');
 			$this->session->set_flashdata('msg','Your data have been deleted');
@@ -909,6 +903,166 @@ class admin_content extends DC_controller {
 			$this->session->set_flashdata('msg','Your data not deleted');
 		}
 	}
+
+	function cerlang(){
+		$this->check_access();
+		$data = $this->controller_attr;
+		$data['function']='cerlang';
+		$data['list']=select_where($this->tbl_content, 'type_menu', "cerlang")->result();
+		$data['page'] = $this->load->view('admin_content/list_cerlang',$data,true);
+		$this->load->view('layout_backend',$data);
+	}
+
+
+	function cerlang_form($id=null){
+		$this->check_access();
+		$data = $this->controller_attr;
+		$data['function']='cerlang';
+		if ($id) {
+            $data['data'] = select_where($this->tbl_content, 'id', $id)->row();
+            $data['listpicture'] = select_where($this->tbl_picture, 'id_content', $id)->result();
+        }
+        else{
+            $data['data'] = null;
+            $data['picture'] = null;
+            $data['kategori']=select_all($this->tbl_category_cerlang);
+        }
+
+        // debugCode($data['listpicture']);
+		$data['page'] = $this->load->view('admin_content/cerlang_form',$data,true);
+		$this->load->view('layout_backend',$data);
+	}
+
+	
+    function cerlang_add(){
+		// echo "string";die();
+		$data = $this->controller_attr;
+		$data['function']='cerlang';
+		$table_field = $this->db->list_fields($this->tbl_content);
+		$insert = array();
+        foreach ($table_field as $field) {
+            $insert[$field] = $this->input->post($field);
+        }
+     	
+      
+        $insert['is_trash']= 0;
+        $insert['date_created']= date("Y-m-d H:i:s");
+        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $query=insert_all($this->tbl_content,$insert);
+        // debugCode($query->id);
+  		
+  		
+        $ps=1;
+        $img = array();
+        for($i=0; $i <= count($_FILES['images']['name']); $i++) {
+        	
+        	//debugCode($_FILES['images']['name'][$i]);
+        	if(empty($_FILES['images']['name'][$i])){
+	        	$img['name']=='';
+	        	
+	        }else{
+	        	 $img['name']=$_FILES['images']['name'][$i];
+	        	
+	        }
+	        // debugCode($ps);
+	        $img['posisi_gambar'] = $ps;
+	        $img['id_content'] = $query->id;
+	        
+
+       		 $save_img=insert_all($this->tbl_picture,$img);
+
+       		if($save_img){
+				// if(!empty($_FILES['images']['name'][$i])){
+				// 	if (!file_exists('assets/uploads/cerlang/'.$query->id)) {
+				// 			mkdir('assets/uploads/cerlang/'.$query->id, 0777, true);
+				// 	}
+				// 	 $config['upload_path'] = 'assets/uploads/cerlang/'.$query->id;
+				//      $config['allowed_types'] = 'jpg|jpeg|png|gif';
+				//      $config['file_name'] = $_FILES['images']['name'][$i];
+				//      $this->upload->initialize($config);
+				//      if($this->upload->do_upload('images')){
+				//             $uploadData = $this->upload->data();
+				//         }else{
+				//             echo"error upload";
+				//             die();
+				//       }
+				// }
+
+		       
+	        }
+	        $ps++;
+		}
+
+		if($query){
+
+			 
+
+
+			$this->session->set_flashdata('notif','success');
+			$this->session->set_flashdata('msg','Your data have been added');
+		}else{
+			$this->session->set_flashdata('notif','error');
+			$this->session->set_flashdata('msg','Your data not added');
+		}
+		redirect($data['controller']."/".$data['function']);
+	}
+
+	function cerlang_update(){
+		$data = $this->controller_attr;
+		$data['function']='cerlang';
+		$id=$this->input->post('id');
+		$table_field = $this->db->list_fields($this->tbl_content);
+		$static=select_where($this->tbl_content,'id',$id)->row();
+		$update = array();
+        foreach ($table_field as $field) {
+            $update[$field] = $this->input->post($field);
+        }
+
+        $update['date_modified']= date("Y-m-d H:i:s");
+        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $query=update($this->tbl_content,$update,'id',$id);
+		if($query){
+
+			//INSERT IMAGE
+			if(count($images) >0 ){
+				$p = 1;
+	            foreach ($images as $key => $value) {
+	            	$this->data1 = array(
+	            		'id_content' => $id,
+	            		'name' => $value['name'],
+	            		'posisi_gambar' => $value['posisi_gambar'],
+	            		'counter' => $p,
+	            	);
+	            	$this->db->insert($this->tbl_picture,$this->data1);
+	            	$p++;
+	            }
+	        }    
+			
+			$this->session->set_flashdata('notif','success');
+			$this->session->set_flashdata('msg','Your data have been updated');
+		}else{
+			$this->session->set_flashdata('notif','error');
+			$this->session->set_flashdata('msg','Your data not updated');
+		}
+		redirect($data['controller']."/".$data['function']);
+	}
+
+	
+
+	function cerlang_delete($id){
+		$data = $this->controller_attr;
+		$function='event';
+		$query=delete($this->tbl_content,'id',$id);
+		if($query){
+			$this->session->set_flashdata('notif','success');
+			$this->session->set_flashdata('msg','Your data have been deleted');
+		}else{
+			$this->session->set_flashdata('notif','error');
+			$this->session->set_flashdata('msg','Your data not deleted');
+		}
+	}
+
+
 
 	function do_upload($folder){
 		// debugCode($folder);

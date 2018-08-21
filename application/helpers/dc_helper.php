@@ -151,29 +151,6 @@ function get_client_ip_server() {
 		return $data;
 	}
 
-	function select_multiwhere($table,$column,$where,$column2,$where2){
-		$ci=& get_instance();
-		$ci->load->database('default',TRUE);
-		$ci->db->select('*');
-		$ci->db->from($table);
-		$ci->db->where($column,$where);
-		$ci->db->where($column2,$where2);
-		$data = $ci->db->get();
-		return $data;
-	}
-
-	function select_threewhere($table,$column,$where,$column2,$where2, $column3, $where3){
-		$ci=& get_instance();
-		$ci->load->database('default',TRUE);
-		$ci->db->select('*');
-		$ci->db->from($table);
-		$ci->db->where($column,$where);
-		$ci->db->where($column2,$where2);
-		$ci->db->where($column3,$where3);
-		$data = $ci->db->get();
-		return $data;
-	}
-
 	function select_where_order($table,$column,$where,$order_by,$order_type){
 		$ci=& get_instance();
 		$ci->load->database('default',TRUE);
