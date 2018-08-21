@@ -18,9 +18,10 @@ class admin_content extends DC_controller {
 		
 	}
 	
-	 function index(){
+	function index(){
 		redirect('admin_content/article_page');
 	}
+<<<<<<< HEAD
 
 	function SetPictures() {  
     	$images = array();
@@ -276,119 +277,79 @@ class admin_content extends DC_controller {
 			$this->session->set_flashdata('msg','Your data not deleted');
 		}
 	}
+=======
+>>>>>>> master
 
-	function event(){
+	function province(){
 		$this->check_access();
 		$data = $this->controller_attr;
-		$data['function']='event';
-		$data['list']=select_all($this->tbl_event);
-		$data['page'] = $this->load->view('admin_content/list_event',$data,true);
+		$data['function']='province';
+		$data['list']=select_all($this->tbl_provinces);
+		$data['page'] = $this->load->view('admin_content/list_province',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
 
-	function event_form($id=null){
+	function province_form($country=null, $id=null){
 		$this->check_access();
 		$data = $this->controller_attr;
-		$data['function']='event';
+		$data['function']='province';
 		if ($id) {
-            $data['data'] = select_where($this->tbl_event, 'id', $id)->row();
+            $data['data'] = select_multiwhere($this->tbl_provinces, 'fprovinceid', $id, 'fcountrycode', $country)->row();
         }
         else{
             $data['data'] = null;
         }
-		$data['page'] = $this->load->view('admin_content/event_form',$data,true);
+		$data['page'] = $this->load->view('admin_content/province_form',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
 
-	function event_update(){
+	function province_update(){
 		$data = $this->controller_attr;
-		$data['function']='news';
-		$id=$this->input->post('id');
-		$table_field = $this->db->list_fields($this->tbl_event);
-		$static=select_where($this->tbl_event,'id',$id)->row();
+		$data['function']='province';
+		$id=$this->input->post('fprovinceid');
+		$country=$this->input->post('fcountrycode');	
+		$table_field = $this->db->list_fields($this->tbl_provinces);
+		$static=select_multiwhere($this->tbl_provinces,'fprovinceid',$id, 'fcountrycode', $country)->row();
 		$update = array();
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
         }
-        if(empty($_FILES['images']['name'])){
-        	$update['images']=$event->images;
-        }else{
-        	 $update['images']=$_FILES['images']['name'];
-        }
         $update['date_modified']= date("Y-m-d H:i:s");
         $update['id_modifier']=$this->session->userdata['admin']['id'];
-        $query=update($this->tbl_event,$update,'id',$id);
+        $query=update($this->tbl_provinces,$update,'fprovinceid',$id);
 		if($query){
-			if(!empty($_FILES['images']['name'])){
-			unlink('assets/uploads/event/'.$id.'/'.$event->images);
-			if (!file_exists('assets/uploads/event/'.$id)) {
-    				mkdir('assets/uploads/event/'.$id, 0777, true);
-			 }
-        	 $config['upload_path'] = 'assets/uploads/event/'.$id;
-             $config['allowed_types'] = 'jpg|jpeg|png|gif';
-             $config['file_name'] = $_FILES['images']['name'];
-             $this->upload->initialize($config);
-             if($this->upload->do_upload('images')){
-                    $uploadData = $this->upload->data();
-                }else{
-                    echo"error upload";
-                    die();
-              }
-          }
 			$this->session->set_flashdata('notif','success');
-			$this->session->set_flashdata('msg','Your data have been updated');
-		}else{
+			$this->session->set_flashdata('msg','Your data have been updated');} 
+		else{
 			$this->session->set_flashdata('notif','error');
-			$this->session->set_flashdata('msg','Your data not updated');
-		}
+			$this->session->set_flashdata('msg','Your data not updated');}
 		redirect($data['controller']."/".$data['function']);
 	}
 
-	function event_add(){
+	function province_add(){
 		$data = $this->controller_attr;
-		$data['function']='event';
-		$table_field = $this->db->list_fields($this->tbl_event);
+		$data['function']='province';
+		$table_field = $this->db->list_fields($this->tbl_provinces);
 		$insert = array();
         foreach ($table_field as $field) {
             $insert[$field] = $this->input->post($field);
         }
-        if(empty($_FILES['images']['name'])){
-        	$insert['images']=='';
-        }else{
-        	 $insert['images']=$_FILES['images']['name'];
-        }
         $insert['date_created']= date("Y-m-d H:i:s");
         $insert['id_creator']=$this->session->userdata['admin']['id'];
-        $query=insert_all($this->tbl_event,$insert);
+        $query=insert_all($this->tbl_provinces,$insert);
 		if($query){
-			if(!empty($_FILES['images']['name'])){
-			if (!file_exists('assets/uploads/event/'.$this->db->insert_id())) {
-    				mkdir('assets/uploads/event/'.$this->db->insert_id(), 0777, true);
-			 }
-        	 $config['upload_path'] = 'assets/uploads/event/'.$this->db->insert_id();
-             $config['allowed_types'] = 'jpg|jpeg|png|gif';
-             $config['file_name'] = $_FILES['images']['name'];
-             $this->upload->initialize($config);
-             if($this->upload->do_upload('images')){
-                    $uploadData = $this->upload->data();
-                }else{
-                    echo"error upload";
-                    die();
-              }
-          }
 			$this->session->set_flashdata('notif','success');
-			$this->session->set_flashdata('msg','Your data have been added');
-		}else{
+			$this->session->set_flashdata('msg','Your data have been added');}
+		else{
 			$this->session->set_flashdata('notif','error');
-			$this->session->set_flashdata('msg','Your data not added');
-		}
+			$this->session->set_flashdata('msg','Your data not added');}
 		redirect($data['controller']."/".$data['function']);
 	}
 
-	function event_delete($id){
+	function province_delete($id){
 		$data = $this->controller_attr;
-		$function='event';
-		$query=delete($this->tbl_event,'id',$id);
+		$function='province';
+		$query=delete($this->tbl_provinces,'id',$id);
 		if($query){
 			$this->session->set_flashdata('notif','success');
 			$this->session->set_flashdata('msg','Your data have been deleted');
@@ -398,77 +359,97 @@ class admin_content extends DC_controller {
 		}
 	}
 
-	function news(){
+	function kabupaten($id=null){
 		$this->check_access();
 		$data = $this->controller_attr;
-		$data['function']='news';
-		$data['list']=select_all($this->tbl_news);
-		$data['page'] = $this->load->view('admin_content/list_news',$data,true);
+		$data['function']='kabupaten';
+		$data['propinsi']= select_where($this->tbl_provinces, 'fprovinceid',$id)->row();
+		$data['list']=select_where($this->tbl_regencies, 'fprovinceid',$id)->result();
+		$data['page'] = $this->load->view('admin_content/list_kabupaten',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
 
-	function news_form($id=null){
+	function kabupaten_form($country=null, $province=null, $id=null){
 		$this->check_access();
 		$data = $this->controller_attr;
-		$data['function']='news';
+		$data['function']='kabupaten';
 		if ($id) {
-            $data['data'] = select_where($this->tbl_news, 'id', $id)->row();
+            $data['data'] = select_threewhere($this->tbl_regencies,'fcountrycode', $country,'fprovinceid', $province,'fcityid', $id)->row();
         }
         else{
             $data['data'] = null;
-        }
-		$data['page'] = $this->load->view('admin_content/news_form',$data,true);
+        } 
+		$data['page'] = $this->load->view('admin_content/kabupaten_form',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
 
-	function news_update(){
+	function kabupaten_update(){
 		$data = $this->controller_attr;
-		$data['function']='news';
-		$id=$this->input->post('id');
-		$table_field = $this->db->list_fields($this->tbl_news);
-		$static=select_where($this->tbl_news,'id',$id)->row();
+		$data['function']='kabupaten';
+		$id=$this->input->post('fcityid');
+		$countrycode=$this->input->post('fcountrycode');
+		$citystatus=$this->input->post('fcitystatus');
+		$provinceid=$this->input->post('fprovinceid');
+		$table_field=$this->db->list_fields($this->tbl_regencies);
+		$kabupaten=select_threewhere($this->tbl_regencies,'fcityid', $id, 'fprovinceid', $provinceid, 'fcountrycode', $countrycode)->row();
 		$update = array();
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
         }
-        if(empty($_FILES['images']['name'])){
-        	$update['images']=$news->images;
+        if(empty($_FILES['image']['name'])){
+        	$update['image']=$kabupaten->image;
         }else{
-        	 $update['images']=$_FILES['images']['name'];
+        	 $update['image']=$_FILES['image']['name'];
+        }
+        if(empty($_FILES['image_detail']['name'])){
+        	$update['image_detail']=$kabupaten->image_detail;
+        }else{
+        	 $update['image_detail']=$_FILES['image_detail']['name'];
         }
         $update['date_modified']= date("Y-m-d H:i:s");
         $update['id_modifier']=$this->session->userdata['admin']['id'];
-        $query=update($this->tbl_news,$update,'id',$id);
-		if($query){
-			if(!empty($_FILES['images']['name'])){
-			unlink('assets/uploads/news/'.$id.'/'.$news->images);
-			if (!file_exists('assets/uploads/news/'.$id)) {
-    				mkdir('assets/uploads/news/'.$id, 0777, true);
-			 }
-        	 $config['upload_path'] = 'assets/uploads/news/'.$id;
-             $config['allowed_types'] = 'jpg|jpeg|png|gif';
-             $config['file_name'] = $_FILES['images']['name'];
-             $this->upload->initialize($config);
-             if($this->upload->do_upload('images')){
-                    $uploadData = $this->upload->data();
-                }else{
-                    echo"error upload";
-                    die();
-              }
-          }
-			$this->session->set_flashdata('notif','success');
-			$this->session->set_flashdata('msg','Your data have been updated');
-		}else{
+        $query=update($this->tbl_regencies,$update,'fcityid',$id);
+		if($query)
+		{
+			if(!empty($_FILES['image']['name']) && !empty($_FILES['image_detail']['name']))
+				{	unlink('assets/uploads/kabupaten/'.$id.'/'.$kabupaten->image);
+					unlink('assets/uploads/kabupaten/'.$id.'/'.$kabupaten->image_detail);
+					if (!file_exists('assets/uploads/kabupaten/'.$id)) 
+						{	mkdir('assets/uploads/kabupaten/'.$id, 0777, true);}
+        	 		$config['upload_path'] = 'assets/uploads/kabupaten/'.$id;
+             		$config['allowed_types'] = 'jpg|jpeg|png|gif';
+             		$config['file_name'] = $_FILES['image']['name'];
+		            $this->upload->initialize($config);
+        		    if($this->upload->do_upload('image'))
+             			{	$config['upload_path'] = 'assets/uploads/kabupaten/'.$id;
+             				$config['allowed_types'] = 'jpg|jpeg|png|gif';
+             				$config['file_name'] = $_FILES['image_detail']['name'];
+		            		$this->upload->initialize($config);
+		        		    if($this->upload->do_upload('image_detail'))
+		        		    	{	$uploadData = $this->upload->data();}
+		                	else
+        		        		{	echo"error upload";
+                	    			die(); }
+		        		 }
+                	else
+                		{	echo"error upload";
+                    			die(); }
+          		}
+				$this->session->set_flashdata('notif','success');
+				$this->session->set_flashdata('msg','Your data have been updated');
+		}
+		else
+		{
 			$this->session->set_flashdata('notif','error');
 			$this->session->set_flashdata('msg','Your data not updated');
 		}
-		redirect($data['controller']."/".$data['function']);
+		redirect($data['controller']."/".$data['function']."/".$provinceid);
 	}
 
-	function news_add(){
+	function kabupaten_add(){
 		$data = $this->controller_attr;
-		$data['function']='news';
-		$table_field = $this->db->list_fields($this->tbl_news);
+		$data['function']='kabupaten';
+		$table_field = $this->db->list_fields($this->tbl_regencies);
 		$insert = array();
         foreach ($table_field as $field) {
             $insert[$field] = $this->input->post($field);
@@ -479,14 +460,14 @@ class admin_content extends DC_controller {
         	 $insert['images']=$_FILES['images']['name'];
         }
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
-        $query=insert_all($this->tbl_news,$insert);
+        $insert['id_creator']=$this->session->userdata['admin']['id'];        
+        $query=insert_all($this->tbl_regencies,$insert);
 		if($query){
 			if(!empty($_FILES['images']['name'])){
-			if (!file_exists('assets/uploads/news/'.$this->db->insert_id())) {
-    				mkdir('assets/uploads/news/'.$this->db->insert_id(), 0777, true);
+			if (!file_exists('assets/uploads/kabupaten/'.$this->db->insert_id())) {
+    				mkdir('assets/uploads/kabupaten/'.$this->db->insert_id(), 0777, true);
 			 }
-        	 $config['upload_path'] = 'assets/uploads/news/'.$this->db->insert_id();
+        	 $config['upload_path'] = 'assets/uploads/kabupaten/'.$this->db->insert_id();
              $config['allowed_types'] = 'jpg|jpeg|png|gif';
              $config['file_name'] = $_FILES['images']['name'];
              $this->upload->initialize($config);
@@ -506,129 +487,7 @@ class admin_content extends DC_controller {
 		redirect($data['controller']."/".$data['function']);
 	}
 
-	function news_delete($id){
-		$data = $this->controller_attr;
-		$function='news';
-		$query=delete($this->tbl_news,'id',$id);
-		if($query){
-			$this->session->set_flashdata('notif','success');
-			$this->session->set_flashdata('msg','Your data have been deleted');
-		}else{
-			$this->session->set_flashdata('notif','error');
-			$this->session->set_flashdata('msg','Your data not deleted');
-		}
-	}
-
-	//===== PELANGGAN
-
-	function pelanggan(){
-		$this->check_access();
-		$data = $this->controller_attr;
-		$data['function']='pelanggan';
-		$data['list']=select_all($this->tbl_pelanggan);
-		$data['page'] = $this->load->view('admin_content/list_pelanggan',$data,true);
-		$this->load->view('layout_backend',$data);
-	}
-
-	function pelanggan_form($id=null){
-		$this->check_access();
-		$data = $this->controller_attr;
-		$data['function']='pelanggan';
-		if ($id) {
-            $data['data'] = select_where($this->tbl_pelanggan, 'id', $id)->row();
-        }
-        else{
-            $data['data'] = null;
-        }
-		$data['page'] = $this->load->view('admin_content/pelanggan_form',$data,true);
-		$this->load->view('layout_backend',$data);
-	}
-
-	function pelanggan_update(){
-		$data = $this->controller_attr;
-		$data['function']='pelanggan';
-		$id=$this->input->post('id');
-		$table_field = $this->db->list_fields($this->tbl_pelanggan);
-		$static=select_where($this->tbl_pelanggan,'id',$id)->row();
-		$update = array();
-        foreach ($table_field as $field) {
-            $update[$field] = $this->input->post($field);
-        }
-        if(empty($_FILES['images']['name'])){
-        	$update['images']=$news->images;
-        }else{
-        	 $update['images']=$_FILES['images']['name'];
-        }
-        $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
-        $query=update($this->tbl_pelanggan,$update,'id',$id);
-		if($query){
-			if(!empty($_FILES['images']['name'])){
-			unlink('assets/uploads/pelanggan/'.$id.'/'.$news->images);
-			if (!file_exists('assets/uploads/pelanggan/'.$id)) {
-    				mkdir('assets/uploads/pelanggan/'.$id, 0777, true);
-			 }
-        	 $config['upload_path'] = 'assets/uploads/pelanggan/'.$id;
-             $config['allowed_types'] = 'jpg|jpeg|png|gif';
-             $config['file_name'] = $_FILES['images']['name'];
-             $this->upload->initialize($config);
-             if($this->upload->do_upload('images')){
-                    $uploadData = $this->upload->data();
-                }else{
-                    echo"error upload";
-                    die();
-              }
-          }
-			$this->session->set_flashdata('notif','success');
-			$this->session->set_flashdata('msg','Your data have been updated');
-		}else{
-			$this->session->set_flashdata('notif','error');
-			$this->session->set_flashdata('msg','Your data not updated');
-		}
-		redirect($data['controller']."/".$data['function']);
-	}
-
-	function pelanggan_add(){
-		$data = $this->controller_attr;
-		$data['function']='pelanggan';
-		$table_field = $this->db->list_fields($this->tbl_pelanggan);
-		$insert = array();
-        foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
-        }
-        if(empty($_FILES['images']['name'])){
-        	$insert['images']=='';
-        }else{
-        	 $insert['images']=$_FILES['images']['name'];
-        }
-        $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
-        $query=insert_all($this->tbl_pelanggan,$insert);
-		if($query){
-			if(!empty($_FILES['images']['name'])){
-			if (!file_exists('assets/uploads/pelanggan/'.$this->db->insert_id())) {
-    				mkdir('assets/uploads/pelanggan/'.$this->db->insert_id(), 0777, true);
-			 }
-        	 $config['upload_path'] = 'assets/uploads/pelanggan/'.$this->db->insert_id();
-             $config['allowed_types'] = 'jpg|jpeg|png|gif';
-             $config['file_name'] = $_FILES['images']['name'];
-             $this->upload->initialize($config);
-             if($this->upload->do_upload('images')){
-                    $uploadData = $this->upload->data();
-                }else{
-                    echo"error upload";
-                    die();
-              }
-          }
-			$this->session->set_flashdata('notif','success');
-			$this->session->set_flashdata('msg','Your data have been added');
-		}else{
-			$this->session->set_flashdata('notif','error');
-			$this->session->set_flashdata('msg','Your data not added');
-		}
-		redirect($data['controller']."/".$data['function']);
-	}
-
+<<<<<<< HEAD
 	function pelanggan_delete($id){
 		$data = $this->controller_attr;
 		$function='pelanggan';
@@ -1036,6 +895,12 @@ class admin_content extends DC_controller {
 		$data = $this->controller_attr;
 		$function='event';
 		$query=delete($this->tbl_content,'id',$id);
+=======
+	function kabupaten_delete($id){
+		$data = $this->controller_attr;
+		$function='kabupaten';
+		$query=delete($this->tbl_regencies,'id',$id);
+>>>>>>> master
 		if($query){
 			$this->session->set_flashdata('notif','success');
 			$this->session->set_flashdata('msg','Your data have been deleted');

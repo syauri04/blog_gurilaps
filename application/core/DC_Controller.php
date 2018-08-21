@@ -26,6 +26,7 @@ class DC_Controller extends CI_Controller {
         $this->tbl_banner= $this->tbl_prefix .'banner';
         $this->tbl_directory_content= $this->tbl_prefix .'directory_content';
         $this->tbl_article_content= $this->tbl_prefix .'article_content';
+        $this->tbl_content= $this->tbl_prefix .'content';
 
 
         $this->tbl_brand= $this->tbl_prefix .'brand';
@@ -33,19 +34,20 @@ class DC_Controller extends CI_Controller {
         $this->tbl_event= $this->tbl_prefix .'event';
         $this->tbl_agenda= $this->tbl_prefix .'agenda';
 
-        $this->tbl_video= $this->tbl_prefix .'video';
+        $this->tbl_video= $this->tbl_prefix .'video'; 
         $this->tbl_gallery= $this->tbl_prefix .'gallery';
 
-        $this->tbl_provinces= $this->tbl_prefix .'provinces';
+        $this->tbl_provinces= $this->tbl_prefix .'province';
         $this->tbl_regencies= $this->tbl_prefix .'regencies';
-        $this->tbl_districts= $this->tbl_prefix .'districts';
-        $this->tbl_villages= $this->tbl_prefix .'villages';
 
         $this->tbl_content= $this->tbl_prefix .'content';
         $this->tbl_picture= $this->tbl_prefix .'picture';
 
         $this->tbl_category= $this->tbl_prefix .'category';
+        $this->tbl_taxonomy= $this->tbl_prefix .'taxonomy';
         $this->tbl_category_cerlang= $this->tbl_prefix .'category_cerlang';
+
+
 
         //load model fo all page
         $this->load->model('model_basic');

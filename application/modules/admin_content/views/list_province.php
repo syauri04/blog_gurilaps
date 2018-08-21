@@ -1,6 +1,6 @@
      
-    <?php if($this->session->flashdata('notif')){ ?> 
-    <div class="alert alert-<?php echo $this->session->flashdata('notif') ?>">
+<?php if($this->session->flashdata('notif')){ ?> 
+   <div class="alert alert-<?php echo $this->session->flashdata('notif') ?>">
 <button class="close" data-dismiss="alert"></button>
 <?php echo $this->session->flashdata('notif') ?>:&nbsp;<?php echo $this->session->flashdata('msg') ?></div>
 <?php } ?>
@@ -20,7 +20,7 @@
                 <thead>
                   <tr>
                   <th>No</th>
-                    <th>Title</th>
+                    <th>Nama Propinsi</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -32,10 +32,23 @@
                 ?>
                   <tr >
                     <td><?php echo $no ?></td>
-                    <td><?php echo $data->title ?></td>
+                    <td><?php echo $data->fprovincename ?></td>
                     <td>
-                    <a href="<?php echo base_url()."".$controller."/".$function."_form/"."".$data->id; ?>" ><button   data-toggle="tooltip" data-original-title="Edit" class="btn btn-warning btn-xs btn-mini tip" type="button"><i class="fa fa-pencil"></i></button></a> 
-                    <button id="del<?php echo $data->id ?>"  data-toggle="tooltip" data-original-title="Delete" onclick="pasdel_id('<?php echo $data->id ?>')" class="delete btn btn-danger btn-xs btn-mini tip" type="button"><i class="fa fa-times"></i></button> </td>
+                      <a href="<?php echo base_url()."".$controller."/".$function."_form/"."".$data->fcountrycode."/".$data->fprovinceid; ?>" >
+                        <button data-toggle="tooltip" data-original-title="Edit" class="btn btn-warning btn-xs btn-mini tip" type="button">
+                          <i class="fa fa-pencil"></i>
+                        </button>
+                      </a> 
+
+<!--                       <button id="del<?php echo $data->fprovinceid ?>"  data-toggle="tooltip" data-original-title="Delete" onclick="pasdel_id('<?php echo $data->fprovinceid ?>')" class="delete btn btn-danger btn-xs btn-mini tip" type="button">
+                        <i class="fa fa-times"></i>
+                      </button>  ---> 
+                      <a href="<?php echo base_url()."".$controller."/kabupaten/"."".$data->fprovinceid; ?>" >
+                        <button data-toggle="tooltip" data-original-title="Kabupaten / Kota" class="btn btn btn-danger btn-xs btn-mini tip" type="button">
+                        <i class="icon-custom-home"></i>
+                        </button> 
+                      </a>
+                  </td>
                   </tr>
                   <?php } ?>
                 </tbody>

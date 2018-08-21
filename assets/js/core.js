@@ -696,7 +696,11 @@ function unblockUI(el) {
 }( document, window, 0 ));
 
   var loadFile = function(event) {
+<<<<<<< HEAD
     // alert("sdff");
+=======
+
+>>>>>>> master
     var reader = new FileReader();
     reader.onload = function(){
       var output = document.getElementById('output');
@@ -705,7 +709,11 @@ function unblockUI(el) {
     reader.readAsDataURL(event.target.files[0]);
   };
 
+<<<<<<< HEAD
    var loadFile2 = function(event) {
+=======
+  var loadFile2 = function(event) {
+>>>>>>> master
         var reader = new FileReader();
         reader.onload = function(){
           var output = document.getElementById('output2');
@@ -714,6 +722,18 @@ function unblockUI(el) {
         reader.readAsDataURL(event.target.files[0]);
     };
 
+<<<<<<< HEAD
+=======
+  var loadFile3 = function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+          var output = document.getElementById('output3');
+          output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+
+>>>>>>> master
       $(document).ready(function() {
         if (document.getElementById('summernote')) {
         $('#summernote').summernote();
