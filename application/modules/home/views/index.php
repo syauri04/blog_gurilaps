@@ -1,135 +1,325 @@
-<div class="main">
-                <div class="slider-container rev_slider_wrapper" style="height: 650px;">
-                    <div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider data-plugin-options="{'delay': 9000, 'gridwidth': 1170, 'gridheight': 650, 'disableProgressBar': 'on', 'navigation': {'bullets': {'enable': true, 'direction': 'vertical', 'h_align': 'right', 'v_align': 'center', 'space': 5}, 'arrows': {'enable': false}}}">
-                        <ul>
-                            <?php foreach ($banner as $key) { ?>
-                                <li data-transition="fade">
-                                    <img src="<?php echo base_url() ?>assets/uploads/banner/<?php echo $key->id ?>/<?php echo $key->images ?>"
-                                        alt=""
-                                        data-bgposition="center center"
-                                        data-bgfit="cover"
-                                        data-bgrepeat="no-repeat"
-                                        class="rev-slidebg">
-
-                                    <div class="tp-caption main-label"
-                                        data-x="left" data-hoffset="25"
-                                        data-y="center" data-voffset="-5"
-                                        data-start="1500"
-                                        data-whitespace="nowrap"
-                                        data-transform_in="y:[100%];s:500;"
-                                        data-transform_out="opacity:0;s:500;"
-                                        style="z-index: 5; font-size: 1.5em; text-transform: uppercase;"
-                                        data-mask_in="x:0px;y:0px;"><?php if(isset($key->summary)){ echo $key->summary; }else{ echo "";} ?></div>
-
-                                    <div class="tp-caption main-label"
-                                        data-x="left" data-hoffset="25"
-                                        data-y="center" data-voffset="-55"
-                                        data-start="500"
-                                        style="z-index: 5; text-transform: uppercase; font-size: 52px;"
-                                        data-transform_in="y:[-300%];opacity:0;s:500;"><?php if(isset($key->title)){ echo $key->title; }else{ echo "";} ?> </div>
-
-                                    <div class="tp-caption bottom-label"
-                                        data-x="left" data-hoffset="25"
-                                        data-y="center" data-voffset="40"
-                                        data-start="2000"
-                                        style="z-index: 5; border-bottom: 1px solid #fff; padding-bottom: 3px;"
-                                        data-transform_in="y:[100%];opacity:0;s:500;" style="font-size: 1.2em;"></div>
-                                </li>
-                            <?php } ?>
-                            
-                            
-                        </ul>
+<div class="fluid_container">
+                    <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+                        <div  data-src="<?php echo base_url(); ?>assets/theme/img/hero.jpg">
+                          <div class="camera_caption">JELAJAH PANTAI DI PESISIR JAWA BARAT</div>
+                        </div>
+                        <div data-src="<?php echo base_url(); ?>assets/theme/img/hero.jpg">
+                            <div class="camera_caption">The text of your caption</div>
+                        </div>
+                     
                     </div>
                 </div>
-             
-    
-                    <div class="container ">
-                        <div class="rox" >
-                            <div class="feature-box feature-box-style-2 mb-xl appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="300">
-                                <ul class="i_info">
-                                <li>
-                                    <img src="<?php echo base_url();?>assets/theme/img/i_cabang.png" />
-                                </li>
-                                <li>
-                                    <img src="<?php echo base_url();?>assets/theme/img/i_air.png" />
-                                </li>
-                                <li>
-                                    <img src="<?php echo base_url();?>assets/theme/img/i_pelanggan.png" />
-                                </li>
-                            </ul>
+                <div class="clear-float"></div>
+
+                <section class="sec-blog">
+                    <div class="home-dir-wisata">
+                        <div class="hdw-summary">
+                            <h2>DIREKTORI WISATA</h2>
+                            <p>
+                                These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
+                            </p>
+                            <div class="button">
+                                    <a href="<?php echo base_url()."direct"; ?>" class="button-gurilaps">LIHAT SEMUA</a>
                             </div>
-                            
                         </div>
+                    </div>
+                    <div class="home-galeri-wisata">
+                        <div class="image-gw">
+                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/sukabumi.jpg"></a>
+                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><div class="image-gw-title"> Kabupaten Sukabumi</div></a>
+                        </div>
+                        <div class="image-gw">
+                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/bogor.jpg">
+                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><div class="image-gw-title"> Kabupaten Bogor</div></a>
+                        </div>
+                        <div class="image-gw">
+                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/bandung.jpg">
+                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><div class="image-gw-title"> Kabupaten Bandung</div></a>
+                        </div>
+                        <div class="image-gw">
+                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/cianjur.jpg">
+                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><div class="image-gw-title"> Kabupaten Cianjur</div></a>
+                        </div>
+                    
                         
                     </div>
-                
-                
-                <div class="container ">
-                    <div class="rox" >
-                        <div class="head">
-                            <h1>INFO TERKINI </h1>
-                        </div>
-                        <div class="bg-info">
-                            <div class="content_info appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="300">
-                                <ul class="info">
-                                    <?php
-                                        foreach ($news as $key => $vn) {
-                                    ?>
-                                        <li>
-                                            <div class="info_title">
-                                                <p><a href="<?php echo base_url()."news/detail/".$vn->id."/".url_title($vn->title) ?>"> <?php echo $vn->title ?></a></p>
-                                            </div>
-                                            <div class="info_summary">
-                                               <?php echo substr(strip_tags($vn->content), 0,200)."..."; ?>
-                                            </div>
-                                        </li>
-                                    <?php
-                                        }
-                                    ?>
-                                    
-                                   
+                    <div class="clear-float"></div>
+                    
+                </section>
 
-                                </ul>
+                <section class="sec-blog">
+                    <div class="breadcumb">
+                        <h2>Paket Jelajah</h2>  
+                    </div>
+
+                    <div class="widget">
+                        <div class="cols">
+                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/piramida.jpg"></a>
+                            <div class="cols-sum">
+                                <div class="title-content"><a href="">Menapaki  Piramida Penuh Misteri</a></div>
                                 
-                                <div style="clear:both;"></div>
-                                <div class="con-center">
-                                    <a href="<?php echo base_url('news') ?>" class="btn btn-primary">LIHAT SEMUA BERITA</a>
+                                <div class="summary-content-blog">
+                                    <p>
+                                        Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cols">
+                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/maenpo.jpg"></a>
+                            <div class="cols-sum">
+                                <div class="title-content"><a href="">Belajar Maenpo, Yuk!</a></div>
+                                
+                                <div class="summary-content-blog">
+                                    <p>
+                                        Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cols mrnone">
+                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/gua.jpg"></a>
+                            <div class="cols-sum">
+                                <div class="title-content"><a href="">Menguak Misteri Gua "Siluman"</a></div>
+                                
+                                <div class="summary-content-blog">
+                                    <p>
+                                        Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clear-float"></div>
+                    </div>
+                </section>
+
+                <section class="sec-blog">
+                    <div class="breadcumb">
+                        <h2>Article</h2>    
+                    </div>
+                    <div class="widget">
+                        <div class="cols-article">
+                            <a href="<?php echo base_url()."article/detail/1/"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/article1.jpg"></a>
+                            <div class="cols-sum-title"><a href="<?php echo base_url()."article/detail/1/"; ?>"> <p>Wisata Laut di Jawa Barat</p></a></div>
+                            <div class="cols-sum-desc"> 
+                                <p> 
+                                    Wilayah Jawa Barat memang terkenal dengan keindahan alamnya yang jarang dimiliki wilayah di Indonesia.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cols-article fr">
+                            <a href="<?php echo base_url()."article/detail/1/"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/artikel-2@2x.jpg"></a>
+                            <div class="cols-sum-title"><a href="<?php echo base_url()."article/detail/1/"; ?>"><p> Air Mancur di Jawa Barat ini Terbesar di ASEAN </p></a></div>
+                            <div class="cols-sum-desc"> 
+                                <p> 
+                                    Wilayah Jawa Barat memang terkenal dengan keindahan alamnya yang jarang dimiliki wilayah di Indonesia.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="clear-float"></div>
+                    </div>
+                </section>
+
+                <section class="sec-blog">
+                    <div class="breadcumb">
+                        <h2>Video</h2>  
+                    </div>
+                    <div class="widget">
+                        <div class="video-yt">
+                             <div>
+                                <iframe  src="https://www.youtube.com/embed/vzXCBq_MTXY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                             </div>
+                             <div class="video-sum">
+                                <p>Jelajah Jawa Barat Gurilaps</p>
+                             </div>
+                             <div class="video-time">
+                                <p>5 hari yang lalu.</p>
+                             </div>
+                        </div>
+                        <div class="video-row">
+                            <div class="video-list">
+                                <div class="cols-list">
+                                    <a href=""><p class="cl-title">Wisata Gunung</p></a>
+                                    <p class="cl-time">5 hari yang lalu.</p>
+                                </div>
+                                <div class="cols-list">
+                                    <a href=""><p class="cl-title">Jelajah Rimba di Jawa Barat</p></a>
+                                    <p class="cl-time">5 hari yang lalu.</p>
+                                </div>
+                                <div class="cols-list">
+                                    <a href=""><p class="cl-title">Air Mancur di Jawa Barat ini Terbesar di ASEAN</p></a>
+                                    <p class="cl-time">5 hari yang lalu.</p>
+                                </div>
+                                <div class="cols-list">
+                                    <a href=""><p class="cl-title">Wisata Laut di Jawa Barat</p></a>
+                                    <p class="cl-time">5 hari yang lalu.</p>
+                                </div>
+                                <div class="cols-list">
+                                    <a href=""><p class="cl-title">Air Terjun Tertinggi di Jawa Barat </p></a>
+                                    <p class="cl-time">5 hari yang lalu.</p>
+                                </div>
+                                <div class="cols-list">
+                                    <a href=""><p class="cl-title">Wisata Gunung</p></a>
+                                    <p class="cl-time">5 hari yang lalu.</p>
                                 </div>
                                 
+                            </div>
 
+                            <div class="button">
+                                    <a href="" class="button-gurilaps">LIHAT SEMUA VIDEO</a>
                             </div>
                         </div>
-                    </div>
-                    
-                </div>
-            
-                
-                <div class="container ">
-                    <div class="row" >
-                        <div class="head">
-                            <h1>Lakukan Pembayaran Tagihan Pelanggan Disini </h1>
-                        </div>
-                        <div class="list_tagihan">
-                            <div class="owl-carousel owl-theme">
-                            <div class="item">
-                                <img class="logo_tagihan" src="<?php echo base_url();?>assets/theme/img/indomaret.png" />
-                            </div>
-                            <div class="item">
-                             <img class="logo_tagihan" src="<?php echo base_url();?>assets/theme/img/alfamart.png" />
-                            </div>
-                            <div class="item">
-                             <img class="logo_tagihan" src="<?php echo base_url();?>assets/theme/img/alfamidi.png" />
-                            </div>
-                            <div class="item">
-                              <img class="logo_tagihan" src="<?php echo base_url();?>assets/theme/img/posindo.png" />
-                            </div>
-                            
-                         </div>
-                        </div>
-                         
+                        <div class="clear-float"></div>
+                        
                         
                     </div>
-                    
-                </div>
+                </section>
 
-            </div>
+                <section class="sec-blog-image">
+                    <div class="agenda-text">
+                        <div class="agenda-title">
+                            <h2>AGENDA</h2>
+                            <p>
+                                These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
+                                <br>
+                                <br>
+                                These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
+                                
+
+                            </p>
+                            <div class="button">
+                                    <a href="<?php echo base_url()."agenda"; ?>" class="button-gurilaps white">SEMUA AGENDA</a>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="agenda-list">
+                        <div class="agenda-box">
+                            <div class="list-top-ag">
+                                <div class="image-ag">
+                                    <img src="<?php echo base_url(); ?>assets/theme/img/dir-6@2x.jpg">
+                                </div>
+                                <div class="summary-ag">
+                                    <div class="list-top-title">
+                                        <a href="<?php echo base_url()."agenda/detail/1/"; ?>"><p>Jelajah Kota di Jawa Barat</p></a>
+                                    </div>
+                                    <div class="list-top-sum">
+                                        <p>These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
+                                        </p>
+                                    </div>
+                                    <div class="list-date">
+                                        <p class="ld-date"><i class="far fa-calendar-alt"></i> Date</p>
+                                        <p class="ld-loc"><i class="fas fa-map-marker-alt"></i> Location</p>
+                                    </div>
+                                    <div class="list-date-td">
+                                        <p >24 JUl</p>
+                                        <p class="td-loc" >Bandung</p>
+                                    </div>
+                                </div>
+                                <div class="clear-float"></div>
+
+                            </div>
+                            <div class="list-ag">
+                                <div class="list-ag-head">
+                                    <div class="list-ag-cat">
+                                        <a href="<?php echo base_url()."agenda/detail/1/"; ?>"><p>
+                                            Wisata
+                                        </p></a>
+                                    </div>
+                                    <div class="list-ag-date">
+                                        <p>
+                                            22 Jul 2018
+                                        </p>
+                                    </div>
+                                    <div class="clear-float"></div>
+                                    <div class="list-ag-sum">
+                                        <p>These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="list-ag-head">
+                                    <div class="list-ag-cat">
+                                        <a href="<?php echo base_url()."agenda/detail/1/"; ?>"><p>
+                                            Liburan
+                                        </p></a>
+                                    </div>
+                                    <div class="list-ag-date">
+                                        <p>
+                                            22 Jul 2018
+                                        </p>
+                                    </div>
+                                    <div class="clear-float"></div>
+                                    <div class="list-ag-sum">
+                                        <p>These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear-float"></div>
+
+
+                </section>
+
+                <section class="sec-blog mbf">
+                    <div class="breadcumb">
+                        <h2>CERLANG GURILAPS</h2>   
+                    </div>
+                    <div class="widget">
+                        <div class="cerlang-box">
+                            <div class="bgbox1">
+                                    <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-diskusi@2x.png">
+                                    <p>DISKUSI</p>
+                            </div>
+                        </div>
+                    
+                        <div class="cerlang-box">
+                            <div class="bgbox2">
+                                    <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-lomba@2x.png">
+                                    <p>LOMBA</p>
+                            </div>
+                        </div>
+                    
+                        <div class="cerlang-box">
+                                <div class="bgbox3">
+                                    <img src="<?php echo base_url(); ?>assets/theme/img/cerlang/pameran_icon.png">
+                                    <p>PAMERAN</p>
+                                </div>
+                        </div>
+                    
+                        <div class="cerlang-box mrnone">
+                                <div class="bgbox4">
+                                    <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-pembinaan@2x.png">
+                                    <p>PEMBINAAN</p>
+                                </div>
+                        </div>
+                        <div class="clear-float"></div>
+                    </div>
+
+                </section>

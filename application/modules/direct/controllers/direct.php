@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
 
-class Home extends DC_Controller {
+class Direct extends DC_Controller {
 
 	function __construct() {
 		parent::__construct();
@@ -13,12 +13,12 @@ class Home extends DC_Controller {
 		}else{
 			$method=str_replace('_',' ',$this->router->fetch_method());
 		}
-		$this->controller_attr = array('controller' => 'home','controller_name' => 'Home','method'=>ucwords($method));
+		$this->controller_attr = array('controller' => 'direct','controller_name' => 'Home','method'=>ucwords($method));
 	}
 	
 	 function index(){
 		$data = $this->controller_attr;
-		$data['function']='home';
+		$data['function']='direct';
 		 /*Default Meta */
 		 $data['meta_title']='Gurialps';
 		  $data['meta_description'] = 'Gurialps';
@@ -41,25 +41,26 @@ class Home extends DC_Controller {
       //   $data['pagetabpopuler'] = $this->load->view('home/unitpopuler',$data,true);
       //   $data['pagenews'] = $this->load->view('home/newsslide',$data,true);
      	// $data['pagegaleryImage'] = $this->load->view('home/galeryImage',$data,true);
-     	$data['page'] = $this->load->view('home/index',$data,true);
+     	$data['page'] = $this->load->view('direct/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
 
 
 
-	function unitjual(){
+	function regencies($id){
 		$data = $this->controller_attr;
-		$data['function']='home';
- 		$unit_jual=select_where_limit_order($this->tbl_unit,'id_transaction','2','9','id','DESC')->result();
-        foreach ($unit_jual as $key) {
-        	$album=select_where($this->tbl_album_unit,'id_unit',$key->id)->row();
-        	$key->id_image=$album->id;
-        	$key->image=$album->images;
-        }
-            $data['banner']=select_all($this->tbl_banner);
-        $data['unit_jual']=$unit_jual;
-			$data['pagetabJual'] = $this->load->view('home/unitjual',$data,true);
-		$data['page'] = $this->load->view('home/index',$data,true);
+		$data['function']='regencies';
+ 		
+		$data['page'] = $this->load->view('direct/regencies',$data,true);
+	
+		$this->load->view('layout_frontend',$data);
+	}
+
+	function detail($id){
+		$data = $this->controller_attr;
+		$data['function']='detail';
+ 		
+		$data['page'] = $this->load->view('direct/detail',$data,true);
 	
 		$this->load->view('layout_frontend',$data);
 	}
