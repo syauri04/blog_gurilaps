@@ -42,7 +42,7 @@
                       <option value="">--select Category--</option>
                       <!-- <option <?php if($data and $data->id=='0'){echo"selected";} ?> value="0">none</option> -->
                       <?php foreach ($kategori as $key) { ?>
-                      <option <?php if( $data and $key->id== $data->category){echo"selected";} ?> value="<?php echo $key->id ?>"><?php echo $key->title ?></option><?php } ?>
+                      <option <?php if( $data and $key->id== $data->category_cerlang){echo"selected";} ?> value="<?php echo $key->id ?>"><?php echo $key->title ?></option><?php } ?>
                   </select>
                 </div>
               </div>
@@ -51,7 +51,7 @@
                   <label class="form-label">Image Content 1</label>
                   <div class="box">
                       <input type="hidden" name="posisi_gambar1" value="1">
-                      <input type="file" required name="images[]" id="file-7" class="inputfile" accept="image/*" onchange="loadFile(event)" />
+                      <input type="file" value="<?php if(isset($picture)){ echo $picture->name; } ?>" name="images_1" id="file-7" class="inputfile" accept="image/*" onchange="loadFile(event)" />
                       <label for="file-7"><span></span> <strong><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> Choose a file&hellip;</strong></label>
                   </div>
                   <img id="output" class="ouput_image_input" <?php if($picture){ ?> src="<?php echo base_url() ?>assets/uploads/cerlang/<?php if($picture->name==''){echo"default.jpg";}else{echo $picture->id_content."/".$picture->name;} }?> " />
@@ -83,10 +83,10 @@
                   <label class="form-label">Image Content 3</label>
                   <div class="box">
                       <input type="hidden" name="posisi_gambar3" value="3">
-                      <input type="file" required name="images[]" id="file-1" class="inputfile" accept="image/*" onchange="loadFile2(event)" />
+                      <input type="file" <?php if(isset($picture2)){ echo $picture2->name; } ?> name="images_2" id="file-1" class="inputfile" accept="image/*" onchange="loadFile2(event)" />
                       <label for="file-1"><span></span> <strong><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> Choose a file&hellip;</strong></label>
                   </div>
-                  <img id="output2" class="ouput_image_input" <?php if($picture){ ?> src="<?php echo base_url() ?>assets/uploads/cerlang/<?php if($picture->name==''){echo"default.jpg";}else{echo $picture->id_content."/".$picture->name;} }?> " />
+                  <img id="output2" class="ouput_image_input" <?php if($picture2){ ?> src="<?php echo base_url() ?>assets/uploads/cerlang/<?php if($picture2->name==''){echo"default.jpg";}else{echo $picture2->id_content."/".$picture2->name;} }?> " />
               </div>
 
               <div class="form-group">

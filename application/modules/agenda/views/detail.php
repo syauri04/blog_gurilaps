@@ -78,5 +78,3 @@ Sed vehicula sem vitae erat cursus condimentum. Sed efficitur enim sit amet arcu
                     
                     </div>
                 </section>
-
-            </div>

@@ -84,9 +84,8 @@ iframe{
 }
 
 .mbf{
-  margin-bottom: 110px !important;
+      margin-bottom: 110px !important;
 }
-
 .mb80{
   margin-bottom: 80px;
 }
@@ -113,6 +112,176 @@ iframe{
   position: relative;
   margin:0;
   padding:60px  80px 0 80px; 
+}
+
+.sec-login{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* LOG IN - REGISTER */
+.bg-form{
+  float: left;
+  display: inline-block;
+  width: 55%;
+
+}
+.row-left{
+  float: left;
+  width: 50%;
+}
+.row-form-regist{
+  /*width: 305px;*/
+  padding: 200px 0 0 139px;
+}
+
+
+.regist{
+  width: 225px !important;
+  float: left;
+  margin-right: 41px;
+}
+
+.row-form{
+  /*width: 305px;*/
+  padding: 200px 0 0 230px;
+}
+.row-form p, .row-form-regist p {
+  font-size: 27px;
+  color: #333333;
+  letter-spacing: 0;
+  padding-bottom: 33px;
+}
+.form{
+  width: 300px;
+  padding-top: 44px;
+}
+.form label{
+      display: inherit;
+  font-size: 16px;
+  color: #9B9B9B;
+  letter-spacing: 0;
+  text-align: left;
+}
+.form p{
+  padding-top: 20px;
+    font-size: 12px;
+    color: #333333;
+    text-align: center;
+}
+.form p a{color: #151515; font-weight: 600;}
+.inpt-form{
+    width: 90%;
+    background: #FAFFBD;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+        padding: 15px 0px 15px 21px;
+    margin: 16px 0 16px 0;
+}
+.btn-form{
+    font-size: 14px;
+    color: #FFFFFF;
+    border: none;
+    width: 98%;
+    
+    border-radius: 5px;
+    padding: 15px 0 15px 0;
+}
+
+input[type=radio   ]:not(old){
+  width     : 2em;
+  margin    : 0;
+  padding   : 0;
+  font-size : 1em;
+  opacity   : 0;
+}
+
+input[type=radio   ]:not(old) + label{
+  display: inline-block;
+    margin-left: -2em;
+    line-height: 31px;
+    margin-top: 22px;
+    margin-right: 35px;
+    margin-bottom: 27px
+}
+
+input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  border: 1px solid #DBDBDB;
+  border-radius: 10px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0.25em 0.5em 0.25em 0.25em;
+  vertical-align   : bottom;
+}
+
+input[type=radio   ]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+input[type=radio]:not(old):checked + label > span > span{
+      background: #4A90E2;
+    border-radius: 10px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+}
+
+.default{
+    background: #4A90E2;
+}
+.b-fb{
+    background:  #3B5998;
+}
+.b-gp{
+    background: #EA4335;
+    margin-top: 15px;
+}
+
+.ico{
+    text-align: left;
+    padding-left: 30px;
+}
+.pr50{
+  padding-right: 50px;
+}
+
+.bg-login{
+  float: left;
+  width: 600px;
+  background-image: url("../assets/img/daniel-burka-104041.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1024px;
+}
+
+
+.sumary-lg {
+    width: 30%;
+    position: absolute;
+    top: 880px;
+    left: 9%;
+
+}
+.sumary-lg p{
+  font-size: 18px;
+color: #FFFFFF;
+letter-spacing: 0;
+line-height: 27px;
+}
+
+.bg-login img{
+  position: relative;
+  width: 82px;
+  top: 935px;
+  left: 21%;
 }
 
 /* HEADER*/
@@ -531,7 +700,7 @@ iframe{
   margin-top: 16px;
 }
 .rating .star {
-    background: url(../img/ratting.png) 0 0 no-repeat;
+    background: url(../assets/img/ratting.png) 0 0 no-repeat;
     background-size: 15px 15px;
     width: 15px;
     height: 15px;
@@ -539,9 +708,37 @@ iframe{
     display: inline-block;
 }
 
+
+/*CSS CERLANGTAMBAHAN ADRIAN */
+
+
+.yt-article {
+
+  padding-top: 30px;
+  padding-bottom: 30px; 
+}
+
+.image-article {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width : 750px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+
+}
+
+.image-article img{
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
+
+}
+
+
+/* END CSS TAMBAHAN ADRIAN */
+
 /* SECTION CERLANG */
 .widget .cerlang-box{
-  
   box-sizing: content-box;  
   float: left;
   margin-right: 45px;
@@ -560,7 +757,6 @@ iframe{
 
 .widget .bgbox1 {
   background-image:  url('../img/diskusi.png');
-  background-repeat: no-repeat;
   box-shadow: 3px 4px 8px 0 rgba(0,0,0,0.20);
   border-radius: 5px;
   width: 100%;
@@ -816,7 +1012,7 @@ border-radius: 5px;
 .desc-blog p{
   font-size: 16px;
   color: #666666;
-  text-align: justify;
+  text-align: left;
   line-height: 32px;
 }
 
@@ -978,7 +1174,7 @@ font-weight: 600;
 }
 .gallery-artcl-detil ul li img{
   width: 100%;
-  min-height: 180px;
+  min-height: 240px
 }
 
 .title-blog-artcl p{
@@ -1100,48 +1296,29 @@ font-weight: 600;
 .content-article-sum{
   font-size: 16px;
   color: #666666;
-  text-align: justify;
+  text-align: left;
   line-height: 32px;
-}
-
-.sec-image{
-      box-sizing: border-box;
-  position: relative;
-  margin:0;
-  padding:100px  80px 0 80px; 
-}
-
-.widget .cols1{
-   width: 350px;
-  height: 240px;
-  float: left;
-      margin-right: 74px;
-}
-.widget .cols1 img{
-  width: 100%;
-  height: 100%;
 }
 
 .widget .cols2{
    width: 750px;
-  height: 350px;
   float: left;
+      margin-left: 33px;
 }
 .widget .cols2 img{
   width: 100%;
-  height: 100%;
+  height: 350px;
 }
 
 .widget .cols3{
-   width: 350px;   
-  height: 350px;
+   width: 350px;
   float: left;
-     margin-left: 98px;
+      margin-left: 33px;
 }
 
 .widget .cols3 img{
   width: 100%;
-  height: 100%;
+  height: 350px;
 }
 
 .sec-share{
@@ -1171,6 +1348,15 @@ font-weight: 600;
 }
 
 
+.widget .cols1{
+   width: 350px;
+  float: left;
+  margin-left: 33px;
+}
+.widget .cols1 img{
+  width: 100%;
+  height: 240px;
+}
 
 .sec-blog-join{
   padding:0 80px 0 80px; 
@@ -1194,7 +1380,6 @@ font-weight: 600;
 .join-title{
   margin-top: 80px;
   text-align: center;
-
 }
 
 .join-title h2{
@@ -1202,12 +1387,8 @@ font-weight: 600;
   line-height: 15px;
 }
 
-.join-p{
+.join-title p{
   width: 750px;
-}
-
-.join-p p{
-  width: 100%;
   font-size: 16px;
   color: #666666;
   text-align: center;
@@ -1281,8 +1462,6 @@ margin-top: 40px;
 
 /* END TAMBAHAN CSS ADRIAN */
 
-
-/* ARTIKEL FARIS TAMBAHAN*/
 .title-content{
   padding-top: 30px;
 }
@@ -1323,21 +1502,39 @@ margin-top: 40px;
 
 
 /* TEXT DI GAMBAR HEADER  faris*/
-.sec-header2 {
-
-  width:100%;
+.fluid_container img{
+  width: 100%;
+}
+.title-page {
+    width: 100%;
+    
 }
 
-
-.sec-header2 img{
-
-  width:100%;
-  position: relative;
-  opacity: 40%;
+.title-page-direktori h1{
+  font-family: 'Permanent Marker', cursive;
+    font-size: 49px;
+    color: #FFFFFF;
+    text-align: left;
+    line-height: 60px;
+    top: 306px;
+    left: 298px;
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
 
+.title-page-direktori p{
+   font-size: 12px;
+  line-height: 20px;
+  display: inline-block;
+  color: #FFFFFF;
+text-align: left;
+    top: 450px;
+    left: 410px;
+transform: translate(-50%, -50%);
+position: absolute;
+}
 
-.sec-header2 h1{
+.title-page h1{
   font-family: 'Permanent Marker', cursive;
   font-size: 49px;
   color: #FFFFFF;
@@ -1352,7 +1549,7 @@ margin-top: 40px;
 
 }
 
-.sec-header2  h4 {
+.title-page  h4 {
   font-size: 12px;
   line-height: 20px;
   display: inline-block;
@@ -1366,7 +1563,7 @@ margin-top: 40px;
 
 }
 
-.sec-header2 p{
+.title-page p{
    font-size: 12px;
   line-height: 20px;
   display: inline-block;
@@ -1377,68 +1574,6 @@ text-align: left;
 transform: translate(-50%, -50%);
 position: absolute;
 }
-
-
-/* HEADER CATEGORY BLOG */
-.sec-header3 {
-
-  width:100%;
-}
-
-
-.sec-header3 img{
-
-  width:100%;
-  position: relative;
-  opacity: 40%;
-}
-
-
-.sec-header3 h1{
-  font-family: 'Permanent Marker', cursive;
-  font-size: 49px;
-  color: #FFFFFF;
-  text-align: left;
-  line-height: 60px;
-  top: 335px;
-  left: 298px;
-  transform: translate(-50%, -50%);
-  position: absolute;
-
-
-
-}
-
-.sec-header3  h4 {
-  font-size: 12px;
-  line-height: 20px;
-  display: inline-block;
-  color: #FFFFFF;
-  text-align: left;
-  line-height: 60px;
-  top: 465px;
-  left: 410px;
-  transform: translate(-50%, -50%);
-  position: absolute;
-
-}
-
-.sec-header3 p{
-  width: 650px;
-   font-size: 12px;
-  line-height: 20px;
-  display: inline-block;
-  color: #FFFFFF;
-text-align: left;
-    top: 465px;
-    left: 410px;
-transform: translate(-50%, -50%);
-position: absolute;
-}
-
-
-/* END */
-
 
 /*PILIHAN/OPSI */
 
@@ -1692,33 +1827,3 @@ margin-top: 40px;
   margin-bottom: 20px;
 
 }
-
-/*CSS CERLANGTAMBAHAN ADRIAN */
-
-
-.yt-article {
-
-  padding-top: 30px;
-  padding-bottom: 30px; 
-}
-
-.image-article {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  width : 750px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-
-}
-
-.image-article img{
-  width: 100%;
-  border-radius: 5px;
-  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
-
-}
-
-
-/* END CSS TAMBAHAN ADRIAN */
-
-/

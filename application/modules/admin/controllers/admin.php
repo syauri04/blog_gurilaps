@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
 
-class admin extends DC_controller {
+class Admin extends DC_Controller {
 
 	function __construct() {
 		parent::__construct();

@@ -19,7 +19,7 @@
                     
                 </section>
 
-                <section class="sec-blog">
+                <section class="sec-image">
                     <div class="widget">
                         <div class="cols1">
                             <img src="<?php echo base_url(); ?>assets/theme/img/dir-6@2x.jpg">
@@ -29,7 +29,7 @@
                             <img src="<?php echo base_url(); ?>assets/theme/img/dir-5@2x.jpg">
                         </div>
 
-                        <div class="cols1">
+                        <div class="cols1 mrnone">
                             <img src="<?php echo base_url(); ?>assets/theme/img/cianjur.jpg">
                         </div>
 
@@ -49,7 +49,7 @@
                     
                 </section>
 
-                <section class="sec-blog">
+                <section class="sec-image">
                     <div class="widget">
                         <div class="cols2">
                             <img src="<?php echo base_url(); ?>assets/theme/img/bandung.jpg">
@@ -168,10 +168,12 @@
                         <div class="join-title">
                             <h2>BERGABUNG BERSAMA</h2>
                             <h2>BALAD GURILAPS</h2>
-                            <p>
+                            <div class="join-p">
+                                <p>
                                 These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
 
-                            </p>
+                                </p>
+                            </div>
                             <div class="button">
                                     <a href="" class="button-daftar orange">DAFTAR</a>
                             </div>

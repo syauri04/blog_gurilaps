@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
 
-class Ajax extends DC_controller {
+class Ajax extends DC_Controller {
 
 	function __construct() {
 		parent::__construct();

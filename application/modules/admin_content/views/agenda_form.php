@@ -1,6 +1,6 @@
 <style type="text/css">
   #map{ height: 400px; margin-bottom: 30px; }
-  #pac-input{top: 7px !Important; width: 40%;}
+  #pac-input{top: 5px !Important; width: 41%;}
   .input-upload{display: block !Important;}
 }
 </style>
@@ -43,7 +43,8 @@
                           <th>Action</th>
                         </tr>
                        
-                        <?php    
+                        <?php 
+                            $n=1;   
                             foreach ($listpicture as $key => $picture) {
                               // debugCode($picture->name);
                                 if (isset($picture->id) && !empty($picture->name)){ 
@@ -53,20 +54,27 @@
                                   <td>
                                       <span class="preview">
                                               <img src="<?=isset($picture->name)?base_url().'assets/uploads/agenda/thumbs/'.$picture->name:'' ?>">
-                                              <input type="hidden" name="img_name[]" value="<?=isset($picture->name)?$picture->name:''?>" >
+                                              <input type="hidden" id="name_<?php echo $n; ?>" name="img_name[]" value="<?=isset($picture->name)?$picture->name:''?>" >
+                                              <input type="hidden" id="id_<?php echo $n ?>" name="id_pic" value="<?=isset($picture->id)?$picture->id:''?>">
+                                      
                                       </span>
                                   </td>
                               
                                   <td>
-                                          <button class="btn btn-danger remove_uploded" >
+                                          <a href="" id="de" onclick="delImage('#id_<?php echo $n; ?>','#name_<?php echo $n;  ?>','agenda')" class="btn btn-danger" >
                                               <i class="glyphicon glyphicon-trash"></i>
                                               <span>Delete</span>
-                                          </button>
+                                          </a>
+                                          <!-- <a href="<?php echo base_url(). $controller; ?>/delete_picture/<?php echo 'agenda-'.$picture->id.'/'.$picture->name; ?>" class="btn btn-danger remove_uploded" >
+                                              <i class="glyphicon glyphicon-trash"></i>
+                                              <span>Delete</span>
+                                          </a> -->
                                   </td>
                                 </tr>
 
                         <?php 
                               } 
+                              $n++;
                             } 
 
                         ?>
@@ -87,7 +95,7 @@
                             <span>Add files...</span>
                             <input type="file" class="input-upload" name="userfile" multiple>
                           </span>
-                          <button type="submit" class="btn btn-primary start">
+                          <!-- <button type="submit" class="btn btn-primary start">
                             <i class="glyphicon glyphicon-upload"></i>
                             <span>Upload All</span>
                           </button>
@@ -98,8 +106,8 @@
                           <button type="button" class="btn btn-danger delete">
                             <i class="glyphicon glyphicon-trash"></i>
                             <span>Delete</span>
-                          </button>
-                          <input type="checkbox" class="toggle">
+                          </button> 
+                          <input type="checkbox" class="toggle">-->
                           <!-- The global file processing state -->
                           <span class="fileupload-process"></span>
                         </div>
@@ -204,10 +212,21 @@
               </div> -->
 
               <div class="form-group">
-                 <label class="form-label">Lokasi Acara</label> 
-                <!--  <input type="text" id="long-lat" name="lat" value="">
-                 <input type="text" id="latclicked" name="lat" value="">
-                 <input type="text" id="longclicked" name="long" value=""> -->
+                 <label class="form-label">Lokasi Acara</label> <br>
+                  <input type="text" readonly="readonly"  placeholder="Latitude" id="lat" name="lat_map" value="<?php if(isset($data)){ echo $data->lat_map; } ?>">
+                  <input type="text" readonly="readonly"  placeholder="langtitude" id="lang" name="long_map" value="<?php if(isset($data)){ echo $data->long_map; } ?>">
+                  <input type="text" readonly="readonly"  placeholder="Location" id="loc" name="location">  value="<?php if(isset($data)){ echo $data->location; } ?>">
+                 
+                 <div class="controls">
+                    <label> *Search Location & Click Area on Map</label>
+                  
+                    
+                 
+                      <input id="pac-input" class="controls" name="location" type="text" placeholder="Search Box">
+                      <div id="map"></div>
+                       
+                 </div>
+                
               <!--     <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
                   <div id="map"></div>
                   <div id="infowindow-content">
@@ -217,8 +236,7 @@
                   </div> -->
               </div>
 
-              <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-              <div id="map"></div>
+            
 
                 <!-- <div class="controls">
                   <input type="hidden" name="contact_lat" id="lat" value="">
@@ -343,6 +361,9 @@
 
 </script>
 
+
+
+
 <script  type="text/javascript">
 
   $(function () {
@@ -383,10 +404,25 @@
 
 
   $(".remove_uploded").click(function() {
+      // $.ajax({
+      //     type: "POST",
+      //     url: "action.php",
+      //     data: {
+      //         me: me
+      //     },
+      //     success: function (data) {
+      //         alert(data);
+
+      //     }
+      // });
       $(this).parent().parent().remove();
   });
 
+
+
 </script>
+
+
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj5rowk-iF4lQnu6R5p6AosQ6eoWevlkQ&libraries=places&callback=initAutocomplete" async defer></script>
@@ -405,8 +441,23 @@
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
       function initAutocomplete() {
+        <?php
+          if(isset($data)){
+            $latm = $data->lat_map;
+            $langm = $data->long_map;
+           
+          }else{
+       
+            $latm = 107.619125;
+            $langm = -6.917464;
+
+       
+          }
+        ?>
+
+        // console.log(lang_m);
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -6.917464, lng: 107.619125},
+          center: {lat: <?php echo $latm; ?>  , lng: <?php echo $langm; ?>},
           zoom: 13,
           mapTypeId: 'roadmap'
         });
@@ -432,6 +483,12 @@
 
         var markers = [];
 
+        google.maps.event.addListener(map, 'click', function( event ){
+          // alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() ); 
+           document.getElementById("lat").value = event.latLng.lat();
+           document.getElementById("lang").value = event.latLng.lng();
+           document.getElementById("loc").value = input;
+        });
 
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
@@ -478,12 +535,14 @@
               bounds.extend(place.geometry.location);
             }
           });
+
+
           map.fitBounds(bounds);
         });
 
       }
 
-    </script>
+</script>
 <!-- <script>
   // This example adds a search box to a map, using the Google Place Autocomplete
   // feature. People can enter geographical searches. The search box will return a

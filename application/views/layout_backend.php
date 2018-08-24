@@ -300,7 +300,35 @@
               }
             }); 
     }
+
+  function delImage(id,name,folder) {
+    
+      c = $(id);
+      n = $(name);
+      
+      var id = c.val();
+      var name = n.val();
+      
+     // alert(folder);
+        urlDel = "<?php echo base_url(). $controller; ?>/delete_picture/"+folder+"-"+id+"/"+name;
+        
+           
+            console.log(id);
+            console.log(name);
+            console.log(urlDel);
+            // alert(urlDel);
+            $.ajax({
+              type: "POST",
+              url: urlDel+"/"+id,
+              dataType:"json",
+              success: function(json){
+                
+              }
+            }); 
+  }
+
 </script>
+
 <!-- END ONCANGE WILAYAH -->
 </body>
 </html>

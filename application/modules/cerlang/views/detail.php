@@ -4,7 +4,7 @@
                     </div>  
                     <div class="side-left">
                         <div class="image-detail">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/artikel-1@2x.jpg">
+                            <img src="<?php echo base_url(); ?>/assets/theme/img/artikel-1@2x.jpg">
                         </div>
                         <div class="row-det">
                             <h2>Pameran Fotografi Jelajah Laut</h2>
@@ -15,7 +15,7 @@
                         <div class="row-det">
                             <div class="box-left-head">
                                 <div class="img-author">
-                                    <img src="<?php echo base_url(); ?>assets/theme/img/author.png">
+                                    <img src="<?php echo base_url(); ?>/assets/theme//img/author.png">
                                     <div class="name-author">
                                         <p><strong>Contributor</strong></p>
                                         <p>Gurlips Admin</p>
@@ -49,7 +49,7 @@
                             <p>On a national tourism exhibition of 2010 in Jakarta, Bogor was recognized as the most attractive tourist city of Indonesia. The city and its surrounding area are visited by about 1.8 million people per year, of whom more than 60,000 are foreigners. The main tourist attraction is the Bogor Botanical Garden. Founded in 1817, it contains more than 6,000 species of tropical plants. Besides, about 42 bird species breed within the garden, although this number is declining and was 62 before 1952. The garden's 87-hectare area within the city was supplemented in 1866 by a 120-hectare park in suburban town of Cibodas. Much of the original rainforest was preserved within the garden providing specimens for scientific studes. Besides, the garden was enriched by collections of palms, bamboos, cacti, orchids and ornamental trees. It became famous in the late 19th century and was visited by naturalists from abroad to conduct scientific research. For example, the Russian St. Petersburg Academy of Sciences had a Buitenzorg scholarship for young scientists to work at Bogor. The staff of Bogor garden also administer three other major gardens of Iindonesia: the Cibodas Botanical Garden founded 1862 in West Java, the Purwodadi Botanical Garden in East Java and the Bali Botanic Garden founded in 1959 on Bali island.</p></Br>
 
                             <div class="image-article">
-                                <img src="<?php echo base_url(); ?>assets/theme/img/hero.jpg">             
+                                <img src="<?php echo base_url(); ?>/assets/theme//img/hero.jpg">             
                             </div>
 
                             <p>On a national tourism exhibition of 2010 in Jakarta, Bogor was recognized as the most attractive tourist city of Indonesia. The city and its surrounding area are visited by about 1.8 million people per year, of whom more than 60,000 are foreigners. The main tourist attraction is the Bogor Botanical Garden. Founded in 1817, it contains more than 6,000 species of tropical plants. Besides, about 42 bird species breed within the garden, although this number is declining and was 62 before 1952. The garden's 87-hectare area within the city was supplemented in 1866 by a 120-hectare park in suburban town of Cibodas. Much of the original rainforest was preserved within the garden providing specimens for scientific studes. Besides, the garden was enriched by collections of palms, bamboos, cacti, orchids and ornamental trees. It became famous in the late 19th century and was visited by naturalists from abroad to conduct scientific research. For example, the Russian St. Petersburg Academy of Sciences had a Buitenzorg scholarship for young scientists to work at Bogor. The staff of Bogor garden also administer three other major gardens of Iindonesia: the Cibodas Botanical Garden founded 1862 in West Java, the Purwodadi Botanical Garden in East Java and the Bali Botanic Garden founded in 1959 on Bali island.</p></Br>
@@ -101,7 +101,7 @@
 
                     <div class="widget">
                         <div class="cols">
-                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/piramida.jpg"></a>
+                            <a href=""><img src="<?php echo base_url(); ?>/assets/theme//img/piramida.jpg"></a>
                             <div class="cols-s um">
                                 <div class="title-content"><a href="">Menapaki  Piramida Penuh Misteri</a></div>
                                 
@@ -121,7 +121,7 @@
                         </div>
 
                         <div class="cols">
-                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/maenpo.jpg"></a>
+                            <a href=""><img src="<?php echo base_url(); ?>/assets/theme//img/maenpo.jpg"></a>
                             <div class="cols-sum">
                                 <div class="title-content"><a href="">Belajar Maenpo, Yuk!</a></div>
                                 
@@ -141,7 +141,7 @@
                         </div>
 
                         <div class="cols mrnone">
-                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/gua.jpg"></a>
+                            <a href=""><img src="<?php echo base_url(); ?>/assets/theme//img/gua.jpg"></a>
                             <div class="cols-sum">
                                 <div class="title-content"><a href="">Menguak Misteri Gua "Siluman"</a></div>
                                 

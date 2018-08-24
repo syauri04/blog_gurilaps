@@ -48,8 +48,8 @@
 	/* END */
 
 		/*=== category_blog ==== FARIS ===*/
-.sec-container{padding: 60px 150px 0 150px !important;}
-.sec-blog-join{background-size: 100% !important;}
+	.sec-container{padding: 60px 150px 0 150px !important;}
+	.sec-blog-join{background-size: 100% !important;}
 	/*===END category_blog ==== FARIS ===*/
 
 
@@ -68,10 +68,7 @@
 	
 	/*=== END ARTIKEL_blog ==== FARIS ===*/
 
-
-
-
-
+	
 }
 @media (min-width: 1440px) and (max-width: 1555px){
 	.header-container, .sec-blog, .sec-blog-image, .footer-container  {padding-left: 135px !important; padding-right: 135px !important;}
@@ -80,6 +77,14 @@
 	.camera_next{    right: 150px !important;}
 	.widget .cols{    margin-right: 60px;}
 	.widget .cerlang-box{margin-right: 39px;}
+
+	/*======== direktori detail =======*/
+	.title-page-direktori h1{top: 33% !important;left: 24% !important;}
+	.title-page-direktori p{top: 50% !important;left: 479px !important;}
+
+	.widget2 .cols2{width: 355px !important;     margin-right: 52px;}
+	
+	/*======== end direktori detail =======*/
 
 	/*BLOG DETAIL - ADRIAN */
 
@@ -136,7 +141,7 @@
 	 .sec-container {padding: 60px 135px 0 135px !important;}
 
 	/*======== end article -detail dwim   =======*/
-	
+
 	
 }
 /*@media (max-width: 1366px) and (min-width: 1360px){
@@ -151,6 +156,12 @@
 	.widget .cols{    margin-right: 3%;}
 	.agenda-text{width: 40% !important;}
 	.widget .cerlang-box{    margin-right: 2%;}
+	.widget2 .cols2{margin-right: 45px;}
+
+	/*======== direktori detail =======*/
+	.title-page-direktori h1{top: 33% !important; left: 287px !important;}
+	.title-page-direktori p{top: 50% !important;left: 420px !important;}
+	/*======== end direktori detail =======*/
 
 	/*BLOG DETAIL - ADRIAN*/
 	.sec-image {	padding: 100px 80px 0 80px !important;}
@@ -179,21 +190,12 @@
 
 	.widget2 .cols2 {width: 330px !important;}
 	/*=== END ARTIKEL_blog ==== FARIS ===*/	
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{top: 311px !important;    left: 298px !important;}
-	.sec-header3 p{	font-size: 12px !important;	top: 445px !important;    left: 410px !important;}
-
-	/*END CATEGORY DETAIL BOGOR*/
-
-
-
+	
 }
 @media (max-width: 1290px){
 
 	
-	.header-container, .sec-blog, .sec-blog-image, .footer-container  {padding-left: 40px !important; padding-right: 40px !important;}
+	.header-container, .sec-blog, .sec-blog-image, .footer-container, .sec-container {padding-left: 40px !important; padding-right: 40px !important;}
 
 	/*======== home page =======*/
 
@@ -222,6 +224,10 @@
 	.footer-info .footer-alamat{    margin-right: 135px !important;}
 
 	/*======== end home page =======*/
+
+	/*======== direktori detail =======*/
+	.widget2 .cols2{margin-right: 6%;}
+	/*======== end direktori detail =======*/
 
 	/*BLOG DETAIL - ADRIAN*/
 
@@ -272,17 +278,12 @@
 	/*======== end article -detail dwim   =======*/
 
 
+
+
+
+
 	
 }
-
-
-/*@media (max-width: 1280px){
-
-	.widget .cols1 {	margin-right: 55px;}
-	.widget .cols3 {	margin-left: 60px !important;}
-
-
-}*/
 
 @media (max-width: 1230px){
 
@@ -322,14 +323,6 @@
 	.widget2 .cols2 {width: 334px !important;}
 	/*=== END ARTIKEL_blog ==== FARIS ===*/	
 
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{top: 303px !important;    left: 298px !important;}
-	.sec-header3 p{	font-size: 12px !important;	top: 431px !important;    left: 410px !important;}
-
-	/*END CATEGORY DETAIL BOGOR*/
-
-
 }
 
 @media (max-width: 1130px){
@@ -363,6 +356,9 @@
 
 	/*======== end home page =======*/
 
+	/*======== direktori detail =======*/
+	.widget2 .cols2{width: 299px !important;}
+	/*======== end direktori detail =======*/
 
 	/* BLOG DETAIL - ADRIAN	*/
 	.sec-article	{    padding: 40px 220px 0 220px !important;}
@@ -402,15 +398,6 @@
 
 
 	/*======== end articke -detail dwim   =======*/
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{top: 275px !important;    left: 298px !important;}
-	.sec-header3 p{	font-size: 12px !important;	top: 397px !important;    left: 410px !important;}
-
-	/*END CATEGORY DETAIL BOGOR*/
-
-
 }
 
 @media (max-width: 1030px){
@@ -490,21 +477,12 @@
 	.cat-article ul li {
     margin-bottom: 30px !important;
     margin-right: 6px !important;}
-	.gallery-artcl-detil ul li {width: 319px !important;}
+	.gallery-artcl-detil ul li {width: 319px !important;
 
 
 
 
 	/*======== end article -detail dwim   =======*/
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{font-size: 46px !important; top: 250px !important;    left: 285px !important;}
-	.sec-header3 p{	font-size: 11px!important;	top: 372px !important;    left: 389px !important;}
-
-	/*END CATEGORY DETAIL BOGOR*/
-
-
 }
 
 @media (max-width: 980px){
@@ -557,14 +535,6 @@
 
 
 	/*======== end article -detail dwim   =======*/
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{font-size: 43px !important; top: 243px !important;    left: 280px !important;}
-	.sec-header3 p{	font-size: 10px!important;	top: 361px !important;    left: 372px !important;}
-
-	/*END CATEGORY DETAIL BOGOR*/
-
 }
 @media (max-width: 950px){
 	.header-menu ul li{margin-left: 20px !important;}
@@ -601,22 +571,14 @@
 	.nwslt {width: 150px !important;}
 	.btn.nwslt{width: 95px !important;}
 	.gallery-artcl-detil ul li {
-    padding-right: 4px !important;}
+    padding-right: 4px !important;
 	/*======== end article -detail dwim   =======*/
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{font-size: 40px !important; top: 243px !important;    left: 268px !important;}
-	.sec-header3 p{	font-size: 10px!important;	top: 343px !important;    left: 372px !important;}
-
-	/*END CATEGORY DETAIL BOGOR*/		
-
 }
 
 
 @media (max-width: 778px){
 	
-	.header-container, .sec-blog, .sec-blog-image, .footer-container  {padding-left: 30px !important; padding-right: 30px !important;}
+	.header-container, .sec-blog, .sec-blog-image, .footer-container, .sec-container  {padding-left: 30px !important; padding-right: 30px !important;}
 
 	/*======== home page =======*/
 	.header-logo{width: 150px !important;}
@@ -661,7 +623,6 @@
 	
 
 	/*======== end home page =======*/
-
 
 	/*BLOG DETAIL - ADRIAN*/
 	.sec-article {		padding: 30px 120px 0 120px !important;}
@@ -722,15 +683,6 @@
     width: 247px !important;}
 
 	/*======== end article -detail dwim   =======*/
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{font-size: 33px !important; top: 190px !important;    left: 222px !important;}
-	.sec-header3 p{	line-height: 15px !important; font-size: 9px!important;	top: 295px !important;    left: 310px !important;}
-
-	/*END CATEGORY DETAIL BOGOR*/		
-
-
 
 
 }
@@ -795,15 +747,6 @@
 
 
 	/*======== end article -detail dwim   =======*/
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{top: 205px !important;   }
-	.sec-header3 p{	font-size: 9px!important;	top: 304px !important;    left: 306px !important;}
-
-	/*END CATEGORY DETAIL BOGOR*/		
-
-
 }
 @media (max-width: 610px){
 	.header-menu{display: none !important;}
@@ -848,8 +791,16 @@
 	.cpr p{font-size: 12px !important;}
 
 	.sosmed ul li{font-size: 20px !important;margin-left: 21px !important;}
+	
 	/*======== end home page =======*/
+	
 
+	/*======== direktori detail =======*/
+
+	.title-blog p{font-size: 18px !important; line-height: 25px !important;}
+	.join-title p{ margin-top: 25px !important;font-size: 13px !important;width: 100%!important;}
+
+	/*======== end direktori detail =======*/
 
 	/*BLOG DETAIL - ADRIAN*/
 	.sec-header p {    font-size: 45px !important;}
@@ -912,17 +863,6 @@
     .nwslt {width: 131px !important;}
 
 	/*======== end article -detail dwim   =======*/
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{font-size: 29px !important; top: 151px !important;    left: 185px !important;}
-	.sec-header3 p {font-size: 7px!important;		top: 234px !important;		left: 243px !important;
-}
-	/*END CATEGORY DETAIL BOGOR*/		
-
-
-
-
 }
 
 @media (max-width: 510px){
@@ -934,8 +874,7 @@
 	.fr{float: left !important;}
 
 	.widget .cols-article{    width: 100% !important;margin-bottom: 20px !important; padding-top: 0 !important}
-	.agenda-text, .agenda-list{width: 100%!important;}
-	.widget .cerlang-box{    width: 74%!important;		margin-left: 9% !important;}
+	.agenda-text, .agenda-list, .widget .cerlang-box{width: 100%!important;}
 	.agenda-list .agenda-box{    width: auto !important;}
 
 	.sec-blog-image{    background-position: center top !important; height: auto !important;}
@@ -951,6 +890,8 @@
 	.sosmed ul li{    font-size: 19px !important;margin-left: 12px !important;}
 
 	.sec-blog{padding-top: 45px !important;}
+	
+	.side-left, .side-right{width: 100% !important;}
 
 	/* BLOG DETAIL - ADRIAN */
 	.sec-header p {    font-size: 45px !important;}
@@ -1004,19 +945,6 @@
 	.side-left {width: 100% !important;}
 
 	/*======== end article -detail dwim   =======*/
-
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1{font-size: 29px !important; top: 95px !important;     left: 228px !important;}
-	.sec-header3 p {font-size: 7px!important;		    top: 200px !important;
-    left: 238px !important;
-}
-	/*END CATEGORY DETAIL BOGOR*/		
-
-
-
-	
 }
 
 @media (max-width: 430px){
@@ -1025,11 +953,9 @@
 	.cpr, .sosmed{float: none !important}
 	.sosmed ul{padding: 0 !important; margin: 0 !important;}
 	.sosmed ul li{margin-right: 12px !important;margin-left: 0px !important;}
-	.widget .cerlang-box{    width: 74%!important;		margin-left: 9% !important;}
 
 	.camera_caption{font-size: 19px !important;line-height: 27px !important;}
 	.camera_caption > div{width: 300px !important;}
-
 
 	/*BLOG DETAIL - ADRIAN */
 	.sec-article {	padding: 0px 50px 0 50px !important;}
@@ -1057,37 +983,15 @@
 	.sec-header2 p {left: 33.5% !important;top: 33.5% !important;font-size: 3px !important;line-height: 9px;}
 	
 	.kanan ul li{margin-left: 2px !important;}
-	.widget2 .cols2 {width: 370px !important;}
+	.widget2 .cols2 {width: 314px !important;}
 	.sec-nav-page{   padding: 8% !important; margin: 0px 0% 0 0% !important;}
 	/*=== END ARTICLE_blog ==== FARIS ===*/
-
-		/*===CATEGORY DETAIL BOGOR==*/
-
-	.sec-header3 h1 {
-    font-size: 23px !important;
-    top: 87px !important;
-    left: 120px !important;
-}
-	.sec-header3 p {
-    width: 287px;
-    /* white-space: nowrap; */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 7px!important;
-    top: 161px !important;
-    left: 161px !important;
-}
-	/*END CATEGORY DETAIL BOGOR*/
-
 }
 
 @media (max-width: 330px){
 	.list-date .ld-loc{left: 50%!important;}
 	.list-date-td .td-loc{    left: 52% !important;}
 	.agenda-list .agenda-box{height: 535px !important;}
-	
-	.widget .cerlang-box {width: 80%!important;		margin-left: 8% !important;}
-
 
 	/* BLOG DETAIL - ADRIAN */
 
@@ -1117,25 +1021,6 @@
 		.sec-header2 p {left: 39% !important;top: 28.5% !important;font-size: 4px !important;line-height: 5px;}
 		
 		.widget2 .cols2 {width: 260px !important;}
+
 		.sec-nav-page {padding: 0% !important;}
-
-
-	/*===CATEGORY DETAIL BOGOR==*/
-
-.sec-header3 h1 {
-    font-size: 20px !important;
-    top: 99px !important;
-    left: 114px !important;
-}
-
-.sec-header3 p {
-    font-size: 10px!important;
-    top: 148px !important;
-    left: 162px !important;
-    width: 274px;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-
-    /*END CATEGORY DETAIL BOGOR*/
 }

@@ -99,7 +99,7 @@
                           <div class="form-group">
                               <label class="form-label">Image Header</label>
                               <div class="box">
-                                  <input type="file" required name="images" id="file-7" class="inputfile" accept="image/*" onchange="loadFile(event)" />
+                                  <input type="file" <?php if(isset($data)){ echo ""; }else{ echo "required";} ?> value="<?php if(isset($picture)){ echo $picture->name; } ?>" name="images" id="file-7" class="inputfile" accept="image/*" onchange="loadFile(event)" />
                                   <label for="file-7"><span></span> <strong><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> Choose a file&hellip;</strong></label>
                               </div>
                               <img id="output" class="ouput_image_input" <?php if($picture){ ?> src="<?php echo base_url() ?>assets/uploads/article/<?php if($picture->name==''){echo"default.jpg";}else{echo $picture->id_content."/".$picture->name;} }?> " />
@@ -130,30 +130,36 @@
                                       <th>Action</th>
                                     </tr>
                                    
-                                    <?php    
-                                        foreach ($listpicture as $key => $picture) {
+                                    <?php
+                                        $n=1;   
+                                        // debugCode($listpicture); 
+                                        foreach ($listpicture as $key => $pic) {
                                           // debugCode($picture->name);
-                                            if (isset($picture->id) && !empty($picture->name)){ 
+                                            if (isset($pic->id) && !empty($pic->name)){ 
                                     ?>
 
                                             <tr>
                                               <td>
                                                   <span class="preview">
-                                                          <img src="<?=isset($picture->name)?base_url().'assets/uploads/article/thumbs/'.$picture->name:'' ?>">
-                                                          <input type="hidden" name="img_name[]" value="<?=isset($picture->name)?$picture->name:''?>" >
+                                                          <img src="<?=isset($pic->name)?base_url().'assets/uploads/article/thumbs/'.$pic->name:'' ?>">
+                                                          <input type="hidden" name="img_name[]" value="<?=isset($pic->name)?$pic->name:''?>" >
+                                                          <input type="hidden" id="name_<?php echo $n; ?>" name="img_name[]" value="<?=isset($pic->name)?$pic->name:''?>" >
+                                                          <input type="hidden" id="id_<?php echo $n ?>" name="id_pic" value="<?=isset($pic->id)?$pic->id:''?>">
+                                      
                                                   </span>
                                               </td>
                                           
                                               <td>
-                                                      <button class="btn btn-danger remove_uploded" >
+                                                      <a href="" id="de" onclick="delImage('#id_<?php echo $n; ?>','#name_<?php echo $n;  ?>','article')" class="btn btn-danger" >
                                                           <i class="glyphicon glyphicon-trash"></i>
                                                           <span>Delete</span>
-                                                      </button>
+                                                      </a>
                                               </td>
                                             </tr>
 
                                     <?php 
                                           } 
+                                          $n++;
                                         } 
 
                                     ?>
@@ -239,7 +245,8 @@
                                       <th>Action</th>
                                     </tr>
                                    
-                                    <?php    
+                                    <?php   
+                                        $n2=1; 
                                         foreach ($listpicture2 as $key2 => $picture2) {
                                           // debugCode($picture->name);
                                             if (isset($picture2->id) && !empty($picture2->name)){ 
@@ -248,21 +255,25 @@
                                             <tr>
                                               <td>
                                                   <span class="preview">
-                                                          <img src="<?=isset($picture->name)?base_url().'assets/uploads/article/thumbs/'.$picture2->name:'' ?>">
+                                                          <img src="<?=isset($picture2->name)?base_url().'assets/uploads/article/thumbs/'.$picture2->name:'' ?>">
                                                           <input type="hidden" name="img_name2[]" value="<?=isset($picture2->name)?$picture2->name:''?>" >
+                                                          <input type="hidden" id="name2_<?php echo $n2; ?>" name="img_name2[]" value="<?=isset($picture2->name)?$picture2->name:''?>" >
+                                                          <input type="hidden" id="id2_<?php echo $n2 ?>" name="id_pic" value="<?=isset($picture2->id)?$picture2->id:''?>">
+                                      
                                                   </span>
                                               </td>
                                           
                                               <td>
-                                                      <button class="btn btn-danger remove_uploded" >
+                                                      <a href="" id="de" onclick="delImage('#id2_<?php echo $n2; ?>','#name2_<?php echo $n2;  ?>','article')" class="btn btn-danger remove_uploded" >
                                                           <i class="glyphicon glyphicon-trash"></i>
                                                           <span>Delete</span>
-                                                      </button>
+                                                      </a>
                                               </td>
                                             </tr>
 
                                     <?php 
-                                          } 
+                                          }
+                                          $n2++; 
                                         } 
 
                                     ?>
@@ -330,7 +341,7 @@
                           <div class="form-group">
                             <label class="form-label">Content 3 (Tiga)</label>                       
                             <div class="controls">
-                              <textarea id="summernote3" required name="content_3" placeholder="Enter text ..." class="form-control" rows="10"><?php if(isset($data)){ echo $data->content_3; } ?></textarea>
+                              <textarea id="summernote3" name="content_3" placeholder="Enter text ..." class="form-control" rows="10"><?php if(isset($data)){ echo $data->content_3; } ?></textarea>
                             </div>
                           </div>
                           <div class="form-group">
@@ -527,7 +538,7 @@
 
       // Initialize the jQuery File Upload widget:
     $('.fileupload').each(function () {
-      console.log($(this));
+      // console.log($(this));
         $(this).fileupload({
             dropZone: $(this)
         });

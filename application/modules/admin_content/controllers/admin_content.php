@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
 
-class admin_content extends DC_controller {
+class Admin_content extends DC_Controller {
 
 	function __construct() {
 		parent::__construct();
@@ -819,6 +819,7 @@ class admin_content extends DC_controller {
         $insert['is_trash']= 0;
         $insert['date_created']= date("Y-m-d H:i:s");
         $insert['id_creator']=$this->session->userdata['admin']['id'];
+        // debugCode($insert);
         $query=insert_all($this->tbl_content,$insert);
         // debugCode($query->id);
         $images = $this->SetPictures();
@@ -860,9 +861,11 @@ class admin_content extends DC_controller {
             $update[$field] = $this->input->post($field);
         }
 
+        // debugCode($update);
         $update['date_modified']= date("Y-m-d H:i:s");
         $update['id_modifier']=$this->session->userdata['admin']['id'];
         $query=update($this->tbl_content,$update,'id',$id);
+        $images = $this->SetPictures();
 		if($query){
 
 			//INSERT IMAGE
@@ -875,6 +878,7 @@ class admin_content extends DC_controller {
 	            		'posisi_gambar' => $value['posisi_gambar'],
 	            		'counter' => $p,
 	            	);
+	            	// debugCode($this->data1);
 	            	$this->db->insert($this->tbl_picture,$this->data1);
 	            	$p++;
 	            }
@@ -920,11 +924,14 @@ class admin_content extends DC_controller {
 		$data['function']='cerlang';
 		if ($id) {
             $data['data'] = select_where($this->tbl_content, 'id', $id)->row();
-            $data['listpicture'] = select_where($this->tbl_picture, 'id_content', $id)->result();
+            $data['kategori']=select_where($this->tbl_category_cerlang,'id',$data['data']->category_cerlang)->result();
+            $data['picture'] = select_multiwhere($this->tbl_picture, 'id_content', $id, 'posisi_gambar', '1')->row();
+            $data['picture2'] = select_multiwhere($this->tbl_picture, 'id_content', $id, 'posisi_gambar', '2')->row();;
         }
         else{
             $data['data'] = null;
             $data['picture'] = null;
+            $data['picture2'] = null;
             $data['kategori']=select_all($this->tbl_category_cerlang);
         }
 
@@ -954,42 +961,37 @@ class admin_content extends DC_controller {
   		
         $ps=1;
         $img = array();
-        for($i=0; $i <= count($_FILES['images']['name']); $i++) {
+        for($i=1; $i <= 2; $i++) {
         	
-        	//debugCode($_FILES['images']['name'][$i]);
-        	if(empty($_FILES['images']['name'][$i])){
+        	// debugCode($_FILES['images_'.$i]['name']);
+        	if(empty($_FILES['images_'.$i]['name'])){
 	        	$img['name']=='';
 	        	
 	        }else{
-	        	 $img['name']=$_FILES['images']['name'][$i];
+	        	 $img['name']=$_FILES['images_'.$i]['name'];
 	        	
 	        }
 	        // debugCode($ps);
 	        $img['posisi_gambar'] = $ps;
 	        $img['id_content'] = $query->id;
-	        
+	        if(!empty($_FILES['images_'.$i]['name'])){
+				if (!file_exists('assets/uploads/cerlang/'.$query->id)) {
+						mkdir('assets/uploads/cerlang/'.$query->id, 0777, true);
+				}
+				 $config['upload_path'] = 'assets/uploads/cerlang/'.$query->id;
+			     $config['allowed_types'] = 'jpg|jpeg|png|gif';
+			     $config['file_name'] = $_FILES['images_'.$i]['name'];
+			     $this->upload->initialize($config);
+			     if($this->upload->do_upload('images_'.$i)){
+			            $uploadData = $this->upload->data();
+			        }else{
+			            echo"error upload";
+			            die();
+			      }
+			}
+
 
        		 $save_img=insert_all($this->tbl_picture,$img);
-
-       		if($save_img){
-				// if(!empty($_FILES['images']['name'][$i])){
-				// 	if (!file_exists('assets/uploads/cerlang/'.$query->id)) {
-				// 			mkdir('assets/uploads/cerlang/'.$query->id, 0777, true);
-				// 	}
-				// 	 $config['upload_path'] = 'assets/uploads/cerlang/'.$query->id;
-				//      $config['allowed_types'] = 'jpg|jpeg|png|gif';
-				//      $config['file_name'] = $_FILES['images']['name'][$i];
-				//      $this->upload->initialize($config);
-				//      if($this->upload->do_upload('images')){
-				//             $uploadData = $this->upload->data();
-				//         }else{
-				//             echo"error upload";
-				//             die();
-				//       }
-				// }
-
-		       
-	        }
 	        $ps++;
 		}
 
@@ -1197,6 +1199,32 @@ class admin_content extends DC_controller {
             //here you will need to decide what you want to show for a successful delete        
             $file_data['delete_data'] = $file;
         }
+    }
+
+    function delete_picture($val,$file){
+    	$ex = explode("-", $val);
+    	$folder =  $ex[0];
+    	$id =  $ex[1];
+    	$query=delete($this->tbl_picture,'id',$id);
+    	//debugCode($id);
+    	if($query){
+    		$success = unlink(FCPATH . 'assets/uploads/'.$folder.'/' . $file);
+	        $success = unlink(FCPATH . 'assets/uploads/'.$folder.'/thumbs/' . $file);
+	        //info to see if it is doing what it is supposed to
+	    	$info = new StdClass;
+	        $info->sucess = $success;
+	        $info->path = base_url() . 'assets/uploads/'.$folder.'/' . $file;
+	        $info->file = is_file(FCPATH . 'assets/uploads/' . $folder. '/'. $file);
+
+	        if ($this->input->is_ajax_request()) {
+	            //I don't think it matters if this is set but good for error checking in the console/firebug
+	            echo json_encode(array($info));
+	        } else {
+	            //here you will need to decide what you want to show for a successful delete        
+	            $file_data['delete_data'] = $file;
+	        }
+    	}
+    	
     }
 
 

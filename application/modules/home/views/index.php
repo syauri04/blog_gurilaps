@@ -19,26 +19,26 @@
                                 These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
                             </p>
                             <div class="button">
-                                    <a href="<?php echo base_url()."direct"; ?>" class="button-gurilaps">LIHAT SEMUA</a>
+                                    <a href="<?php echo base_url() ?>direct" class="button-gurilaps">LIHAT SEMUA</a>
                             </div>
                         </div>
                     </div>
                     <div class="home-galeri-wisata">
                         <div class="image-gw">
-                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/sukabumi.jpg"></a>
-                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><div class="image-gw-title"> Kabupaten Sukabumi</div></a>
+                            <a href="<?php echo base_url() ?>direct/regencies/1"><img src="<?php echo base_url(); ?>assets/theme/img/sukabumi.jpg"></a>
+                            <a href="<?php echo base_url() ?>direct/regencies/1"><div class="image-gw-title"> Kabupaten Sukabumi</div></a>
                         </div>
                         <div class="image-gw">
-                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/bogor.jpg">
-                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><div class="image-gw-title"> Kabupaten Bogor</div></a>
+                            <a href="<?php echo base_url() ?>direct/regencies/1"><img src="<?php echo base_url(); ?>assets/theme/img/bogor.jpg">
+                            <a href="<?php echo base_url() ?>direct/regencies/1"><div class="image-gw-title"> Kabupaten Bogor</div></a>
                         </div>
                         <div class="image-gw">
-                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/bandung.jpg">
-                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><div class="image-gw-title"> Kabupaten Bandung</div></a>
+                            <a href="<?php echo base_url() ?>direct/regencies/1"><img src="<?php echo base_url(); ?>assets/theme/img/bandung.jpg">
+                            <a href="<?php echo base_url() ?>direct/regencies/1"><div class="image-gw-title"> Kabupaten Bandung</div></a>
                         </div>
                         <div class="image-gw">
-                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/cianjur.jpg">
-                            <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>"><div class="image-gw-title"> Kabupaten Cianjur</div></a>
+                            <a href="<?php echo base_url() ?>direct/regencies/1"><img src="<?php echo base_url(); ?>assets/theme/img/cianjur.jpg">
+                            <a href="<?php echo base_url() ?>direct/regencies/1"><div class="image-gw-title"> Kabupaten Cianjur</div></a>
                         </div>
                     
                         
@@ -123,8 +123,8 @@
                     </div>
                     <div class="widget">
                         <div class="cols-article">
-                            <a href="<?php echo base_url()."article/detail/1/"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/article1.jpg"></a>
-                            <div class="cols-sum-title"><a href="<?php echo base_url()."article/detail/1/"; ?>"> <p>Wisata Laut di Jawa Barat</p></a></div>
+                            <a href="<?php echo base_url() ?>article/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/article1.jpg"></a>
+                            <div class="cols-sum-title"><a href="<?php echo base_url() ?>article/detail/1"> <p>Wisata Laut di Jawa Barat</p></a></div>
                             <div class="cols-sum-desc"> 
                                 <p> 
                                     Wilayah Jawa Barat memang terkenal dengan keindahan alamnya yang jarang dimiliki wilayah di Indonesia.
@@ -132,8 +132,8 @@
                             </div>
                         </div>
                         <div class="cols-article fr">
-                            <a href="<?php echo base_url()."article/detail/1/"; ?>"><img src="<?php echo base_url(); ?>assets/theme/img/artikel-2@2x.jpg"></a>
-                            <div class="cols-sum-title"><a href="<?php echo base_url()."article/detail/1/"; ?>"><p> Air Mancur di Jawa Barat ini Terbesar di ASEAN </p></a></div>
+                            <a href="<?php echo base_url() ?>article/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/artikel-2@2x.jpg"></a>
+                            <div class="cols-sum-title"><a href="<?php echo base_url() ?>article/detail/1"><p> Air Mancur di Jawa Barat ini Terbesar di ASEAN </p></a></div>
                             <div class="cols-sum-desc"> 
                                 <p> 
                                     Wilayah Jawa Barat memang terkenal dengan keindahan alamnya yang jarang dimiliki wilayah di Indonesia.
@@ -212,7 +212,7 @@
 
                             </p>
                             <div class="button">
-                                    <a href="<?php echo base_url()."agenda"; ?>" class="button-gurilaps white">SEMUA AGENDA</a>
+                                    <a href="<?php echo base_url() ?>agenda" class="button-gurilaps white">SEMUA AGENDA</a>
                             </div>
                         </div>
                     
@@ -225,7 +225,7 @@
                                 </div>
                                 <div class="summary-ag">
                                     <div class="list-top-title">
-                                        <a href="<?php echo base_url()."agenda/detail/1/"; ?>"><p>Jelajah Kota di Jawa Barat</p></a>
+                                        <a href="<?php echo base_url() ?>agenda/detail/1"><p>Jelajah Kota di Jawa Barat</p></a>
                                     </div>
                                     <div class="list-top-sum">
                                         <p>These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
@@ -246,9 +246,11 @@
                             <div class="list-ag">
                                 <div class="list-ag-head">
                                     <div class="list-ag-cat">
-                                        <a href="<?php echo base_url()."agenda/detail/1/"; ?>"><p>
-                                            Wisata
-                                        </p></a>
+                                        <a href="<?php echo base_url() ?>agenda/detail/1">
+                                            <p>
+                                                Wisata
+                                            </p>
+                                        </a>
                                     </div>
                                     <div class="list-ag-date">
                                         <p>
@@ -264,9 +266,11 @@
 
                                 <div class="list-ag-head">
                                     <div class="list-ag-cat">
-                                        <a href="<?php echo base_url()."agenda/detail/1/"; ?>"><p>
+                                        <a href="<?php echo base_url() ?>agenda/detail/1">
+                                        <p>
                                             Liburan
-                                        </p></a>
+                                        </p>
+                                        </a>
                                     </div>
                                     <div class="list-ag-date">
                                         <p>
@@ -308,7 +312,7 @@
                     
                         <div class="cerlang-box">
                                 <div class="bgbox3">
-                                    <img src="<?php echo base_url(); ?>assets/theme/img/cerlang/pameran_icon.png">
+                                    <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-pameran@2x.png">
                                     <p>PAMERAN</p>
                                 </div>
                         </div>

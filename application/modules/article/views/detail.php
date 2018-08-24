@@ -106,7 +106,7 @@
                     <div class="widget">
                         <div class="cols">
                             <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/piramida.jpg"></a>
-                            <div class="cols-sum">
+                            <div class="cols-s um">
                                 <div class="title-content"><a href="">Menapaki  Piramida Penuh Misteri</a></div>
                                 
                                 <div class="summary-content-blog">
@@ -134,7 +134,7 @@
                                         Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
                                     </p>
                                 </div>
-                                <div class="rating kanan">
+                                <div class="rating ">
                                         <span class="star"></span>    
                                         <span class="star"></span>    
                                         <span class="star"></span>    

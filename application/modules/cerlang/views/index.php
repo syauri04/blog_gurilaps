@@ -43,7 +43,7 @@
                         </div>
                         <div class="kanan">
 
-                           <!--  <ul>
+                            <ul>
                                 <li>Category</li>
                                 <li>
                                     <select class="sort-article">
@@ -55,7 +55,7 @@
 
                                     </select>
                                 </li>
-                            </ul> -->
+                            </ul>
                             
                             
                         </div>
@@ -65,7 +65,7 @@
 
                     <div class="widget2">
                         <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy7.png">
+                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy7.png"></a>
                             <div class="cols-sum-whitout-box-shadow">
                                 <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah Rimba</a></div>
                                 
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="summary-content-blog">
                                     <p>
-                                        <br><br>Bogor (Sundanese: ᮘᮧᮌᮧᮁ, Dutch: Buitenzorg) is a city in the West Java province, Indonesia. Located around 60 kilometers (37 mi) south from the national capital of Jakarta, Bogor is the 6th largest city of Jabodetabek (Jakarta metropolitan region) and the 14th nationwide.
+                                        Bogor (Sundanese: ᮘᮧᮌᮧᮁ, Dutch: Buitenzorg) is a city in the West Java province, Indonesia. Located around 60 kilometers (37 mi) south from the national capital of Jakarta, Bogor is the 6th largest city of Jabodetabek (Jakarta metropolitan region) and the 14th nationwide.
                                     </p>
                                 </div>
                                 
@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy5.png">
+                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy5.png"></a>
                             <div class="cols-sum-whitout-box-shadow">
                                 <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah di Laut Jawa Barat</a></div>
                                 <div class="summary-content-blog">
@@ -98,7 +98,7 @@
                         </div>
 
                         <div class="cols2 mrnone">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy6.png">
+                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy6.png"></a>
                             <div class="cols-sum-whitout-box-shadow">
                                 <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Wisata Sehari di Bogor</a></div>
                                 <div class="summary-content-blog">
@@ -132,7 +132,7 @@
 
                     <div class="widget2">
                         <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/kuliner3.png">
+                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/kuliner3.png"></a>
                             <div class="cols-sum-whitout-box-shadow">
                                 <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah Pantai di Pesisir Jawa Barat</a></div>
                                 
@@ -149,7 +149,7 @@
                         </div>
 
                         <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/kuliner2.png">
+                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/kuliner2.png"></a>
                             <div class="cols-sum-whitout-box-shadow">
                                 <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah di Laut Jawa Barat</a></div>
                                 <div class="summary-content-blog">
@@ -165,9 +165,9 @@
                         </div>
 
                         <div class="cols2 mrnone">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/kuliner1.png">
+                            <a href="cerlang_detail.html"><img src="<?php echo base_url(); ?>assets/theme/img/kuliner1.png"></a>
                             <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Wisata Sehari di Bogor</a></div>
+                                <div class="title-content"><a href="cerlang_detail.html">Wisata Sehari di Bogor</a></div>
                                 <div class="summary-content-blog">
                                     <a href="#"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;22 JULI 2018</p></h4></a>
                                 </div>
@@ -198,9 +198,9 @@
 
                     <div class="widget2">
                         <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy4.png">
+                            <a href="cerlang_detail.html"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy4.png"></a>
                             <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah Pantai di Pesisir Jawa Barat</a></div>
+                                <div class="title-content"><a href="cerlang_detail.html">Jelajah Pantai di Pesisir Jawa Barat</a></div>
                                 
                                 <div class="summary-content-blog">
                                     <a href="#"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;25 JULI 2018</p></h4></a>
@@ -215,9 +215,9 @@
                         </div>
 
                         <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy8.png">
+                            <a href="cerlang_detail.html"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy8.png"></a>
                             <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah di Laut Jawa Barat</a></div>
+                                <div class="title-content"><a href="cerlang_detail.html">Jelajah di Laut Jawa Barat</a></div>
                                 <div class="summary-content-blog">
                                     <a href="#"><h4><p style="color: #FF681A">ARTIKEL </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;23 JULI 2018</p></h4></a>
                                 </div>
@@ -231,9 +231,9 @@
                         </div>
 
                         <div class="cols2 mrnone">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy9.png">
+                            <a href="cerlang_detail.html"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy9.png"></a>
                             <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Wisata Sehari di Bogor</a></div>
+                                <div class="title-content"><a href="cerlang_detail.html">Wisata Sehari di Bogor</a></div>
                                 <div class="summary-content-blog">
                                     <a href="#"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;22 JULI 2018</p></h4></a>
                                 </div>
