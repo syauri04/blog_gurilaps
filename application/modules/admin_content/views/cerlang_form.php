@@ -103,8 +103,8 @@
                 <label class="form-label">Status</label>
                 <div class="controls">
                   <select class="form-control" name="status">
-                    <option value="0">Draft</option>
-                    <option value="1">Publish</option>
+                  <option value="1" <?php echo ((!empty($data)) && ($data->status == 1)) ? " selected='selected' " : "";?>>Publish</option>
+                  <option value="0" <?php echo ((!empty($data)) && ($data->status == 0)) ? " selected='selected' " : "";?>>Draft</option>
                    
                   </select>
                 </div>

@@ -54,7 +54,7 @@
                                   <td>
                                       <span class="preview">
                                               <img src="<?=isset($picture->name)?base_url().'assets/uploads/agenda/thumbs/'.$picture->name:'' ?>">
-                                              <input type="hidden" id="name_<?php echo $n; ?>" name="img_name[]" value="<?=isset($picture->name)?$picture->name:''?>" >
+                                              <input type="hidden" id="name_<?php echo $n; ?>" name="" value="<?=isset($picture->name)?$picture->name:''?>" >
                                               <input type="hidden" id="id_<?php echo $n ?>" name="id_pic" value="<?=isset($picture->id)?$picture->id:''?>">
                                       
                                       </span>
@@ -215,7 +215,7 @@
                  <label class="form-label">Lokasi Acara</label> <br>
                   <input type="text" readonly="readonly"  placeholder="Latitude" id="lat" name="lat_map" value="<?php if(isset($data)){ echo $data->lat_map; } ?>">
                   <input type="text" readonly="readonly"  placeholder="langtitude" id="lang" name="long_map" value="<?php if(isset($data)){ echo $data->long_map; } ?>">
-                  <input type="text" readonly="readonly"  placeholder="Location" id="loc" name="location">  value="<?php if(isset($data)){ echo $data->location; } ?>">
+                  <input type="text" readonly="readonly"  placeholder="Location" id="loc" name="location"  value="<?php if(isset($data)){ echo $data->location; } ?>">
                  
                  <div class="controls">
                     <label> *Search Location & Click Area on Map</label>
@@ -259,8 +259,8 @@
                 <label class="form-label">Status</label>
                 <div class="controls">
                   <select class="form-control" name="status">
-                    <option value="0">Draft</option>
-                    <option value="1">Publish</option>
+                   <option value="1" <?php echo ((!empty($data)) && ($data->status == 1)) ? " selected='selected' " : "";?>>Publish</option>
+                    <option value="0" <?php echo ((!empty($data)) && ($data->status == 0)) ? " selected='selected' " : "";?>>Draft</option>
                    
                   </select>
                 </div>

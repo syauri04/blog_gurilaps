@@ -25,32 +25,23 @@ class Article extends DC_Controller {
           $data['meta_keywords'] ='Gurialps';
           $data['meta_site_name'] ='blog.gruilaps.com';
           $data['meta_image']='blog.gruilaps.com';
-        
-        
-        
 
-      
-
-      //   $data['galeryImager']=$galeryImage;
-      //   $data['newsslide']=$newsslide;
-            $data['banner']=select_all($this->tbl_banner);
-            $data['news']=select_all($this->tbl_news);
-
-      //   $data['pagetabJual'] = $this->load->view('home/unitjual',$data,true);
-      //   $data['pagetabsewa'] = $this->load->view('home/unitsewa',$data,true);
-      //   $data['pagetabpopuler'] = $this->load->view('home/unitpopuler',$data,true);
-      //   $data['pagenews'] = $this->load->view('home/newsslide',$data,true);
-     	// $data['pagegaleryImage'] = $this->load->view('home/galeryImage',$data,true);
+       	$data['article']=select_where_content($this->tbl_content,"type_menu","article","");
+       	 // debugCode($data['article']);
      	$data['page'] = $this->load->view('article/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
 
 
 
-	function detail(){
+	function detail($id){
 		$data = $this->controller_attr;
 		$data['function']='home';
-
+		$data['article']=select_where($this->tbl_content,"id", $id)->row();
+		$data['pic_header']=select_multiwhere($this->tbl_picture, 'id_content', $data['article']->id,'posisi_gambar', '1')->row();
+		$data['listpicture'] = select_multiwhere_limit($this->tbl_picture, 'id_content', $data['article']->id,'posisi_gambar', '2','4')->result();
+		$data['category']=select_all($this->tbl_category);
+		// debugCode($data['category']);
 		$data['page'] = $this->load->view('article/detail',$data,true);
 	
 		$this->load->view('layout_frontend',$data);

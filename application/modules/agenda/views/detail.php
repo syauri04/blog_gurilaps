@@ -1,44 +1,34 @@
+<style type="text/css">
+     #map{ height: 400px; margin-top: 30px; }
+</style>
 <div class="sec-container">
                     <div class="breadcumb-menu">
-                        <p>Semua Agenda > <span>Pameran Fotografi Jelajah Rimba Jawa Barat</span> </p> 
+                        <p>Semua Agenda > <span><?php echo $agenda->title; ?></span> </p> 
                     </div>  
                     <div class="side-left">
                         <div class="image-detail">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/dir-6@2x.jpg">
+                            <img src="<?php echo base_url(); ?>assets/uploads/agenda/<?php echo $picture->name; ?>">
                         </div>
                         <div class="title-dsc-blog">
                             <p>Description</p>
                         </div>
                         <div class="desc-blog">
                             <p>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed neque lorem. Donec hendrerit facilisis gravida. Praesent eget scelerisque nisl. Ut in diam massa. Nunc placerat fermentum ligula. Duis at fringilla nisl, id auctor urna. Aenean facilisis nunc sed neque fringilla porttitor a sed quam. Fusce blandit, eros in placerat aliquam, lacus tellus consequat lacus, sit amet ultrices quam odio sit amet magna.
-
-Sed vehicula sem vitae erat cursus condimentum. Sed efficitur enim sit amet arcu accumsan porttitor. Etiam eu metus ipsum. Integer sem nulla, auctor non felis id, elementum euismod eros. Cras ut dui tincidunt, maximus lorem sit amet, consectetur erat. Mauris luctus diam ac ex sagittis euismod. Ut id risus sed tortor sodales suscipit ut rutrum nibh. Nullam sit amet tellus dignissim, bibendum nunc non, lacinia dui. Etiam aliquam sed purus ac dignissim. Donec mattis fringilla rutrum.
-
-Etiam sed leo eu magna dapibus consequat dignissim sit amet turpis. 
-                            <br><br>
-                            Nam ultricies eros et varius pretium. Proin in quam diam. Fusce suscipit, metus vitae mattis porta, nisi ex vehicula ante, eget viverra nibh metus at ipsum. 
-                            <br><br>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed neque lorem. Donec hendrerit facilisis gravida. Praesent eget scelerisque nisl. Ut in diam massa. Nunc placerat fermentum ligula. Duis at fringilla nisl, id auctor urna. Aenean facilisis nunc sed neque fringilla porttitor a sed quam. Fusce blandit, eros in placerat aliquam, lacus tellus consequat lacus, sit amet ultrices quam odio sit amet magna.
-
-Sed vehicula sem vitae erat cursus condimentum. Sed efficitur enim sit amet arcu accumsan porttitor.
+                            <?php echo $agenda->content_1; ?>
                             </p>
                         </div>
                     </div>
                     <div class="side-right">
                         <div class="box-right">
                             <div class="title-blog">
-                                <p>Pameran Fotografi Jelajah Rimba Jawa Barat</p>
+                                <p> <?php echo $agenda->title; ?></p>
                             </div>
                             <div class="tag-gratis">
                                 <p>GRATIS</p>
                             </div>
                             <div class="txt-blog">
                                 <p>
-                                These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
-                                These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.
-                                
+                                <?php echo $agenda->summary; ?>
                                 </p>
                             </div>
 
@@ -46,16 +36,21 @@ Sed vehicula sem vitae erat cursus condimentum. Sed efficitur enim sit amet arcu
                                 <div class="info-agenda">
                                     <div class="date-agenda">
                                         <h5>Date</h5>
-                                        <p>Rabu, 1 Agustus 2018</p>
-                                        <p>10:00 - 21:00 WIB</p>
+                                        <p><?php echo indonesian_date($agenda->date_start,"l, j F Y"); ?></p>
+                                        <p><?php echo ftime($agenda->time_start); ?> - <?php echo ftime($agenda->time_end); ?> WIB</p>
                                     </div>
                                     <div class="date-agenda">
                                         <h5>Location</h5>
-                                        <p>Hotel Bintang Lima</p>
-                                        <p>Bogor, Jawa Barat</p>
+                                       
+                                        <p><?php echo $agenda->location; ?></p>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="title-map">
+                                <p> Maps</p>
+                            </div>
+                            <div id="map"></div>
                         </div>
                     </div>
                     <div class="clear-float"></div>
@@ -78,3 +73,39 @@ Sed vehicula sem vitae erat cursus condimentum. Sed efficitur enim sit amet arcu
                     
                     </div>
                 </section>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj5rowk-iF4lQnu6R5p6AosQ6eoWevlkQ&callback=initMap" async defer></script> -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj5rowk-iF4lQnu6R5p6AosQ6eoWevlkQ&libraries=places&callback=initMap"></script>
+
+
+<script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: <?php echo $agenda->lat_map; ?>, lng: <?php echo $agenda->long_map; ?>},
+          zoom: 15
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+
+        service.getDetails({
+          placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+        }, function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            var marker = new google.maps.Marker({
+              map: map,
+              position: place.geometry.location
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                'Place ID: ' + place.place_id + '<br>' +
+                place.formatted_address + '</div>');
+              infowindow.open(map, this);
+            });
+          }
+        });
+      }
+</script>

@@ -95,6 +95,9 @@ class Admin_content extends DC_Controller {
 		$table_field = $this->db->list_fields($this->tbl_content);
 		$static=select_where($this->tbl_content,'id',$id)->row();
 		$update = array();
+
+		$get_pic = select_multiwhere($this->tbl_picture,'id_content',$id, 'posisi_gambar', '1')->row();
+		// debugCode($get_pic);
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
         }
@@ -103,11 +106,11 @@ class Admin_content extends DC_Controller {
         $update['id_modifier']=$this->session->userdata['admin']['id'];
         $query=update($this->tbl_content,$update,'id',$id);
         // debugCode($id);
-        $get_pic = select_multiwhere($this->tbl_picture,'id_content',$id, 'posisi_gambar', '1')->row();
+      
         if(empty($_FILES['images']['name'])){
-        	$img['images']=$get_pic->name;
+        	$img['name']=$get_pic->name;
         }else{
-        	 $img['images']=$_FILES['images']['name'];
+        	 $img['name']=$_FILES['images']['name'];
         }
 
       
@@ -128,11 +131,14 @@ class Admin_content extends DC_Controller {
 	                    echo"error upload";
 	                    die();
 	            }
+	            
+	            update($this->tbl_picture,$img,'id', $get_pic->id);
+
 	        }
 
 			$images = $this->SetPictures();
 			$images2 = $this->SetPictures2();
-			//INSERT IMAGE
+			// debugCode($images2);
 			if(count($images) >0 ){
 				$p = 1;
 	            foreach ($images as $key => $value) {
@@ -462,11 +468,12 @@ class Admin_content extends DC_Controller {
         $insert['id_creator']=$this->session->userdata['admin']['id'];        
         $query=insert_all($this->tbl_regencies,$insert);
 		if($query){
+
 			if(!empty($_FILES['images']['name'])){
-			if (!file_exists('assets/uploads/kabupaten/'.$this->db->insert_id())) {
-    				mkdir('assets/uploads/kabupaten/'.$this->db->insert_id(), 0777, true);
+			if (!file_exists('assets/uploads/kabupaten/'.$query->id)) {
+    				mkdir('assets/uploads/kabupaten/'.$query->id, 0777, true);
 			 }
-        	 $config['upload_path'] = 'assets/uploads/kabupaten/'.$this->db->insert_id();
+        	 $config['upload_path'] = 'assets/uploads/kabupaten/'.$query->id;
              $config['allowed_types'] = 'jpg|jpeg|png|gif';
              $config['file_name'] = $_FILES['images']['name'];
              $this->upload->initialize($config);
@@ -866,6 +873,7 @@ class Admin_content extends DC_Controller {
         $update['id_modifier']=$this->session->userdata['admin']['id'];
         $query=update($this->tbl_content,$update,'id',$id);
         $images = $this->SetPictures();
+        // debugCode($images);
 		if($query){
 
 			//INSERT IMAGE
@@ -1023,22 +1031,50 @@ class Admin_content extends DC_Controller {
         $update['date_modified']= date("Y-m-d H:i:s");
         $update['id_modifier']=$this->session->userdata['admin']['id'];
         $query=update($this->tbl_content,$update,'id',$id);
+
+        $ps=1;
+        $img = array();
+        for($i=1; $i <= 2; $i++) {
+        	$get_pic = select_multiwhere($this->tbl_picture, 'id_content', $id,'posisi_gambar', $i)->row();
+        	
+        	// debugCode($_FILES['images_'.$i]['name']);
+        	if(empty($_FILES['images_'.$i]['name'])){
+	        	$img['name']=$get_pic->name;
+	        
+	        }else{
+	        	 $img['name']=$_FILES['images_'.$i]['name'];
+	        	
+	        }
+
+	        // debugCode($img['name']);
+	        // debugCode($ps);
+	        // $img['posisi_gambar'] = $ps;
+	        // $img['id_content'] = $id;
+	        if(!empty($_FILES['images_'.$i]['name'])){
+	        	unlink('assets/uploads/cerlang/'.$id.'/'.$get_pic->name);
+				if (!file_exists('assets/uploads/cerlang/'.$id)) {
+						mkdir('assets/uploads/cerlang/'.$id, 0777, true);
+				}
+				 $config['upload_path'] = 'assets/uploads/cerlang/'.$id;
+			     $config['allowed_types'] = 'jpg|jpeg|png|gif';
+			     $config['file_name'] = $_FILES['images_'.$i]['name'];
+			     $this->upload->initialize($config);
+			     if($this->upload->do_upload('images_'.$i)){
+			            $uploadData = $this->upload->data();
+			        }else{
+			            echo"error upload";
+			            die();
+			      }
+			}
+
+
+       		 $save_img=update($this->tbl_picture, $img,'id', $get_pic->id);
+	        $ps++;
+		}
+
 		if($query){
 
-			//INSERT IMAGE
-			if(count($images) >0 ){
-				$p = 1;
-	            foreach ($images as $key => $value) {
-	            	$this->data1 = array(
-	            		'id_content' => $id,
-	            		'name' => $value['name'],
-	            		'posisi_gambar' => $value['posisi_gambar'],
-	            		'counter' => $p,
-	            	);
-	            	$this->db->insert($this->tbl_picture,$this->data1);
-	            	$p++;
-	            }
-	        }    
+			   
 			
 			$this->session->set_flashdata('notif','success');
 			$this->session->set_flashdata('msg','Your data have been updated');

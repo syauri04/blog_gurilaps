@@ -22,7 +22,7 @@
                         </div>
                         <div class="kanan">
 
-                            <ul>
+                            <!-- <ul>
                                 <li>Category</li>
                                 <li>
                                     <select class="sort-article">
@@ -34,7 +34,9 @@
 
                                     </select>
                                 </li>
-                            </ul>
+                            </ul> -->
+
+                            
                             <!-- <div class="custom-select" style="width:160px; height: 50px;">
                                 <select>
                                     <option value="0">Semua:</option>
@@ -55,122 +57,46 @@
                     </div>
 
                     <div class="widget2">
-                        <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/img-1@2x.jpg">
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>article/detail/1">Jelajah Rimba</a></div>
-                                
-                                <div class="summary-content-blog">
-                                    <a href="article_detail"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;29 JULI 2018</p></h4></a>
+                        <?php
+                            if (count($article) > 0) {
+                                foreach ($article as $key => $value) {
+                                    // debugCode($value);
+                                    $pic1 = get_pic_1($value->id);
+                        ?>
+                                <div class="cols2">
+                                    <img src="<?php echo base_url(); ?>assets/uploads/article/<?php echo $value->id ; ?>/<?php echo $pic1->name; ?>">
+                                    <div class="cols-sum-whitout-box-shadow">
+                                        <div class="title-content"><a href="<?php echo base_url(); ?>article/detail/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></div>
+                                        
+                                        <div class="summary-content-blog">
+                                            <a href=""><h4><p style="color: #FF681A"><?php echo strtoupper(get_title($value->category, $this->tbl_category)); ?> </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;<?php echo indonesian_date($value->date_created,"j F Y"); ?></p></h4></a>
+                                        </div>
+                                        <div class="summary-content-blog">
+                                            <p>
+                                                <br><br>
+                                                <?php echo $value->summary; ?>
+                                            </p>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>Bogor (Sundanese: ᮘᮧᮌᮧᮁ, Dutch: Buitenzorg) is a city in the West Java province, Indonesia. Located around 60 kilometers (37 mi) south from the national capital of Jakarta, Bogor is the 6th largest city of Jabodetabek (Jakarta metropolitan region) and the 14th nationwide.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/img-2@2x.jpg">
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>article/detail/1">Jelajah di Laut Jawa Barat</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">ARTIKEL </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;28 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>The city covers an area of 118.5 km2, and it had a population of 950,334 at the 2010 Census; the latest official estimate (as at January 2014) was 1,030,720. Bogor is an important economic, scientific, cultural and tourist center, as well as a mountain resort.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2 mrnone">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/img-3@2x.jpg">
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>article/detail/1">Wisata Sehari di Bogor</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">EVENT </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;27 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>Bogor is an important economic, scientific, cultural and tourist 
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-
-
-                        <div class="clear-float"></div>
-                    </div>
-                </section>
-
-                <section class="sec-blog">
-                    
-
-                    <div class="widget2">
-                        <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/img-4@2x.jpg">
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>article/detail/1">Jelajah Pantai di Pesisir Jawa Barat</a></div>
-                                
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;25 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>Bogor (Sundanese: ᮘᮧᮌᮧᮁ, Dutch: Buitenzorg) is a city in the West Java province, Indonesia. Located around 60 kilometers (37 mi) south from the national capital of Jakarta, Bogor is the 6th largest city of Jabodetabek (Jakarta metropolitan region) and the 14th nationwide.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/img-2@2x.jpg">
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>article/detail/1">Jelajah di Laut Jawa Barat</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">ARTIKEL </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;23 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>The city covers an area of 118.5 km2, and it had a population of 950,334 at the 2010 Census; the latest official estimate (as at January 2014) was 1,030,720. Bogor is an important economic, scientific, cultural and tourist center, as well as a mountain resort.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2 mrnone">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/img-3@2x.jpg">
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>article/detail/1">Wisata Sehari di Bogor</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;22 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>Bogor is an important economic, scientific, cultural and tourist 
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
+                        <?php
+                                }
+                            }
+                        ?>
                         
 
+                       
+
+
                         <div class="clear-float"></div>
                     </div>
                 </section>
 
+               
+
 <!-- SECTION NAV NEXT & PREVIUS PAGE -->
-                <section class="sec-nav-page">
+               <!--  <section class="sec-nav-page">
                     <div class="pagination">
                           <a href="#">&#8592;</a>
                           <a href="#"  class="active">1</a>
@@ -181,7 +107,7 @@
                           <a href="#">6</a>
                           <a href="#">&#8594;</a>
                     </div>
-                </section>
+                </section> -->
 
             <section class="sec-blog-join">
                     <div class="join-text">

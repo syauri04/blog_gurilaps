@@ -1,102 +1,40 @@
 <section class="sec-container">
                     <div class="breadcumb">
-                        <h2>PAKET JELAJAH</h2>  
+                        <h2>List Agenda</h2>  
                     </div>
 
-                    <div class="widget mb80">
-                        <div class="cols-agenda">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/dir-6@2x.jpg">
-                        </div>
+                    <?php
+                        if (count($agenda) > 0) {
+                            foreach ($agenda as $key => $value) {
+                                $pic1 = get_pic_1($value->id);
+                    ?>
+                            <div class="widget mb80">
+                                <div class="cols-agenda">
+                                    <img src="<?php echo base_url(); ?>assets/uploads/agenda/<?php echo $pic1->name; ?>">
+                                </div>
 
-                        <div class="cols-agenda-text">
-                            <h2>Pameran Fotografi Hutan Rimba di Jawa Barat</h2>
-                            <span>17  Agustus 2018</span>
+                                <div class="cols-agenda-text">
+                                    <h2><?php echo $value->title; ?></h2>
+                                    <span><?php echo indonesian_date($value->date_start,"j F Y") ?></span>
 
-                            <p>There tours are made for lovers and groups alike,as well as offering customized tours and additional single accommodations. </p>
-                            <div class="button3">
-                                    <a href="<?php echo base_url(); ?>agenda/detail/1" class="button-daftar orange">LIHAT</a>
+                                    <p>
+                                        <?php echo $value->summary; ?>
+                                    </p>
+                                    <div class="button3">
+                                            <a href="<?php echo base_url(); ?>agenda/detail/<?php echo $value->id; ?>" class="button-daftar orange">LIHAT</a>
+                                    </div>
+                                </div>
+
+
+                                <div class="clear-float"></div>
                             </div>
-                        </div>
+                    <?php
+                            }
+                        }
+                    ?>
+                    
 
-
-                        <div class="clear-float"></div>
-                    </div>
-
-                    <div class="widget mb80">
-                        <div class="cols-agenda">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/dir-8@2x.jpg">
-                        </div>
-
-                        <div class="cols-agenda-text">
-                            <h2>Lomba Foto di Jawa Barat</h2>
-                            <span>17  Agustus 2018</span>
-
-                            <p>These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations. Kabupaten Bogor, Kabupaten Sukabumi, Kabupaten Cianjur, Kabupaten Bandung, Kabupaten Garut, Kota Bandung, Kota Sukabumi, Kota Bogor, Kota Cirebon, Kota Bekasi.</p>
-                            <div class="button3">
-                                    <a href="<?php echo base_url(); ?>agenda/detail/1" class="button-daftar orange">LIHAT</a>
-                            </div>
-                        </div>
-
-
-                        <div class="clear-float"></div>
-                    </div>
-
-                    <div class="widget mb80">
-                        <div class="cols-agenda">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/img-2@2x.jpg">
-                        </div>
-
-                        <div class="cols-agenda-text">
-                            <h2>Diskusi Pariwisata 2018</h2>
-                            <span>17  Agustus 2018</span>
-
-                            <p>Kabupaten Bogor, Kabupaten Sukabumi, Kabupaten Cianjur, Kabupaten Bandung, Kabupaten Garut, Kota Bandung, Kota Sukabumi, Kota Bogor, Kota Cirebon, Kota Bekasi. These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.  </p>
-                            <div class="button3">
-                                    <a href="<?php echo base_url(); ?>agenda/detail/1" class="button-daftar orange">LIHAT</a>
-                            </div>
-                        </div>
-
-
-                        <div class="clear-float"></div>
-                    </div>
-
-                    <div class="widget mb80">
-                        <div class="cols-agenda">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/dir-6@2x.jpg">
-                        </div>
-
-                        <div class="cols-agenda-text">
-                            <h2>Jelajah Rimba</h2>
-                            <span>17  Agustus 2018</span>
-
-                            <p>There tours are made for lovers and groups alike,as well as offering customized tours and additional single accommodations. </p>
-                            <div class="button3">
-                                    <a href="<?php echo base_url(); ?>agenda/detail/1" class="button-daftar orange">LIHAT</a>
-                            </div>
-                        </div>
-
-
-                        <div class="clear-float"></div>
-                    </div>
-
-                    <div class="widget mb80">
-                        <div class="cols-agenda">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/dir-8@2x.jpg">
-                        </div>
-
-                        <div class="cols-agenda-text">
-                            <h2>Wisata Pantai Gurilaps</h2>
-                            <span>17  Agustus 2018</span>
-
-                            <p>Kabupaten Bogor, Kabupaten Sukabumi, Kabupaten Cianjur, Kabupaten Bandung, Kabupaten Garut, Kota Bandung, Kota Sukabumi, Kota Bogor, Kota Cirebon, Kota Bekasi. These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations. </p>
-                            <div class="button3">
-                                    <a href="<?php echo base_url(); ?>agenda/detail/1" class="button-daftar orange">LIHAT</a>
-                            </div>
-                        </div>
-
-
-                        <div class="clear-float"></div>
-                    </div>
+                    
 
                 </section>
 

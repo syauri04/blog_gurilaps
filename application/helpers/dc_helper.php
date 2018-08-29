@@ -18,6 +18,91 @@ if( ! function_exists('dbClean')){
 	
 }
 
+function ftime($time){
+	$ft = explode(":", $time);
+
+	return $ft[0].":".$ft[1];
+}
+function nmloc($title){
+	$ft = explode(",", $title);
+
+	return ucwords($ft[0]);
+}
+
+function indonesian_date ($timestamp = '', $date_format = '', $suffix = 'WIB') {
+    if (trim ($timestamp) == '')
+    {
+            $timestamp = time ();
+    }
+    elseif (!ctype_digit ($timestamp))
+    {
+        $timestamp = strtotime ($timestamp);
+    }
+    # remove S (st,nd,rd,th) there are no such things in indonesia :p
+    $date_format = preg_replace ("/S/", "", $date_format);
+    $pattern = array (
+        '/Mon[^day]/','/Tue[^sday]/','/Wed[^nesday]/','/Thu[^rsday]/',
+        '/Fri[^day]/','/Sat[^urday]/','/Sun[^day]/','/Monday/','/Tuesday/',
+        '/Wednesday/','/Thursday/','/Friday/','/Saturday/','/Sunday/',
+        '/Jan[^uary]/','/Feb[^ruary]/','/Mar[^ch]/','/Apr[^il]/','/May/',
+        '/Jun[^e]/','/Jul[^y]/','/Aug[^ust]/','/Sep[^tember]/','/Oct[^ober]/',
+        '/Nov[^ember]/','/Dec[^ember]/','/January/','/February/','/March/',
+        '/April/','/June/','/July/','/August/','/September/','/October/',
+        '/November/','/December/',
+    );
+    $replace = array ( 'Sen','Sel','Rab','Kam','Jum','Sab','Min',
+        'Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu',
+        'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des',
+        'Januari','Februari','Maret','April','Juni','Juli','Agustus','Sepember',
+        'Oktober','November','Desember',
+    );
+    $date = date ($date_format, $timestamp);
+    $date = preg_replace ($pattern, $replace, $date);
+    $date = "{$date} ";
+    return $date;
+}
+
+function limite_character($x, $length)
+{
+  if(strlen($x)<=$length)
+  {
+    echo $x;
+  }
+  else
+  {
+    $y=substr($x,0,$length) . '...';
+    echo $y;
+  }
+}
+
+function get_pic_1($id){
+	$get=select_multiwhere("dc_picture", 'id_content', $id,'posisi_gambar', '1')->row();
+
+	return $get;
+}
+function get_pic_2($id){
+	$get=select_multiwhere("dc_picture", 'id_content', $id,'posisi_gambar', '2')->row();
+
+	return $get;
+}
+
+function direktori_kota($table, $idprov, $limit){
+		$ci=& get_instance();
+		$ci->load->database('default',TRUE);
+		$ci->db->select('*');
+		$ci->db->from($table);
+		$ci->db->where("fprovinceid",$idprov);
+		$ci->db->where("image !=",NULL);
+		$ci->db->order_by('fcityid', 'RANDOM');
+		if($limit != ""){
+			// debugCode($limit);
+		$ci->db->limit($limit);
+		}
+		$data = $ci->db->get()->result();
+		return $data;
+	}
+
+
 function get_title($id,$table){
 		$CI =& get_instance();
    		$CI->load->database(); 
@@ -107,16 +192,79 @@ function get_client_ip_server() {
 		$data = $ci->db->get();
 		return $data->result();
 	}
+	function select_all_content($table){
+		$ci=& get_instance();
+		$ci->load->database('default',TRUE);
+		$ci->db->select('*');
+		$ci->db->from($table);
+		$ci->db->where("status",1);
+		$data = $ci->db->get();
+		return $data->result();
+	}
 	function select_where($table,$column,$where){
 		$ci=& get_instance();
 		$ci->load->database('default',TRUE);
 		$ci->db->select('*');
 		$ci->db->from($table);
 		$ci->db->where($column,$where);
+		// $ci->db->order_by('fcityid', 'RANDOM');
 		
 		$data = $ci->db->get();
 		return $data;
 	}
+
+	function select_where_content($table,$column,$where,$limit){
+		$ci=& get_instance();
+		$ci->load->database('default',TRUE);
+		$ci->db->select('*');
+		$ci->db->from($table);
+		$ci->db->where($column,$where);
+		// $ci->db->where($column2,$where2);
+		$ci->db->where("status",1);
+		$ci->db->order_by('id', 'DESC');
+
+		if($limit != ""){
+			// debugCode($limit);
+		$ci->db->limit($limit);
+		}
+		
+
+
+		// $ci->db->order_by('fcityid', 'RANDOM');
+		
+		$data = $ci->db->get()->result();
+		// debugCode($ci->db->last_query());
+		return $data;
+	}
+
+	function select_where_content_cat($table,$column,$where,$column2,$where2,$column3,$where3,$limit){
+		$ci=& get_instance();
+		$ci->load->database('default',TRUE);
+		$ci->db->select('*');
+		$ci->db->from($table);
+		$ci->db->where($column,$where);
+		$ci->db->where($column2,$where2);
+		if($column3 != "" AND $where3 != ""){
+			$ci->db->where($column3,$where3);
+		}
+		$ci->db->where("status",1);
+		$ci->db->order_by('id', 'DESC');
+
+		if($limit != ""){
+			// debugCode($limit);
+		$ci->db->limit($limit);
+		}
+		
+
+
+		// $ci->db->order_by('fcityid', 'RANDOM');
+		
+		$data = $ci->db->get()->result();
+		// debugCode($ci->db->last_query());
+		return $data;
+	}
+
+	
 	function select_where_trash($table,$column,$where){
 		$ci=& get_instance();
 		$ci->load->database('default',TRUE);
@@ -150,6 +298,17 @@ function get_client_ip_server() {
 		$data = $ci->db->get();
 		return $data;
 	}
+	function select_multiwhere_limit($table,$column,$where,$column2,$where2,$limit){
+		$ci=& get_instance();
+		$ci->load->database('default',TRUE);
+		$ci->db->select('*');
+		$ci->db->from($table);
+		$ci->db->where($column,$where);
+		$ci->db->where($column2,$where2);
+		$ci->db->limit($limit);
+		$data = $ci->db->get();
+		return $data;
+	}
 
 	function select_where_order($table,$column,$where,$order_by,$order_type){
 		$ci=& get_instance();
@@ -165,7 +324,10 @@ function get_client_ip_server() {
 		$ci=& get_instance();
 		$ci->load->database('default',TRUE);
 		$ci->db->select('*');
-		$ci->db->where($column,$where);
+		if($column != ""){
+			$ci->db->where($column,$where);
+		}
+		
                 $ci->db->order_by($order_by, $order_type);
 		$data = $ci->db->get($table,$limit);
 		return $data;

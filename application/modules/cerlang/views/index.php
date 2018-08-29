@@ -34,223 +34,89 @@
                     </div>
 
                 </section>
+
+                <?php 
+                    if(count($category) > 0 ){
+                        foreach ($category as $key => $value) {
+                ?>
+                        <section class="sec-blog">
+                    
+                            <div class="breadcumb">
+                                <div class="kiri">
+                                    <h2><?php echo $value->title; ?></h2>
+                                </div>
+                                <div class="kanan">
+
+                                   <!--  <ul>
+                                        <li>Category</li>
+                                        <li>
+                                            <select class="sort-article">
+                                                <option value="0">Semua:</option>
+                                                <option value="1">Audi</option>
+                                                <option value="2">BMW</option>
+                                                <option value="3">Citroen</option>
+                                                <option value="4">Ford</option>
+
+                                            </select>
+                                        </li>
+                                    </ul> -->
+                                    
+                                    
+                                </div>
+                                <div class="clear-float"></div>
+                            
+                            </div>
+
+                            <div class="widget2">
+                                <?php
+                                    $data_cerlang = select_where_content_cat($this->tbl_content,"type_menu","cerlang","category_cerlang", $value->id, "","","3" );
+                                    // debugCode($data_cerlang);
+                                        $n=1;
+                                        foreach ($data_cerlang as $keydat => $data) {
+                                        $picture = select_multiwhere($this->tbl_picture, 'id_content', $data->id,'posisi_gambar', '1')->row();
+                                        // debugCode($data);
+                                ?>
+                                        <div class="cols2 <?php  if($n == 3){ echo "mrnone"; } ?>">
+                                            <a href="<?php echo base_url(); ?>cerlang/detail/<?php echo $data->id; ?>"><img src="<?php echo base_url(); ?>assets/uploads/cerlang/<?php echo $picture->id_content; ?>/<?php echo $picture->name; ?>"></a>
+                                            <div class="cols-sum-whitout-box-shadow">
+                                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/<?php echo $data->id; ?>"><?php echo $data->title; ?></a></div>
+                                                
+                                                <div class="summary-content-blog">
+                                                    <a href=""><h4><p style="color: #FF681A"><?php echo strtoupper(get_title($data->category_cerlang, $this->tbl_category_cerlang)); ?></p><p>&nbsp;&nbsp;|&nbsp;&nbsp;<?php echo indonesian_date($data->date_created,"j F Y"); ?></p></h4></a>
+                                                </div>
+                                                <div class="summary-content-blog">
+                                                    <p>
+                                                        <br>
+                                                        <br>
+                                                        <?php echo $data->summary; ?>
+                                                    </p>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                <?php
+                                        $n++;
+                                        }
+                                ?>
+                                
+
+                               
+
+
+
+                                <div class="clear-float"></div>
+                            </div>
+                        </section>
+                <?php
+                        }
+                    }
+                ?>
                 
-                <section class="sec-blog">
-                    
-                    <div class="breadcumb">
-                        <div class="kiri">
-                            <h2>DISKUSI</h2>
-                        </div>
-                        <div class="kanan">
+                
 
-                            <ul>
-                                <li>Category</li>
-                                <li>
-                                    <select class="sort-article">
-                                        <option value="0">Semua:</option>
-                                        <option value="1">Audi</option>
-                                        <option value="2">BMW</option>
-                                        <option value="3">Citroen</option>
-                                        <option value="4">Ford</option>
-
-                                    </select>
-                                </li>
-                            </ul>
-                            
-                            
-                        </div>
-                        <div class="clear-float"></div>
-                    
-                    </div>
-
-                    <div class="widget2">
-                        <div class="cols2">
-                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy7.png"></a>
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah Rimba</a></div>
-                                
-                                <div class="summary-content-blog">
-                                    <a href=""><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;29 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        Bogor (Sundanese: ᮘᮧᮌᮧᮁ, Dutch: Buitenzorg) is a city in the West Java province, Indonesia. Located around 60 kilometers (37 mi) south from the national capital of Jakarta, Bogor is the 6th largest city of Jabodetabek (Jakarta metropolitan region) and the 14th nationwide.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2">
-                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy5.png"></a>
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah di Laut Jawa Barat</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">ARTIKEL </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;28 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>The city covers an area of 118.5 km2, and it had a population of 950,334 at the 2010 Census; the latest official estimate (as at January 2014) was 1,030,720. Bogor is an important economic, scientific, cultural and tourist center, as well as a mountain resort.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2 mrnone">
-                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy6.png"></a>
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Wisata Sehari di Bogor</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">EVENT </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;27 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>Bogor is an important economic, scientific, cultural and tourist 
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-
-
-                        <div class="clear-float"></div>
-                    </div>
-                </section>
-
-                <section class="sec-blog">
-                    <div class="breadcumb">
-                        <div class="kiri">
-                            <h2>LOMBA</h2>
-                        </div>
-                        
-                        <div class="clear-float"></div>
-                    
-                    </div>
-                    
-
-                    <div class="widget2">
-                        <div class="cols2">
-                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/kuliner3.png"></a>
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah Pantai di Pesisir Jawa Barat</a></div>
-                                
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;25 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>Bogor (Sundanese: ᮘᮧᮌᮧᮁ, Dutch: Buitenzorg) is a city in the West Java province, Indonesia. Located around 60 kilometers (37 mi) south from the national capital of Jakarta, Bogor is the 6th largest city of Jabodetabek (Jakarta metropolitan region) and the 14th nationwide.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2">
-                            <a href="<?php echo base_url(); ?>cerlang/detail/1"><img src="<?php echo base_url(); ?>assets/theme/img/kuliner2.png"></a>
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="<?php echo base_url(); ?>cerlang/detail/1">Jelajah di Laut Jawa Barat</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">ARTIKEL </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;23 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>The city covers an area of 118.5 km2, and it had a population of 950,334 at the 2010 Census; the latest official estimate (as at January 2014) was 1,030,720. Bogor is an important economic, scientific, cultural and tourist center, as well as a mountain resort.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2 mrnone">
-                            <a href="cerlang_detail.html"><img src="<?php echo base_url(); ?>assets/theme/img/kuliner1.png"></a>
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="cerlang_detail.html">Wisata Sehari di Bogor</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;22 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>Bogor is an important economic, scientific, cultural and tourist 
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        
-
-                        <div class="clear-float"></div>
-                    </div>
-                </section>
-                <section class="sec-blog">
-                    <div class="breadcumb">
-                        <div class="kiri">
-                            <h2>PAMERAN</h2>
-                        </div>
-                        
-                        <div class="clear-float"></div>
-                    
-                    </div>
-                    
-
-                    <div class="widget2">
-                        <div class="cols2">
-                            <a href="cerlang_detail.html"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy4.png"></a>
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="cerlang_detail.html">Jelajah Pantai di Pesisir Jawa Barat</a></div>
-                                
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;25 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>Bogor (Sundanese: ᮘᮧᮌᮧᮁ, Dutch: Buitenzorg) is a city in the West Java province, Indonesia. Located around 60 kilometers (37 mi) south from the national capital of Jakarta, Bogor is the 6th largest city of Jabodetabek (Jakarta metropolitan region) and the 14th nationwide.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2">
-                            <a href="cerlang_detail.html"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy8.png"></a>
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="cerlang_detail.html">Jelajah di Laut Jawa Barat</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">ARTIKEL </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;23 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>The city covers an area of 118.5 km2, and it had a population of 950,334 at the 2010 Census; the latest official estimate (as at January 2014) was 1,030,720. Bogor is an important economic, scientific, cultural and tourist center, as well as a mountain resort.
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        <div class="cols2 mrnone">
-                            <a href="cerlang_detail.html"><img src="<?php echo base_url(); ?>assets/theme/img/Group3Copy9.png"></a>
-                            <div class="cols-sum-whitout-box-shadow">
-                                <div class="title-content"><a href="cerlang_detail.html">Wisata Sehari di Bogor</a></div>
-                                <div class="summary-content-blog">
-                                    <a href="#"><h4><p style="color: #FF681A">JELAJAH </p><p>&nbsp;&nbsp;|&nbsp;&nbsp;22 JULI 2018</p></h4></a>
-                                </div>
-                                <div class="summary-content-blog">
-                                    <p>
-                                        <br><br>Bogor is an important economic, scientific, cultural and tourist 
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-                        
-
-                        <div class="clear-float"></div>
-                    </div>
-                </section>
+                
+               
 
 
             <section class="sec-blog-join">

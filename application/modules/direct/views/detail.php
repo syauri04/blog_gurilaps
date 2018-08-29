@@ -1,8 +1,8 @@
 <div class="sec-header">
 
-                        <img src="<?php echo base_url(); ?>assets/theme/img/dir-1@2x.jpg">         
-                        <h2>KABUPATEN BOGOR</h2>
-                        <p>Wisata Alam di Bogor</p>
+                        <img src="<?php echo base_url(); ?>assets/uploads/article/<?php echo $pic_header->id_content; ?>/<?php echo $pic_header->name; ?>">         
+                        <h2>KABUPATEN <?php echo strtoupper($regencies->fcityname); ?></h2>
+                        <p><?php echo $article->title; ?></p>
         
                 </div>
 
@@ -11,7 +11,7 @@
                 <section class="sec-article">
 
                     <div class="content-article">
-                    <p class="content-article-sum">On a national tourism exhibition of 2010 in Jakarta, Bogor was recognized as the most attractive tourist city of Indonesia. The city and its surrounding area are visited by about 1.8 million people per year, of whom more than 60,000 are foreigners. The main tourist attraction is the Bogor Botanical Garden. Founded in 1817, it contains more than 6,000 species of tropical plants. Besides, about 42 bird species breed within the garden, although this number is declining and was 62 before 1952. The garden's 87-hectare area within the city was supplemented in 1866 by a 120-hectare park in suburban town of Cibodas. Much of the original rainforest was preserved within the garden providing specimens for scientific studes. Besides, the garden was enriched by collections of palms, bamboos, cacti, orchids and ornamental trees. It became famous in the late 19th century and was visited by naturalists from abroad to conduct scientific research. For example, the Russian St. Petersburg Academy of Sciences had a Buitenzorg scholarship for young scientists to work at Bogor. The staff of Bogor garden also administer three other major gardens of Iindonesia: the Cibodas Botanical Garden founded 1862 in West Java, the Purwodadi Botanical Garden in East Java and the Bali Botanic Garden founded in 1959 on Bali island.</p>
+                   <?php echo $article->content_1; ?>
                     </div>
 
 
@@ -21,17 +21,29 @@
 
                 <section class="sec-image">
                     <div class="widget">
-                        <div class="cols1">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/dir-6@2x.jpg">
-                        </div>
+                        <?php 
+                            if(count($listpicture) > 0 ){
+                                $no=1;
+                                foreach ($listpicture as $key => $value) {
+                        ?>
+                                <div class="cols1 <?php  if($no == 3){ echo "mrnone"; } ?>">
+                                    <img src="<?=isset($value->name)?base_url().'assets/uploads/article/'.$value->name:'' ?>">
+                                </div>
+                        <?php
+                                 $no++;
+                                }
+                               
+                            }
+                        ?>
+                        
 
-                        <div class="cols1">
+                        <!-- <div class="cols1">
                             <img src="<?php echo base_url(); ?>assets/theme/img/dir-5@2x.jpg">
                         </div>
 
                         <div class="cols1 mrnone">
                             <img src="<?php echo base_url(); ?>assets/theme/img/cianjur.jpg">
-                        </div>
+                        </div> -->
 
                         <div class="clear-float"></div>
                     </div>
@@ -41,7 +53,7 @@
                 <section class="sec-article">
 
                     <div class="content-article">
-                    <p class="content-article-sum">On a national tourism exhibition of 2010 in Jakarta, Bogor was recognized as the most attractive tourist city of Indonesia. The city and its surrounding area are visited by about 1.8 million people per year, of whom more than 60,000 are foreigners. The main tourist attraction is the Bogor Botanical Garden. Founded in 1817, it contains more than 6,000 species of tropical plants. Besides, about 42 bird species breed within the garden, although this number is declining and was 62 before 1952. The garden's 87-hectare area within the city was supplemented in 1866 by a 120-hectare park in suburban town of Cibodas. Much of the original rainforest was preserved within the garden providing specimens for scientific studes. Besides, the garden was enriched by collections of palms, bamboos, cacti, orchids and ornamental trees. It became famous in the late 19th century and was visited by naturalists from abroad to conduct scientific research. For example, the Russian St. Petersburg Academy of Sciences had a Buitenzorg scholarship for young scientists to work at Bogor. The staff of Bogor garden also administer three other major gardens of Iindonesia: the Cibodas Botanical Garden founded 1862 in West Java, the Purwodadi Botanical Garden in East Java and the Bali Botanic Garden founded in 1959 on Bali island.</p>
+                    <?php echo $article->content_2; ?>
                     </div>
 
 
@@ -49,27 +61,44 @@
                     
                 </section>
 
-                <section class="sec-image">
-                    <div class="widget">
-                        <div class="cols2">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/bandung.jpg">
-                        </div>
+                <?php 
+                    if(count($listpicture2) > 0 ){
+                ?>
+                        <section class="sec-image">
+                            <div class="widget">
+                                <?php
+                                    $cols=2;
+                                    foreach ($listpicture2 as $key => $value2) {
+                                ?>  
+                                    <div class="cols<?php echo $cols; ?>">
+                                        <img src="<?=isset($value2->name)?base_url().'assets/uploads/article/'.$value2->name:'' ?>">
+                                    </div>
+                                <?php
+                                    $cols++;
+                                    }
+                                ?>
+                                
 
-                        <div class="cols3">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/hero.jpg">
-                        </div>
+                                <!-- <div class="cols3">
+                                    <img src="<?php echo base_url(); ?>assets/theme/img/hero.jpg">
+                                </div> -->
 
-                        <div class="clear-float"></div>
-                    </div>
-                </section>      
+                                <div class="clear-float"></div>
+                            </div>
+                        </section>      
 
-                <section class="sec-article">
-                        <div class="content-article">
-                            <p class="content-article-sum">On a national tourism exhibition of 2010 in Jakarta, Bogor was recognized as the most attractive tourist city of Indonesia. The city and its surrounding area are visited by about 1.8 million people per year, of whom more than 60,000 are foreigners. The main tourist attraction is the Bogor Botanical Garden. Founded in 1817, it contains more than 6,000 species of tropical plants. Besides, about 42 bird species breed within the garden, although this number is declining and was 62 before 1952. The garden's 87-hectare area within the city was supplemented in 1866 by a 120-hectare park in suburban town of Cibodas. Much of the original rainforest was preserved within the garden providing specimens for scientific studes. Besides, the garden was enriched by collections of palms, bamboos, cacti, orchids and ornamental trees. It became famous in the late 19th century and was visited by naturalists from abroad to conduct scientific research. For example, the Russian St. Petersburg Academy of Sciences had a Buitenzorg scholarship for young scientists to work at Bogor. The staff of Bogor garden also administer three other major gardens of Iindonesia: the Cibodas Botanical Garden founded 1862 in West Java, the Purwodadi Botanical Garden in East Java and the Bali Botanic Garden founded in 1959 on Bali island.</p>
-                        </div>
-                    <div class="clear-float"></div>
-                    
-                </section>
+                        <section class="sec-article">
+                                <div class="content-article">
+                                   <?php echo $article->content_3; ?>
+                                </div>
+                            <div class="clear-float"></div>
+                            
+                        </section>
+                <?php
+                    }
+                ?>
+
+                
 
                 <section class="sec-share">
                         <div class="share-title">

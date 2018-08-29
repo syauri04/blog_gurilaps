@@ -20,27 +20,20 @@ class Home extends DC_Controller {
 		$data = $this->controller_attr;
 		$data['function']='home';
 		 /*Default Meta */
-		 $data['meta_title']='Gurialps';
-		  $data['meta_description'] = 'Gurialps';
-          $data['meta_keywords'] ='Gurialps';
-          $data['meta_site_name'] ='blog.gruilaps.com';
-          $data['meta_image']='blog.gruilaps.com';
-        
-        
-        
-
-      
-
-      //   $data['galeryImager']=$galeryImage;
-      //   $data['newsslide']=$newsslide;
-            $data['banner']=select_all($this->tbl_banner);
-            $data['news']=select_all($this->tbl_news);
-
-      //   $data['pagetabJual'] = $this->load->view('home/unitjual',$data,true);
-      //   $data['pagetabsewa'] = $this->load->view('home/unitsewa',$data,true);
-      //   $data['pagetabpopuler'] = $this->load->view('home/unitpopuler',$data,true);
-      //   $data['pagenews'] = $this->load->view('home/newsslide',$data,true);
-     	// $data['pagegaleryImage'] = $this->load->view('home/galeryImage',$data,true);
+		$data['meta_title']='Gurialps';
+		$data['meta_description'] = 'Gurialps';
+		$data['meta_keywords'] ='Gurialps';
+		$data['meta_site_name'] ='blog.gruilaps.com';
+		$data['meta_image']='blog.gruilaps.com';
+		$data['banner']=select_all($this->tbl_banner);
+		$data['direct_prop']=select_where($this->tbl_provinces,"fprovinceid", "9")->row();
+		$data['direct_kota']=direktori_kota($this->tbl_regencies,$data['direct_prop']->fprovinceid,"4");
+		$data['article']=select_where_content($this->tbl_content,"type_menu","article","2");
+		$data['video']=select_where_limit_order($this->tbl_video,"","","1","id","DESC")->row();
+		$data['listvideo']=select_where_limit_order($this->tbl_video,"","","8","id","DESC")->result();
+		$data['agenda']=select_where_limit_order($this->tbl_content,"type_menu","agenda","1","id","DESC")->row();
+		$data['listagenda']=select_where_content($this->tbl_content,"type_menu","agenda","3");
+ 		// debugCode($data['agenda']);
      	$data['page'] = $this->load->view('home/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}

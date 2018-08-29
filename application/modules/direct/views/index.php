@@ -1,79 +1,35 @@
 <section class="sec-container">
                     <div class="home-dir-wisata">
                         <div class="hdw-summary">
-                            <a href=""><h2><!-- KABUPATEN<br> --> JAWA BARAT</h2></a>
+                            <a href=""><h2><!-- KABUPATEN<br> --> <?php echo $direct_prop->fprovincename; ?></h2></a>
                             <a href=""><p>
-                                These tours are made for lovers and groups alike, as well as offering customized tours and additional single accommodations.<br>
-                                <br>
-                                Designed to dazzle the most inexperienced, tours run May to November and are generally booked for five day and six nights stays.
+                              <?php echo $direct_prop->content; ?>
                             </p></a>
                         </div>
                         <div class=hdw-summary2>
                             <p> Direktori Lainnya: </p>
-                            <a href=""><h3>Kota di Jawa Barat  →</h3></a>
+                            <a href=""><h3>Kota di <?php echo $direct_prop->fprovincename; ?>  →</h3></a>
                         </div>
                     </div>
                     <div class="home-galeri-wisata">
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/sukabumi.jpg">
-                            <div class="image-gw-title"> Kabupaten Sukabumi</div>
-                        </div>
-                        </a>
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/bogor.jpg">
-                            <div class="image-gw-title"> Kabupaten Bogor</div>
-                        </div>
-                        </a>
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/bandung.jpg">
-                            <div class="image-gw-title"> Kabupaten Bandung</div>
-                        </div>
-                        </a>
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/cianjur.jpg">
-                            <div class="image-gw-title"> Kabupaten Cianjur</div>
-                        </div>
-                        </a>
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/tasik.jpg">
-                            <div class="image-gw-title"> Kabupaten Tasikmalaya</div>
-                        </div>
-                        </a>
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/garut.jpg">
-                            <div class="image-gw-title"> Kabupaten Garut</div>
-                        </div>
-                        </a>
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/Kuningan.jpg">
-                            <div class="image-gw-title"> Kabupaten Kuningan</div>
-                        </div>
-                        </a>
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/Ciamis.jpg">
-                            <div class="image-gw-title"> Kabupaten Ciamis</div>
-                        </div>
-                        </a>
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/sukabumi.jpg">
-                            <div class="image-gw-title"> Kabupaten Cirebon</div>
-                        </div>
-                        </a>
-                        <a href="<?php echo base_url()."direct/regencies/1/kabupaten-bogor"; ?>">
-                        <div class="image-gw">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/bogor.jpg">
-                            <div class="image-gw-title"> Kabupaten Majalengka</div>
-                        </div>
-                        </a>
+                        <?php
+                            if(count($direct_kota) > 0){
+                                foreach ($direct_kota as $key => $value) {
+                        ?>
+                                    <a href="<?php echo base_url() ?>direct/regencies/<?php echo $value->fcityid; ?>">
+                                    <div class="image-gw">
+                                        <a href="<?php echo base_url() ?>direct/regencies/<?php echo $value->fcityid; ?>">
+                                            <img src="<?php echo base_url(); ?>assets/uploads/kabupaten/<?php echo $value->fcityid ; ?>/<?php echo $value->image; ?>">
+                                        </a>
+                                        <a href="<?php echo base_url() ?>direct/regencies/<?php echo $value->fcityid; ?>"><div class="image-gw-title"> Kabupaten <?php echo $value->fcityname; ?></div></a>
+                                    </div> 
+                                    </a>
+                        <?php
+                                }
+
+                            }
+                        ?>
+                       
                         
                     </div>
                     <div class="clear-float"></div>

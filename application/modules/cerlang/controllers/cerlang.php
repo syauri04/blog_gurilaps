@@ -27,31 +27,22 @@ class Cerlang extends DC_Controller {
           $data['meta_image']='blog.gruilaps.com';
         
         
-        
-
-      
-
-      //   $data['galeryImager']=$galeryImage;
-      //   $data['newsslide']=$newsslide;
-            $data['banner']=select_all($this->tbl_banner);
-            $data['news']=select_all($this->tbl_news);
-
-      //   $data['pagetabJual'] = $this->load->view('home/unitjual',$data,true);
-      //   $data['pagetabsewa'] = $this->load->view('home/unitsewa',$data,true);
-      //   $data['pagetabpopuler'] = $this->load->view('home/unitpopuler',$data,true);
-      //   $data['pagenews'] = $this->load->view('home/newsslide',$data,true);
-     	// $data['pagegaleryImage'] = $this->load->view('home/galeryImage',$data,true);
+        $data['category']=select_all($this->tbl_category_cerlang);
+        // debugCode($data['category']);
      	$data['page'] = $this->load->view('cerlang/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
 
 
 
-	function detail(){
+	function detail($id){
 		$data = $this->controller_attr;
 		$data['function']='home';
  	
-		
+		$data['cerlang']=select_where($this->tbl_content,"id", $id)->row();
+		$data['pic_head']=get_pic_1($data['cerlang']->id);
+		$data['picture']=get_pic_2($data['cerlang']->id);
+		// debugCode($data['picture']);
 		$data['page'] = $this->load->view('cerlang/detail',$data,true);
 	
 		$this->load->view('layout_frontend',$data);

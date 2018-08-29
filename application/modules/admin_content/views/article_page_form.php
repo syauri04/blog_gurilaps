@@ -142,8 +142,8 @@
                                               <td>
                                                   <span class="preview">
                                                           <img src="<?=isset($pic->name)?base_url().'assets/uploads/article/thumbs/'.$pic->name:'' ?>">
-                                                          <input type="hidden" name="img_name[]" value="<?=isset($pic->name)?$pic->name:''?>" >
-                                                          <input type="hidden" id="name_<?php echo $n; ?>" name="img_name[]" value="<?=isset($pic->name)?$pic->name:''?>" >
+                                                          <input type="hidden" name="" value="<?=isset($pic->name)?$pic->name:''?>" >
+                                                          <input type="hidden" id="name_<?php echo $n; ?>" name="" value="<?=isset($pic->name)?$pic->name:''?>" >
                                                           <input type="hidden" id="id_<?php echo $n ?>" name="id_pic" value="<?=isset($pic->id)?$pic->id:''?>">
                                       
                                                   </span>
@@ -256,8 +256,8 @@
                                               <td>
                                                   <span class="preview">
                                                           <img src="<?=isset($picture2->name)?base_url().'assets/uploads/article/thumbs/'.$picture2->name:'' ?>">
-                                                          <input type="hidden" name="img_name2[]" value="<?=isset($picture2->name)?$picture2->name:''?>" >
-                                                          <input type="hidden" id="name2_<?php echo $n2; ?>" name="img_name2[]" value="<?=isset($picture2->name)?$picture2->name:''?>" >
+                                                          <input type="hidden" name="" value="<?=isset($picture2->name)?$picture2->name:''?>" >
+                                                          <input type="hidden" id="name2_<?php echo $n2; ?>" name="" value="<?=isset($picture2->name)?$picture2->name:''?>" >
                                                           <input type="hidden" id="id2_<?php echo $n2 ?>" name="id_pic" value="<?=isset($picture2->id)?$picture2->id:''?>">
                                       
                                                   </span>
@@ -348,8 +348,10 @@
                             <label class="form-label">Status</label>
                             <div class="controls">
                               <select class="form-control" name="status">
-                                <option value="0">Draft</option>
-                                <option value="1">Publish</option>
+                                
+                                <option value="1" <?php echo ((!empty($data)) && ($data->status == 1)) ? " selected='selected' " : "";?>>Publish</option>
+                                <option value="0" <?php echo ((!empty($data)) && ($data->status == 0)) ? " selected='selected' " : "";?>>Draft</option>
+                                
                                
                               </select>
                             </div>

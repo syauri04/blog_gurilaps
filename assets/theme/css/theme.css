@@ -838,6 +838,14 @@ border-radius: 5px;
   line-height: 30px;
   font-weight: 600;
 }
+.title-map p{
+  font-size: 18px;
+    color: #151515;
+    text-align: left;
+    line-height: 30px;
+    font-weight: 600;
+    margin-top: 20px;
+}
 .tag-gratis{
   padding-top: 40px;
   padding-bottom: 40px;
@@ -874,6 +882,7 @@ border-radius: 5px;
   color: #666666;
   text-align: left;
   line-height: 28px;
+  padding-right: 25px;
 }
   
 /* END AGENDA  */
@@ -1074,14 +1083,14 @@ font-weight: 600;
   text-align: left;
 }
 .sec-header p{
-  width: 100%;
+  width: 60%;
   font-family: 'Permanent Marker', cursive;
   color: #FFFFFF;
   font-size: 60px;
   text-align: center;
   line-height: 60px;
   position: absolute;
-  top: 425px;
+  top: 460px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -1097,8 +1106,15 @@ font-weight: 600;
   float: left;
 }
 
-.content-article-sum{
+.content-article p{
   font-size: 16px;
+  color: #666666;
+  text-align: justify;
+  line-height: 32px;
+}
+
+.content-article-sum{
+ font-size: 16px;
   color: #666666;
   text-align: justify;
   line-height: 32px;
@@ -1422,13 +1438,15 @@ position: absolute;
   position: absolute;
 
 }
-
+.sec-header3 span{
+   color: #FFFFFF !important;
+}
 .sec-header3 p{
   width: 650px;
    font-size: 12px;
   line-height: 20px;
   display: inline-block;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 text-align: left;
     top: 465px;
     left: 410px;

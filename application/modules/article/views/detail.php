@@ -1,25 +1,25 @@
 <div class="sec-container">
                     <div class="breadcumb-menu">
-                        <p>Semua Agenda > <span>Pameran Fotografi Jelajah Laut</span> </p> 
+                        <p>Article > <span><?php echo $article->title; ?></span> </p> 
                     </div>  
                     <div class="side-left">
                         <div class="image-detail">
-                            <img src="<?php echo base_url(); ?>assets/theme/img/artikel-1@2x.jpg">
+                            <img src="<?php echo base_url(); ?>assets/uploads/article/<?php echo $pic_header->id_content; ?>/<?php echo $pic_header->name; ?>">
                         </div>
                         <div class="row-det">
-                            <h2>Pameran Fotografi Jelajah Laut</h2>
+                            <h2><?php echo $article->title; ?></h2>
                         </div>
                         <div class="row-det">
-                            <span class="txt-oren">EVENT</span> <span> | 27 JULI 2018</span>
+                            <span class="txt-oren"><?php echo strtoupper(get_title($article->category, $this->tbl_category)); ?></span> <span> | <?php echo indonesian_date($article->date_created,"j F Y"); ?></span>
                         </div>
                         <div class="row-det">
                             <div class="box-left-head">
                                 <div class="img-author">
-                                    <img src="<?php echo base_url(); ?>assets/theme/img/author.png">
+                                   <!--  <img src="<?php echo base_url(); ?>assets/theme/img/author.png">
                                     <div class="name-author">
                                         <p><strong>Contributor</strong></p>
                                         <p>Gurlips Admin</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="box-right-head">
@@ -38,26 +38,34 @@
                             <div class="clear-float"></div>
                         </div>
                         <div class="desc-blog">
-                            <p>Bogor (Sundanese: ᮘᮧᮌᮧᮁ, Dutch: Buitenzorg) is a city in the West Java province, Indonesia. Located around 60 kilometers (37 mi) south from the national capital of Jakarta, Bogor is the 6th largest city of Jabodetabek (Jakarta metropolitan region) and the 14th nationwide. The city covers an area of 118.5 km2, and it had a population of 950,334 at the 2010 Census; the latest official estimate (as at January 2014) was 1,030,720. Bogor is an important economic, scientific, cultural and tourist center, as well as a mountain resort.</p><br><br>
-
-                            <p>In the Middle Ages, the city served as the capital of Sunda Kingdom (Indonesian: Kerajaan Sunda) and was called Pakuan Pajajaran or Dayeuh Pakuan. During the Dutch colonial era, it was named Buitenzorg (meaning "Without worries" in Dutch) and served as the summer residence of the Governor-General of Dutch East Indies. With several hundred thousand people living on an area of about 20 km2 (7.7 sq mi), the central part of Bogor is one of the world's most densely populated areas. The city has a presidential palace and a botanical garden (Indonesian: Kebun Raya Bogor) – one of the oldest and largest in the world. It bears the nickname "the Rain City" (Kota Hujan), because of frequent rain showers. It nearly always rains even during the dry season.</p><br><Br>
-
-                            <p>On a national tourism exhibition of 2010 in Jakarta, Bogor was recognized as the most attractive tourist city of Indonesia. The city and its surrounding area are visited by about 1.8 million people per year, of whom more than 60,000 are foreigners. The main tourist attraction is the Bogor Botanical Garden. Founded in 1817, it contains more than 6,000 species of tropical plants. Besides, about 42 bird species breed within the garden, although this number is declining and was 62 before 1952. The garden's 87-hectare area within the city was supplemented in 1866 by a 120-hectare park in suburban town of Cibodas. Much of the original rainforest was preserved within the garden providing specimens for scientific studes. Besides, the garden was enriched by collections of palms, bamboos, cacti, orchids and ornamental trees. It became famous in the late 19th century and was visited by naturalists from abroad to conduct scientific research. For example, the Russian St. Petersburg Academy of Sciences had a Buitenzorg scholarship for young scientists to work at Bogor. The staff of Bogor garden also administer three other major gardens of Iindonesia: the Cibodas Botanical Garden founded 1862 in West Java, the Purwodadi Botanical Garden in East Java and the Bali Botanic Garden founded in 1959 on Bali island.</p></Br>
-
+                            <p>
+                               <?php
+                                echo $article->content_1;
+                               ?>
+                            </p>
                             <div class="gallery-artcl-detil">
                                 <ul>
-                                    <li><img src="<?php echo base_url(); ?>assets/theme/img/hero.jpg"></li>
-                                    <li><img src="<?php echo base_url(); ?>assets/theme/img/dir-5@2x.jpg"></li>
-                                    <li><img src="<?php echo base_url(); ?>assets/theme/img/dir-2@2x.jpg"></li>
-                                    <li><img src="<?php echo base_url(); ?>assets/theme/img/dir-7@2x.jpg"></li>
+                                <?php 
+                                    if(count($listpicture) > 0 ){
+                                        $no=1;
+                                        foreach ($listpicture as $key => $value) {
+                                ?>
+                                        <li><img src="<?=isset($value->name)?base_url().'assets/uploads/article/'.$value->name:'' ?>"></li>
+                                <?php
+                                        }
+                                    }
+                                ?>
+                                    
+                                   
                                 </ul>
                                 
                                 
                                 
                                 
                             </div>
-                            <p>On a national tourism exhibition of 2010 in Jakarta, Bogor was recognized as the most attractive tourist city of Indonesia. The city and its surrounding area are visited by about 1.8 million people per year, of whom more than 60,000 are foreigners. The main tourist attraction is the Bogor Botanical Garden. Founded in 1817, it contains more than 6,000 species of tropical plants. Besides, about 42 bird species breed within the garden, although this number is declining and was 62 before 1952. The garden's 87-hectare area within the city was supplemented in 1866 by a 120-hectare park in suburban town of Cibodas. Much of the original rainforest was preserved within the garden providing specimens for scientific studes. Besides, the garden was enriched by collections of palms, bamboos, cacti, orchids and ornamental trees. It became famous in the late 19th century and was visited by naturalists from abroad to conduct scientific research. For example, the Russian St. Petersburg Academy of Sciences had a Buitenzorg scholarship for young scientists to work at Bogor. The staff of Bogor garden also administer three other major gardens of Iindonesia: the Cibodas Botanical Garden founded 1862 in West Java, the Purwodadi Botanical Garden in East Java and the Bali Botanic Garden founded in 1959 on Bali island.</p></Br>
-
+                            <p>
+                                <?php echo $article->content_2; ?>
+                            </p>
                         </div>
                     </div>
                     <div class="side-right">
@@ -83,12 +91,18 @@
                                 </div>
                                 <div class="cat-article">
                                     <ul>
-                                        <li><a href="" class="button-gurilaps active">Semua</a></li>
-                                        <li><a href="" class="button-gurilaps">Event</a></li>
-                                        <li><a href="" class="button-gurilaps">Article</a></li>
-                                        <li><a href="" class="button-gurilaps">Jelajah Laut</a></li>
-                                        <li><a href="" class="button-gurilaps">Info</a></li>
-                                        <li><a href="" class="button-gurilaps">Wisata</a></li>
+                                        <?php
+                                            if (count($category) > 0) {
+                                                $n=1;
+                                                foreach ($category as $key => $value) {
+                                        ?>
+                                                <li><a href="" class="button-gurilaps <?php  if($no == 1){ echo "active"; } ?>"><?php echo $value->title ?></a></li>
+                                        <?php
+                                                $n++;
+                                                }
+                                            }
+                                        ?>
+                                        
                                     </ul>
                                 </div>
                             </div>
