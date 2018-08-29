@@ -104,6 +104,8 @@ class Admin_content extends DC_Controller {
 
         $update['date_modified']= date("Y-m-d H:i:s");
         $update['id_modifier']=$this->session->userdata['admin']['id'];
+
+        // debugCode($update);
         $query=update($this->tbl_content,$update,'id',$id);
         // debugCode($id);
       
@@ -114,7 +116,7 @@ class Admin_content extends DC_Controller {
         }
 
       
-        $save_img=update($this->tbl_content,$update,'id',$get_pic->id);
+        $save_img=update($this->tbl_picture,$img,'id',$get_pic->id);
         if($save_img){
         	if(!empty($_FILES['images']['name'])){
 				unlink('assets/uploads/article/'.$id.'/'.$get_pic->name);
@@ -132,7 +134,7 @@ class Admin_content extends DC_Controller {
 	                    die();
 	            }
 	            
-	            update($this->tbl_picture,$img,'id', $get_pic->id);
+	          
 
 	        }
 

@@ -248,7 +248,7 @@
                                             </div>
                                             <div class="list-top-sum">
                                                 <p>
-                                                    <?php echo $agenda->summary; ?>
+                                                    <?php echo limite_character($agenda->summary,200); ?>
                                                 </p>
                                             </div>
                                             <div class="list-date">
@@ -287,8 +287,10 @@
                                                 </div>
                                                 <div class="clear-float"></div>
                                                 <div class="list-ag-sum">
-                                                   
-                                                        <?php echo substr($value->summary, 0, 200); ?>
+                                                    <p>
+                                                         <?php echo limite_character($value->summary, 100); ?>
+                                                    </p>
+                                                       
                                                     
                                                 </div>
                                             </div>

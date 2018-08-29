@@ -26,8 +26,10 @@ class Article extends DC_Controller {
           $data['meta_site_name'] ='blog.gruilaps.com';
           $data['meta_image']='blog.gruilaps.com';
 
-       	$data['article']=select_where_content($this->tbl_content,"type_menu","article","");
-       	 // debugCode($data['article']);
+       	  $data['head_article']=select_where_limit_order($this->tbl_content,"type_menu","article","1","id","DESC")->row();
+       	  $data['head_pic']=get_pic_1($data['head_article']->id);
+       	  $data['article']=select_where_content($this->tbl_content,"type_menu","article","12");
+       	 // debugCode($data['head_article']);
      	$data['page'] = $this->load->view('article/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}

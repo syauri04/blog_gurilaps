@@ -15,6 +15,7 @@
       <form  enctype="multipart/form-data" method="post" action="<?php echo base_url() ?><?php echo $controller."/".$function?>_<?php if(isset($data)){echo"update";}else{echo"add";} ?>">
         <input type="hidden" name="id" value="<?php if(isset($data)){ echo $data->id; } ?>">
         <input type="hidden" name="type_menu" value="agenda">
+        <input type="hidden" name="date_created" value="<?php if(isset($data->date_created)){ echo $data->date_created; }else{ echo date("Y-m-d"); } ?>">
         <input type="hidden" name="controller" id="controller" value="<?php echo $controller ?>">
         <input type="hidden" name="method" value="<?php echo $function ?>" id="method">
         <div class="grid-body no-border">
@@ -171,19 +172,19 @@
               <div class="form-group">
                 <label class="form-label">Summary</label>                       
                 <div class="controls">
-                  <textarea id="summernote" name="summary" placeholder="Enter text ..." class="form-control" style="height: 400px" ><?php if(isset($data)){ echo $data->summary; } ?></textarea>
+                  <textarea name="summary" required="required" placeholder="Enter text ..." class="form-control" style="height: 120px" ><?php if(isset($data)){ echo $data->summary; } ?></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label class="form-label">Description</label>                       
                 <div class="controls">
-                  <textarea id="summernote2" name="content_1" placeholder="Enter text ..." class="form-control" rows="10"><?php if(isset($data)){ echo $data->content_1; } ?></textarea>
+                  <textarea id="summernote2" required="required" name="content_1" placeholder="Enter text ..." class="form-control" rows="10"><?php if(isset($data)){ echo $data->content_1; } ?></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label class="form-label">Date Start</label>
                 <div class="controls">
-                  <input type="text" name="date_start" class="datepicker form-control" required value="<?php if(isset($data)){ echo $data->date_start; } ?>">
+                  <input type="text" name="date_start" required="required" class="datepicker form-control" required value="<?php if(isset($data)){ echo $data->date_start; } ?>">
                 </div>
               </div>
               <div class="form-group">
@@ -195,13 +196,13 @@
               <div class="form-group ">
                 <label class="form-label">Time Start</label>
                 <div class="controls">
-                  <input type="text" id="time_start" name="time_start" class="form-control" required value="<?php if(isset($data)){ echo $data->time_start; } ?>">
+                  <input type="text" id="time_start" required="required" name="time_start" class="form-control" required value="<?php if(isset($data)){ echo $data->time_start; } ?>">
                 </div>
               </div>
               <div class="form-group">
                 <label class="form-label">Time End</label>
                 <div class="controls">
-                  <input type="text" name="time_end" class="form-control" required id="time_end" value="<?php if(isset($data)){ echo $data->time_end; } ?>">
+                  <input type="text" name="time_end" required="required" class="form-control" required id="time_end" value="<?php if(isset($data)){ echo $data->time_end; } ?>">
                 </div>
               </div>
               <!-- <div class="form-group">

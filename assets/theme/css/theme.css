@@ -118,9 +118,12 @@ iframe{
 /* HEADER*/
 #header {
   position: relative;
-   -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 8px 14px 0 rgba(102, 102, 102, 0.07);
+
+   -webkit-box-shadow:2px 8px 14px 0 rgba(102, 102, 102, 0.07);
+  -moz-box-shadow: 2px 8px 14px 0 rgba(102, 102, 102, 0.07);
+
+ 
   margin: 0;
 }
 
@@ -1106,7 +1109,7 @@ font-weight: 600;
   float: left;
 }
 
-.content-article p{
+.content-article p, .content-article span{
   font-size: 16px;
   color: #666666;
   text-align: justify;
@@ -1354,13 +1357,14 @@ margin-top: 40px;
 
 
 .sec-header2 h1{
+  width: 35%;
   font-family: 'Permanent Marker', cursive;
   font-size: 49px;
   color: #FFFFFF;
   text-align: left;
   line-height: 60px;
   top: 230px;
-  left: 280px;
+  left: 321px;
   transform: translate(-50%, -50%);
   position: absolute;
 
@@ -1376,7 +1380,7 @@ margin-top: 40px;
   text-align: left;
   line-height: 60px;
   top: 390px;
-  left: 147px;
+  left: 160px;
   transform: translate(-50%, -50%);
   position: absolute;
 
@@ -1417,7 +1421,8 @@ position: absolute;
   text-align: left;
   line-height: 60px;
   top: 335px;
-  left: 298px;
+  left: 387px;
+  width: 45%;
   transform: translate(-50%, -50%);
   position: absolute;
 
@@ -1585,6 +1590,7 @@ position: absolute;
   width: 350px;
   float: left;
   margin-right: 74px;
+  margin-bottom: 80px;
 }
   .widget2 .cols2 img{
   width: 100%;
@@ -1639,7 +1645,7 @@ margin-top: 40px;
   background: #FF681A;
   border: 2px solid #FF681A;
   border-radius: 20px;
-  padding: 19px 37px;
+  padding: 10px 37px;
 }
 
 .sec-agenda{
@@ -1674,12 +1680,12 @@ margin-top: 40px;
 
 
 .widget .cols-agenda-text h2{
-
+  margin-top: 0px;
   font-family: 'Lato', sans-serif;  
   font-size: 24px;
   color: #151515;
   text-align: left;
-  line-height: 36px;
+  /*  line-height: 36px;*/
   margin-bottom: 20px;
 
 }

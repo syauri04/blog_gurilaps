@@ -64,15 +64,18 @@ function indonesian_date ($timestamp = '', $date_format = '', $suffix = 'WIB') {
 
 function limite_character($x, $length)
 {
+	// debugCode($x);
   if(strlen($x)<=$length)
   {
-    echo $x;
+    $char=$x;
   }
   else
   {
     $y=substr($x,0,$length) . '...';
-    echo $y;
+    $char=$y;
   }
+  // debugCode($char);
+  return $char;
 }
 
 function get_pic_1($id){

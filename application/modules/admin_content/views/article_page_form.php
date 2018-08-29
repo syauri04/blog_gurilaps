@@ -13,6 +13,7 @@
                 <form enctype="multipart/form-data" method="post" action="<?php echo base_url() ?><?php echo $controller."/".$function?>_<?php if(isset($data)){echo"update";}else{echo"add";} ?>">
                   <input type="hidden" name="id" value="<?php if(isset($data)){ echo $data->id; } ?>">
                   <input type="hidden" name="type_menu" value="article">
+                  <input type="hidden" name="date_created" value="<?php if(isset($data->date_created)){ echo $data->date_created; }else{ echo date("Y-m-d"); } ?>">
                   <input type="hidden" name="controller" id="controller" value="<?php echo $controller ?>">
                   <input type="hidden" name="method" value="<?php echo $function ?>" id="method">
                     <div class="grid-body no-border">

@@ -1,12 +1,13 @@
-<div class="sec-header2">
+                <div class="sec-header2">
 
-                        <img src="<?php echo base_url(); ?>assets/theme/img/featured.jpg">     
-                        <h1>PAMERAN FOTO<br>JELAJAH LAUT<br>INDONESIA →</h1>
-                        <h4>EVENT &nbsp;&nbsp;|&nbsp;&nbsp;25 JULI 2018</h4>
+                        <img src="<?php echo base_url(); ?>assets/uploads/article/<?php echo $head_article->id ; ?>/<?php echo $head_pic->name; ?>">     
+                        <h1><?php echo $head_article->title; ?> →</h1>
+                        <h4><?php echo strtoupper(get_title($head_article->category, $this->tbl_category)); ?> &nbsp;&nbsp;|&nbsp;&nbsp;<?php echo indonesian_date($head_article->date_created,"j F Y"); ?></h4>
                     
                     
-                        <p>Bogor (Sundanese: ᮘᮧᮌᮧᮁ, Dutch: Buitenzorg) is a city in the West Java province, Indonesia. Located around<br> 60 kilometers (37 mi) south from the national capital of Jakarta, Bogor is the 6th largest city of Jabodetabek<br> (Jakarta metropolitan region) and the 14th nationwide.</p></a>
-        
+                        <p>
+                            <?php echo $head_article->summary; ?>
+                        </p>
                 </div>
 
                 <div class="clear-float"></div>
@@ -36,7 +37,7 @@
                                 </li>
                             </ul> -->
 
-                            
+
                             <!-- <div class="custom-select" style="width:160px; height: 50px;">
                                 <select>
                                     <option value="0">Semua:</option>
@@ -59,12 +60,20 @@
                     <div class="widget2">
                         <?php
                             if (count($article) > 0) {
+                                $n=1;
                                 foreach ($article as $key => $value) {
                                     // debugCode($value);
+                                    if($n == 3 OR $n == 6 OR $n == 9 OR $n == 12){
+                                        $mrnone = "mrnone";
+                                    }else{
+                                        $mrnone = "";
+                                    }
                                     $pic1 = get_pic_1($value->id);
                         ?>
-                                <div class="cols2">
-                                    <img src="<?php echo base_url(); ?>assets/uploads/article/<?php echo $value->id ; ?>/<?php echo $pic1->name; ?>">
+                                <div class="cols2 <?php echo $mrnone; ?>">
+                                    <a href="<?php echo base_url(); ?>article/detail/<?php echo $value->id; ?>">
+                                        <img src="<?php echo base_url(); ?>assets/uploads/article/<?php echo $value->id ; ?>/<?php echo $pic1->name; ?>">
+                                    </a>
                                     <div class="cols-sum-whitout-box-shadow">
                                         <div class="title-content"><a href="<?php echo base_url(); ?>article/detail/<?php echo $value->id; ?>"><?php echo $value->title; ?></a></div>
                                         
@@ -81,6 +90,7 @@
                                     </div>
                                 </div>
                         <?php
+                                $n++;
                                 }
                             }
                         ?>

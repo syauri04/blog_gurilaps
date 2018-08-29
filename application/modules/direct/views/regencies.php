@@ -24,6 +24,10 @@
                 <?php 
                     if(count($category) > 0 ){
                         foreach ($category as $key => $value) {
+                             $data_article = select_where_content_cat($this->tbl_content,"type_menu","article","category", $value->id,"id_regencies", $regencies->fcityid,"3" );
+                            if(count($data_article) > 0){
+
+
                 ?>
                             <section class="sec-blog">
                         
@@ -38,7 +42,7 @@
 
                                 <div class="widget2">
                                     <?php
-                                        $data_article = select_where_content_cat($this->tbl_content,"type_menu","article","category", $value->id,"id_regencies", $regencies->fcityid,"3" );
+                                        // $data_article = select_where_content_cat($this->tbl_content,"type_menu","article","category", $value->id,"id_regencies", $regencies->fcityid,"3" );
                                         
                                             $n=1;
                                             foreach ($data_article as $keydat => $data) {
@@ -46,7 +50,11 @@
                                             // debugCode($picture);
                                     ?>
                                             <div class="cols2 <?php  if($n == 3){ echo "mrnone"; } ?>">
-                                                <img src="<?php echo base_url(); ?>assets/uploads/article/<?php echo $picture->id_content; ?>/<?php echo $picture->name; ?>">
+                                                <a href="<?php echo base_url(); ?>direct/detail/<?php echo $data->id; ?>">
+                                                    <img src="<?php echo base_url(); ?>assets/uploads/article/<?php echo $picture->id_content; ?>/<?php echo $picture->name; ?>">
+                                                
+                                                </a>
+                                               
                                                 <div class="cols-sum-whitout-box-shadow">
                                                     <div class="title-content"><a href="<?php echo base_url(); ?>direct/detail/<?php echo $data->id; ?>"><?php echo $data->title; ?></a></div>
                                                     <div class="summary-content-blog">
@@ -76,6 +84,7 @@
                                 </div>
                             </section>
                 <?php
+                            }
                         }
                     }
                 ?>

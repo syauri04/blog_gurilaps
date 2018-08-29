@@ -1,10 +1,10 @@
 <section class="sec-container">
                     <div class="home-dir-wisata">
                         <div class="hdw-summary">
-                            <a href=""><h2><!-- KABUPATEN<br> --> <?php echo $direct_prop->fprovincename; ?></h2></a>
-                            <a href=""><p>
+                            <h2><!-- KABUPATEN<br> --> <?php echo $direct_prop->fprovincename; ?></h2>
+                            <p>
                               <?php echo $direct_prop->content; ?>
-                            </p></a>
+                            </p>
                         </div>
                         <div class=hdw-summary2>
                             <p> Direktori Lainnya: </p>

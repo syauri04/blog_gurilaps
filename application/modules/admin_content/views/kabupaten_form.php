@@ -43,7 +43,7 @@
                             <label class="form-label">Summary Images Header</label>
 
                             <div class="controls">
-                              <textarea id="summernote" name="summary" placeholder="Enter text ..." class="form-control" rows="10"><?php if(isset($data)){ echo $data->summary; } ?></textarea>
+                              <textarea name="summary" placeholder="Enter text ..." class="form-control" rows="10"><?php if(isset($data)){ echo $data->summary; } ?></textarea>
                             </div>
                           </div>
 
