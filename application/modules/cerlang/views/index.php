@@ -4,10 +4,13 @@
                     </div>
                     <div class="widget">
                         <div class="cerlang-box">
-                            <div class="bgbox1">
-                                    <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-diskusi@2x.png">
-                                    <p>DISKUSI</p>
-                            </div>
+                            <a href="<?php echo base_url(); ?>cerlang/diskusi">
+                                <div class="bgbox1">
+                                        <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-diskusi@2x.png">
+                                        <p>DISKUSI</p>
+                                </div>  
+                            </a>
+                            
                         </div>
                     
                         <div class="cerlang-box">
@@ -34,12 +37,12 @@
                     </div>
 
                 </section>
-
+                <section class="sec-blog">
                 <?php 
                     if(count($category) > 0 ){
                         foreach ($category as $key => $value) {
                 ?>
-                        <section class="sec-blog">
+                        
                     
                             <div class="breadcumb">
                                 <div class="kiri">
@@ -107,12 +110,12 @@
 
                                 <div class="clear-float"></div>
                             </div>
-                        </section>
+                        
                 <?php
                         }
                     }
                 ?>
-                
+                </section>
                 
 
                 

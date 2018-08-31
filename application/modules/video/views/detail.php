@@ -118,42 +118,65 @@
                     </div>
 
                     <div class="widget">
-                       <?php
-                         
-                            if (count($hot_deals->data->packages) > 0) {
-                                $n=1;
-                                foreach ($hot_deals->data->packages as $key => $dat) {
-                                   if($dat->featured_image != ""){
-                                    $getimg = $dat->featured_image;
-                                   }else{
-                                    $getimg = base_url()."assets/theme/img/image_not_avaliable.png";
-                                   }
-                                   
-                        ?>
-                                <div class="cols <?php  if($n == 3){ echo "mrnone"; } ?>">
-                                    <a target="_blank" href="<?php echo $dat->target_url; ?>"><img src="<?php echo $getimg; ?>"></a>
-                                    <div class="cols-sum">
-                                        <div class="title-content"><a target="_blank" href="<?php echo $dat->target_url; ?>"><?php echo $dat->package_name; ?></a></div>
-                                        
-                                        <div class="summary-content-blog">
-                                            <p>
-                                               <?php echo limite_character($dat->description,200); ?>
-                                            </p>
-                                        </div>
-                                        <div class="rating">
-                                                <span class="star"></span>    
-                                                <span class="star"></span>    
-                                                <span class="star"></span>    
-                                                <span class="star"></span>    
-                                                <span class="star"></span>    
-                                        </div>
-                                    </div>
+                        <div class="cols">
+                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/piramida.jpg"></a>
+                            <div class="cols-s um">
+                                <div class="title-content"><a href="">Menapaki  Piramida Penuh Misteri</a></div>
+                                
+                                <div class="summary-content-blog">
+                                    <p>
+                                        Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
+                                    </p>
                                 </div>
-                        <?php
-                                $n++;
-                                }
-                            }
-                        ?>
+                                <div class="rating">
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cols">
+                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/maenpo.jpg"></a>
+                            <div class="cols-sum">
+                                <div class="title-content"><a href="">Belajar Maenpo, Yuk!</a></div>
+                                
+                                <div class="summary-content-blog">
+                                    <p>
+                                        Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
+                                    </p>
+                                </div>
+                                <div class="rating ">
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cols mrnone">
+                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/gua.jpg"></a>
+                            <div class="cols-sum">
+                                <div class="title-content"><a href="">Menguak Misteri Gua "Siluman"</a></div>
+                                
+                                <div class="summary-content-blog">
+                                    <p>
+                                        Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
+                                    </p>
+                                </div>
+                                <div class="rating">
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                        <span class="star"></span>    
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="clear-float"></div>
                     </div>

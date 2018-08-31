@@ -78,7 +78,7 @@
                                 <li><a href="<?php echo base_url(); ?>article">ARTICLE</a></li>
                                 <li><a href="<?php echo base_url(); ?>agenda">AGENDA</a></li>
                                 <li><a href="<?php echo base_url(); ?>cerlang">CERLANG</a></li>
-                                <li><a href="">BALAD GURILAPS</a></li>
+                                <!-- <li><a href="">BALAD GURILAPS</a></li> -->
                                 <li><img src="<?php echo base_url(); ?>assets/theme/img/lang-ina.png"></li>
                             </ul>
                         </div>
@@ -97,7 +97,7 @@
                                     <li><a href="<?php echo base_url(); ?>article">ARTICLE</a></li>
                                     <li><a href="<?php echo base_url(); ?>agenda">AGENDA</a></li>
                                     <li><a href="<?php echo base_url(); ?>cerlang">CERLANG</a></li>
-                                    <li><a href="">BALAD GURILAPS</a></li>
+                                    <!-- <li><a href="">BALAD GURILAPS</a></li> -->
                                 </ul>
                                 
                             </div>

@@ -10,6 +10,59 @@ function debugCode($r=array(),$f=TRUE){
 		die;
 }
 
+
+
+function get_curl($url){
+	
+
+
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => "https://api.gurilaps.id/post/special/",
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 30,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"type\"\r\n\r\nhot-deals\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--",
+		CURLOPT_HTTPHEADER => array(
+		"Cache-Control: no-cache",
+		"Postman-Token: 9093fb93-76e6-484b-98f0-978be6e62abe",
+		"content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW"
+		),
+		));
+
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		// if ($err) {
+		// echo "cURL Error #:" . $err;die();
+		// } else {
+		// echo $response;die();
+		// }
+
+		// debugCode(json_decode($response));
+ 		//  Initiate curl
+		// $ch = curl_init();
+		// // Disable SSL verification
+		// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		// // Will return the response, if false it print the response
+		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		// // Set the url
+		// curl_setopt($ch, CURLOPT_URL,$url);
+		// // Execute
+		// $result=curl_exec($ch);
+		// // Closing
+		// curl_close($ch);
+		// debugCode(json_decode($result));
+		return json_decode($response);
+	    // debugCode(json_decode($result, true));
+}
+
 if( ! function_exists('dbClean')){
 	
 	function dbClean($string,$size=1000000){

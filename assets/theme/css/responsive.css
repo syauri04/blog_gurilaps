@@ -1020,6 +1020,13 @@
 }
 
 @media (max-width: 430px){
+
+	/*live*/
+	.widget .cols-sum-desc{bottom: 60px !important;}
+	.agenda-list .agenda-box{height: 585px !important;}
+	
+	/*end live*/
+
 	.footer-apps{clear: both;float: left !important;margin-top: 40px !important;}
 	.pb15{padding-bottom: 5px !important;}
 	.cpr, .sosmed{float: none !important}
@@ -1082,9 +1089,17 @@
 }
 
 @media (max-width: 330px){
+	/*live*/
+	.widget .cols-sum-title p{line-height: 21px !important; padding-bottom: 17px !important;}
+	.camera_caption > div{width: 275px !important;}
+	.list-date .ld-loc{left: 59%!important;}
+	.list-ag-cat{display: block !important;}
+	.list-ag-date{float: none !important;}
+	.list-ag-date p{right: 0 !important; text-align: left !important;}
+	/*end live*/
 	.list-date .ld-loc{left: 50%!important;}
 	.list-date-td .td-loc{    left: 52% !important;}
-	.agenda-list .agenda-box{height: 535px !important;}
+	.agenda-list .agenda-box{height: 585px !important;}
 	
 	.widget .cerlang-box {width: 80%!important;		margin-left: 8% !important;}
 

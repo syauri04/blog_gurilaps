@@ -93,8 +93,19 @@
                                 $n++;
                                 }
                             }
+
+                           
                         ?>
-                        
+                        <div id="serp-pagination" class="serp-pagination">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    
+                                    <div class="serp-paging">
+                                        <?php echo $paging ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                        
 

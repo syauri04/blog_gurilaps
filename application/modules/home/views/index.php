@@ -39,8 +39,10 @@
                     </div>
                     <div class="home-galeri-wisata">
                         <?php
+                            // debugCode($direct_kota);
                             if(count($direct_kota) > 0){
                                 foreach ($direct_kota as $key => $value) {
+                                // debugCode($value);
                         ?>
                                    <div class="image-gw">
                                         <a href="<?php echo base_url() ?>direct/regencies/<?php echo $value->fcityid; ?>">
@@ -68,65 +70,45 @@
                     </div>
 
                     <div class="widget">
-                        <div class="cols">
-                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/piramida.jpg"></a>
-                            <div class="cols-sum">
-                                <div class="title-content"><a href="">Menapaki  Piramida Penuh Misteri</a></div>
-                                
-                                <div class="summary-content-blog">
-                                    <p>
-                                        Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
-                                    </p>
+                        <?php
+                         
+                            if (count($hot_deals->data->packages) > 0) {
+                                $n=1;
+                                foreach ($hot_deals->data->packages as $key => $dat) {
+                                   if($dat->featured_image != ""){
+                                    $getimg = $dat->featured_image;
+                                   }else{
+                                    $getimg = base_url()."assets/theme/img/image_not_avaliable.png";
+                                   }
+                                   
+                        ?>
+                                <div class="cols <?php  if($n == 3){ echo "mrnone"; } ?>">
+                                    <a target="_blank" href="<?php echo $dat->target_url; ?>"><img src="<?php echo $getimg; ?>"></a>
+                                    <div class="cols-sum">
+                                        <div class="title-content"><a target="_blank" href="<?php echo $dat->target_url; ?>"><?php echo $dat->package_name; ?></a></div>
+                                        
+                                        <div class="summary-content-blog">
+                                            <p>
+                                               <?php echo limite_character($dat->description,200); ?>
+                                            </p>
+                                        </div>
+                                        <div class="rating">
+                                                <span class="star"></span>    
+                                                <span class="star"></span>    
+                                                <span class="star"></span>    
+                                                <span class="star"></span>    
+                                                <span class="star"></span>    
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="rating">
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                                $n++;
+                                }
+                            }
+                        ?>
+                       
 
-                        <div class="cols">
-                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/maenpo.jpg"></a>
-                            <div class="cols-sum">
-                                <div class="title-content"><a href="">Belajar Maenpo, Yuk!</a></div>
-                                
-                                <div class="summary-content-blog">
-                                    <p>
-                                        Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
-                                    </p>
-                                </div>
-                                <div class="rating">
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cols mrnone">
-                            <a href=""><img src="<?php echo base_url(); ?>assets/theme/img/gua.jpg"></a>
-                            <div class="cols-sum">
-                                <div class="title-content"><a href="">Menguak Misteri Gua "Siluman"</a></div>
-                                
-                                <div class="summary-content-blog">
-                                    <p>
-                                        Banyak kontroversi tentang situs Gunung Padang ini. Ada yang mengatakan bahwa inilah bukti bahwa Atlantis itu ada di wilayah Indonesia.
-                                    </p>
-                                </div>
-                                <div class="rating">
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                        <span class="star"></span>    
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="clear-float"></div>
                     </div>
@@ -174,26 +156,30 @@
                         <div class="video-yt">
 
                              <div>
-                                <iframe  src="https://www.youtube.com/embed/<?php if(isset($video)){ echo $video->id_embed; } ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <iframe name="framevideo" id="framevideo"  src="https://www.youtube.com/embed/<?php if(isset($video)){ echo $video->id_embed; } ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                              </div>
                              <div class="video-sum">
-                                <p><?php if(isset($video)){ echo $video->title; } ?></p>
+                                <p id="ptitle"><?php if(isset($video)){ echo $video->title; } ?></p>
                              </div>
                              <div class="video-time">
-                                <p><?php echo indonesian_date($video->date_created,"l, j F Y"); ?></p>
+                                <p id="pdate"><?php echo indonesian_date($video->date_created,"l, j F Y"); ?></p>
                              </div>
                         </div>
                         <div class="video-row">
                             <div class="video-list">
                                 <?php
                                     if(count($listvideo)){
+                                        $v=1;
                                         foreach ($listvideo as $key => $value) {
                                     ?>
                                             <div class="cols-list">
-                                                <a href=""><p class="cl-title"><?php echo $value->title; ?></p></a>
+                                                <a id="vid<?php echo $v; ?>" class="vid" target="framevideo" href="https://www.youtube.com/embed/<?php if(isset($value)){ echo $value->id_embed; } ?>"><p class="cl-title"><?php echo $value->title; ?></p></a>
                                                 <p class="cl-time"><?php echo indonesian_date($value->date_created,"l, j F Y"); ?></p>
+                                                <input type="hidden" name="title" id="vtitle_<?php echo $v; ?>" value="<?php echo $value->title ?>">
+                                                <input type="hidden" name="date" id="vdate_<?php echo $v; ?>" value="<?php echo indonesian_date($value->date_created,"l, j F Y") ?>">
                                             </div>
                                     <?php
+                                        $v++;
                                         }
                                     }
                                 ?>
@@ -203,7 +189,7 @@
                             </div>
 
                             <div class="button">
-                                    <a href="" class="button-gurilaps">LIHAT SEMUA VIDEO</a>
+                                    <a href="<?php echo base_url() ?>video" class="button-gurilaps">LIHAT SEMUA VIDEO</a>
                             </div>
                         </div>
                         <div class="clear-float"></div>
@@ -211,6 +197,30 @@
                         
                     </div>
                 </section>
+                <script>
+                    $(document).ready(function(){
+                        <?php
+                            $vv=1;
+                            foreach ($listvideo as $key => $value) {
+                        ?>
+                                $("#vid<?php echo $vv ?>").click(function(e) {
+                                     // alert("#vid<?php echo $vv ?>");
+                                    e.preventDefault();
+                                   
+                                   
+                                   $("#framevideo").attr("src", $(this).attr("href"));
+                                   $("#ptitle").text($("#vtitle_<?php echo $vv ?>").val());
+                                   $("#pdate").text($("#vdate_<?php echo $vv ?>").val());
+
+                                })
+                        <?php
+                            $vv++;
+                            }
+                        ?>
+
+                    });
+                                    
+                </script>
 
                 <section class="sec-blog-image">
                     <div class="agenda-text">
@@ -315,39 +325,40 @@
                     </div>
                     <div class="widget">
                         <div class="cerlang-box">
-                            <div class="bgbox1">
-                                    <a href="<?php echo base_url(); ?>cerlang">
+                            <a href="<?php echo base_url(); ?>cerlang/diskusi">
+                                <div class="bgbox1">
                                         <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-diskusi@2x.png">
                                         <p>DISKUSI</p>
-                                    </a>
-                            </div>
+                                </div>  
+                            </a>
+                            
                         </div>
                     
                         <div class="cerlang-box">
-                            <div class="bgbox2">
-                                 <a href="<?php echo base_url(); ?>cerlang">
-                                    <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-lomba@2x.png">
-                                    <p>LOMBA</p>
-                                 </a>
-                            </div>
+                            <a href="<?php echo base_url(); ?>cerlang/lomba">
+                                <div class="bgbox2">
+                                        <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-lomba@2x.png">
+                                        <p>LOMBA</p>
+                                </div>
+                            </a>
                         </div>
                     
                         <div class="cerlang-box">
+                            <a href="<?php echo base_url(); ?>cerlang/pameran">
                                 <div class="bgbox3">
-                                     <a href="<?php echo base_url(); ?>cerlang">
                                     <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-pameran@2x.png">
                                     <p>PAMERAN</p>
-                                       </a>
                                 </div>
+                            </a>
                         </div>
                     
                         <div class="cerlang-box mrnone">
+                            <a href="<?php echo base_url(); ?>cerlang/pembinaan">
                                 <div class="bgbox4">
-                                     <a href="<?php echo base_url(); ?>cerlang">
                                     <img src="<?php echo base_url(); ?>assets/theme/img/cerlang-pembinaan@2x.png">
                                     <p>PEMBINAAN</p>
-                                </a>
                                 </div>
+                            </a>
                         </div>
                         <div class="clear-float"></div>
                     </div>

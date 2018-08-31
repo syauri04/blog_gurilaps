@@ -55,6 +55,8 @@ class Direct extends DC_Controller {
 		$data['listpicture'] = select_multiwhere_limit($this->tbl_picture, 'id_content', $data['article']->id,'posisi_gambar', '2','3')->result();
 		$data['listpicture2'] = select_multiwhere_limit($this->tbl_picture, 'id_content', $data['article']->id,'posisi_gambar', '3','2')->result();
 		// debugCode($data['listpicture2']);
+		$url = "https://api.gurilaps.id/post/special/?type*=hot-deals";
+ 		$data['hot_deals'] = get_curl($url);
 		$data['page'] = $this->load->view('direct/detail',$data,true);
 	
 		$this->load->view('layout_frontend',$data);

@@ -33,12 +33,33 @@ class Home extends DC_Controller {
 		$data['listvideo']=select_where_limit_order($this->tbl_video,"","","8","id","DESC")->result();
 		$data['agenda']=select_where_limit_order($this->tbl_content,"type_menu","agenda","1","id","DESC")->row();
 		$data['listagenda']=select_where_content($this->tbl_content,"type_menu","agenda","2");
- 		// debugCode($data['agenda']);
+ 		
+ 		// $this->load->library('curl'); 
+ 		$url = "https://api.gurilaps.id/post/special/?type*=hot-deals";
+ 		$data['hot_deals'] = get_curl($url);
+ 		// debugCode($data['hot_deals']['data']);
      	$data['page'] = $this->load->view('home/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
 
-
+function map_embed($address){
+	    if (!is_string($address))die("All Addresses must be passed as a string");
+	    $_url = sprintf('http://maps.google.com/maps?output=js&q=%s',rawurlencode($address));
+	    $_result = false;
+	    $ch = curl_init();
+	    curl_setopt ($ch, CURLOPT_URL, $_url);
+	    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+	    $contents = curl_exec($ch);
+	    curl_close($ch);
+	    
+	    if($_result = $contents) {
+	        if(strpos($_result,'errortips') > 1 || strpos($_result,'Did you mean:') !== false) return false;
+	        preg_match('!center:\s*{lat:\s*(-?\d+\.\d+),lng:\s*(-?\d+\.\d+)}!U', $_result, $_match);
+	        $_coords['lat'] = $_match[1];
+	        $_coords['long'] = $_match[2];
+	    }
+	    return $_coords;
+	}
 
 	function unitjual(){
 		$data = $this->controller_attr;
